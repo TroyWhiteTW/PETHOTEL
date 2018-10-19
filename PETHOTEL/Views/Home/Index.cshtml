@@ -1,31 +1,57 @@
-﻿@{
-    ViewBag.Title = "Home Page test";
+﻿
+@{
+    Layout = null;
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>會員登入</title>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started pet</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+
+
+    <link rel="stylesheet" href="~/css/style.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="message signup">
+            <div class="btn-wrapper">
+                <button class="button" id="signup">SignUp</button>
+                <button class="button" id="login"> Login</button>
+            </div>
+        </div>
+
+        <div class="form form--signup" action="" data-ajax="false" method="post">
+            <div class="form--heading">Welcome! Sign Up</div>
+            <form action="" data-ajax="false" method="post">
+                <input type="text" name="account" id="account" placeholder="account">
+                <input type="email" name="Email" id="Email" placeholder="Email">
+                <input type="password" name="password" id="password" placeholder="password">
+                <input type="text" name="name" id="name" placeholder="name">
+                <input type="text" name="name" id="name" placeholder="name">
+                <input type="text" name="name" id="name" placeholder="name">
+                <input type="text" name="name" id="name" placeholder="name">
+                <input type="submit" class="button" name="action:signup" value="Sign Up">
+            </form>
+        </div>
+
+        <div class="form form--login" action="" data-ajax="false" method="post">
+            <div class="form--heading">Welcome back! </div>
+            <form action="" data-ajax="false" method="post">
+                <input type="text" name="account" placeholder="account">
+                <input type="password" name="password" placeholder="password">
+                <input type="submit" class="button" name="action:login" value="Login">
+            </form>
+        </div>
+
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+    <script src="~/js/index.js"></script>
+
+
+</body>
+</html>
+

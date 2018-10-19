@@ -331,6 +331,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="jicss\css\" />
+    <Folder Include="jicss\js\" />
+    <Folder Include="jicss\scss\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

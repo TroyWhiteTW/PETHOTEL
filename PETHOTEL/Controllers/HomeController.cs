@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PETHOTEL.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,9 +16,13 @@ namespace PETHOTEL.Controllers
 
         public ActionResult About()
         {
+            NewsViewModel VM = new NewsViewModel();
+
+            
+
             ViewBag.Message = "Your application description page.";
 
-            return View();
+            return View(VM.getlist());
         }
 
         public ActionResult Contact()

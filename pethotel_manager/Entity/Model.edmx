@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="pethotelDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="c_id" />
+          </Key>
+          <Property Name="c_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="c_account" Type="nvarchar(max)" />
+          <Property Name="c_password" Type="nvarchar(max)" />
+          <Property Name="c_name" Type="nvarchar(max)" />
+          <Property Name="c_address" Type="nvarchar(max)" />
+          <Property Name="c_phone" Type="nvarchar(max)" />
+          <Property Name="c_gmail" Type="nvarchar(max)" />
+          <Property Name="c_valid_guid" Type="uniqueidentifier" />
+          <Property Name="c_status" Type="int" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="p_id" Type="int" />
+          <Property Name="c_id" Type="int" />
+          <Property Name="r_id" Type="int" />
+          <Property Name="i_status" Type="int" />
+        </EntityType>
+        <EntityType Name="Manager">
+          <Key>
+            <PropertyRef Name="m_id" />
+          </Key>
+          <Property Name="m_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="m_account" Type="nvarchar(max)" />
+          <Property Name="m_pawword" Type="nvarchar(max)" />
+          <Property Name="m_name" Type="nvarchar(max)" />
+          <Property Name="m_mail" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="n_id" />
+          </Key>
+          <Property Name="n_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="n_title" Type="nvarchar" MaxLength="100" />
+          <Property Name="n_content" Type="nvarchar(max)" />
+          <Property Name="n_type" Type="int" />
+          <Property Name="n_create_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="o_id" />
+          </Key>
+          <Property Name="o_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="r_id" Type="int" />
+          <Property Name="c_id" Type="int" />
+          <Property Name="o_pet_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="o_pet_type" Type="int" />
+          <Property Name="o_pet_sex" Type="int" />
+          <Property Name="o_pet_content" Type="nvarchar(max)" />
+          <Property Name="o_pet_image" Type="nvarchar(max)" />
+          <Property Name="o_pet_price" Type="money" />
+          <Property Name="o_status" Type="int" />
+          <Property Name="o_create_datetime" Type="datetime" />
+          <Property Name="o_start_date" Type="datetime" />
+          <Property Name="o_end_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="p_id" />
+          </Key>
+          <Property Name="p_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="p_type" Type="int" />
+          <Property Name="p_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="p_content" Type="nvarchar(max)" />
+          <Property Name="p_price" Type="money" />
+          <Property Name="p_count" Type="int" />
+          <Property Name="p_image" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="r_id" />
+          </Key>
+          <Property Name="r_id" Type="int" Nullable="false" />
+          <Property Name="r_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="r_content" Type="nvarchar(max)" />
+          <Property Name="r_price" Type="money" />
+          <Property Name="r_temperature" Type="float" />
+          <Property Name="r_wet" Type="float" />
+        </EntityType>
+        <EntityContainer Name="pethotelDBModelStoreContainer">
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manager" EntityType="Self.Manager" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="pethotelDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="c_id" />
+          </Key>
+          <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="c_account" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="c_password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="c_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="c_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="c_phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="c_gmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="c_valid_guid" Type="Guid" />
+          <Property Name="c_status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="p_id" Type="Int32" />
+          <Property Name="c_id" Type="Int32" />
+          <Property Name="r_id" Type="Int32" />
+          <Property Name="i_status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Manager">
+          <Key>
+            <PropertyRef Name="m_id" />
+          </Key>
+          <Property Name="m_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="m_account" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="m_pawword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="m_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="m_mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="n_id" />
+          </Key>
+          <Property Name="n_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="n_title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="n_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="n_type" Type="Int32" />
+          <Property Name="n_create_time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="o_id" />
+          </Key>
+          <Property Name="o_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="r_id" Type="Int32" />
+          <Property Name="c_id" Type="Int32" />
+          <Property Name="o_pet_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="o_pet_type" Type="Int32" />
+          <Property Name="o_pet_sex" Type="Int32" />
+          <Property Name="o_pet_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="o_pet_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="o_pet_price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="o_status" Type="Int32" />
+          <Property Name="o_create_datetime" Type="DateTime" Precision="3" />
+          <Property Name="o_start_date" Type="DateTime" Precision="3" />
+          <Property Name="o_end_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="p_id" />
+          </Key>
+          <Property Name="p_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="p_type" Type="Int32" />
+          <Property Name="p_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="p_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="p_price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="p_count" Type="Int32" />
+          <Property Name="p_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="r_id" />
+          </Key>
+          <Property Name="r_id" Type="Int32" Nullable="false" />
+          <Property Name="r_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="r_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="r_price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="r_temperature" Type="Double" />
+          <Property Name="r_wet" Type="Double" />
+        </EntityType>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customer" EntityType="Self.Customer" />
+          <EntitySet Name="Invoice" EntityType="Self.Invoice" />
+          <EntitySet Name="Manager" EntityType="Self.Manager" />
+          <EntitySet Name="News" EntityType="Self.News" />
+          <EntitySet Name="Order" EntityType="Self.Order" />
+          <EntitySet Name="Product" EntityType="Self.Product" />
+          <EntitySet Name="Room" EntityType="Self.Room" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="pethotelDBModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Customer">
+            <EntityTypeMapping TypeName="pethotelDBModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="c_id" ColumnName="c_id" />
+                <ScalarProperty Name="c_account" ColumnName="c_account" />
+                <ScalarProperty Name="c_password" ColumnName="c_password" />
+                <ScalarProperty Name="c_name" ColumnName="c_name" />
+                <ScalarProperty Name="c_address" ColumnName="c_address" />
+                <ScalarProperty Name="c_phone" ColumnName="c_phone" />
+                <ScalarProperty Name="c_gmail" ColumnName="c_gmail" />
+                <ScalarProperty Name="c_valid_guid" ColumnName="c_valid_guid" />
+                <ScalarProperty Name="c_status" ColumnName="c_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoice">
+            <EntityTypeMapping TypeName="pethotelDBModel.Invoice">
+              <MappingFragment StoreEntitySet="Invoice">
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+                <ScalarProperty Name="p_id" ColumnName="p_id" />
+                <ScalarProperty Name="c_id" ColumnName="c_id" />
+                <ScalarProperty Name="r_id" ColumnName="r_id" />
+                <ScalarProperty Name="i_status" ColumnName="i_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manager">
+            <EntityTypeMapping TypeName="pethotelDBModel.Manager">
+              <MappingFragment StoreEntitySet="Manager">
+                <ScalarProperty Name="m_id" ColumnName="m_id" />
+                <ScalarProperty Name="m_account" ColumnName="m_account" />
+                <ScalarProperty Name="m_pawword" ColumnName="m_pawword" />
+                <ScalarProperty Name="m_name" ColumnName="m_name" />
+                <ScalarProperty Name="m_mail" ColumnName="m_mail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="pethotelDBModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="n_id" ColumnName="n_id" />
+                <ScalarProperty Name="n_title" ColumnName="n_title" />
+                <ScalarProperty Name="n_content" ColumnName="n_content" />
+                <ScalarProperty Name="n_type" ColumnName="n_type" />
+                <ScalarProperty Name="n_create_time" ColumnName="n_create_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order">
+            <EntityTypeMapping TypeName="pethotelDBModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="o_id" ColumnName="o_id" />
+                <ScalarProperty Name="r_id" ColumnName="r_id" />
+                <ScalarProperty Name="c_id" ColumnName="c_id" />
+                <ScalarProperty Name="o_pet_name" ColumnName="o_pet_name" />
+                <ScalarProperty Name="o_pet_type" ColumnName="o_pet_type" />
+                <ScalarProperty Name="o_pet_sex" ColumnName="o_pet_sex" />
+                <ScalarProperty Name="o_pet_content" ColumnName="o_pet_content" />
+                <ScalarProperty Name="o_pet_image" ColumnName="o_pet_image" />
+                <ScalarProperty Name="o_pet_price" ColumnName="o_pet_price" />
+                <ScalarProperty Name="o_status" ColumnName="o_status" />
+                <ScalarProperty Name="o_create_datetime" ColumnName="o_create_datetime" />
+                <ScalarProperty Name="o_start_date" ColumnName="o_start_date" />
+                <ScalarProperty Name="o_end_date" ColumnName="o_end_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="pethotelDBModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="p_id" ColumnName="p_id" />
+                <ScalarProperty Name="p_type" ColumnName="p_type" />
+                <ScalarProperty Name="p_name" ColumnName="p_name" />
+                <ScalarProperty Name="p_content" ColumnName="p_content" />
+                <ScalarProperty Name="p_price" ColumnName="p_price" />
+                <ScalarProperty Name="p_count" ColumnName="p_count" />
+                <ScalarProperty Name="p_image" ColumnName="p_image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Room">
+            <EntityTypeMapping TypeName="pethotelDBModel.Room">
+              <MappingFragment StoreEntitySet="Room">
+                <ScalarProperty Name="r_id" ColumnName="r_id" />
+                <ScalarProperty Name="r_name" ColumnName="r_name" />
+                <ScalarProperty Name="r_content" ColumnName="r_content" />
+                <ScalarProperty Name="r_price" ColumnName="r_price" />
+                <ScalarProperty Name="r_temperature" ColumnName="r_temperature" />
+                <ScalarProperty Name="r_wet" ColumnName="r_wet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

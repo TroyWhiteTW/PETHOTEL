@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using pethotel_manager.Models;
+using pethotel_manager.Entity;
 
 namespace pethotel_manager.Controllers
 {
@@ -12,7 +13,19 @@ namespace pethotel_manager.Controllers
         // GET: Product
         public ActionResult Index()
         {
-            return View();
+            Entities db = new Entities();
+            //宣告回傳商品列表result
+            List<Entity.Product> result = new List<pethotel_manager.Entity.Product>();
+
+            //接收轉導的成功訊息
+            ViewBag.ResultMessage = TempData["ResultMessage"];
+            var s =  (from o in db.Product select o) .ToList();
+
+            return View(s);
+            
+
+
+            
         }
 
         public ActionResult Create()

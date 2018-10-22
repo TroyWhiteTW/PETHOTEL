@@ -33,12 +33,12 @@ namespace pethotel_manager.Controllers
 
             VM.create();
 
-            return View();
+            return View("Index");
         }
 
         public ActionResult Edit(int id)
         {
-            using ( Entities db = new Entities())
+            using (Entities db = new Entities())
             {
                 var result = (from s in db.Product where s.p_id == id select s).FirstOrDefault();
 
@@ -61,7 +61,7 @@ namespace pethotel_manager.Controllers
             pro.p_price = postback.p_price;
             pro.p_count = postback.p_count;
             pro.p_image = postback.p_image;
-           
+
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -72,15 +72,16 @@ namespace pethotel_manager.Controllers
             using (Entities db = new Entities())
             {
                 var result = (from s in db.Product where s.p_id == id select s).FirstOrDefault();
-                
-                
-                    db.Product.Remove(result);
 
-                    db.SaveChanges();
-                    
-                    return RedirectToAction("Index");                               
+
+                db.Product.Remove(result);
+
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
             }
 
 
+        }
     }
 }

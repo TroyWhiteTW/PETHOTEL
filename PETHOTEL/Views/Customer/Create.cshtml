@@ -1,12 +1,7 @@
 ﻿@model PETHOTEL.Models.CustomerViewModel
 
-@{
-    Layout = null;
-    ViewBag.Title = "Create";
-}
 
 
-<h2>Create</h2>
 
 
 @using (Html.BeginForm()) 
@@ -14,13 +9,13 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>CustomerViewModel</h4>
+        <h1>註冊帳號</h1>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         
 
         <div class="form-group">
-            @Html.LabelFor(model => model.c_account,"帳號", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.c_account,"帳號 :", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.c_account, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.c_account, "", new { @class = "text-danger" })
@@ -28,7 +23,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.c_password, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.c_password,"密碼 :", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.c_password, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.c_password, "", new { @class = "text-danger" })
@@ -36,7 +31,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.c_name, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.c_name,"名稱 :", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.c_name, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.c_name, "", new { @class = "text-danger" })
@@ -44,7 +39,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.c_address, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.c_address,"地址 :", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.c_address, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.c_address, "", new { @class = "text-danger" })
@@ -52,7 +47,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.c_phone, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.c_phone,"電話 :", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.c_phone, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.c_phone, "", new { @class = "text-danger" })
@@ -60,7 +55,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.c_gmail, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.c_gmail,"電子郵件 :", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.c_gmail, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.c_gmail, "", new { @class = "text-danger" })
@@ -83,6 +78,3 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

@@ -42,10 +42,10 @@ namespace PETHOTEL.Controllers
         //Login POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(CustomerViewModel VM)
+        public ActionResult Login(LoginViewModel lv)
         {
-            VM.Login();
-            return View();
+            lv.Login();
+            return RedirectToAction("create", "Customer");
         }
 
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -70,29 +71,7 @@ namespace PETHOTEL.Models
 
 
 
-        public void Login()
-        {
-            string message = "";
-            using (Entities db = new Entities())
-            {
-                Customer cs = new entity.Customer();
-                var v = db.Customer.Where(a => a.c_account == cs.c_account);
-                if (v != null)
-                {
-                    }
-
-                  
-
-
-                    else
-                    {
-                        message = "Invalid credential provided";
-                    }
-                
-                
-            }
-            
-        }
+        
 
     }
 

@@ -1,6 +1,8 @@
 ﻿using PETHOTEL.entity;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -16,12 +18,13 @@ namespace PETHOTEL.Models
         public Nullable<int> p_count { get; set; }
         public string p_image { get; set; }
 
+        public string p_image_href { get; set; }
+
 
         public List<ProductViewModel> getlist()
         {
             Entities en = new Entities();
             List<ProductViewModel> pro_list = new List<ProductViewModel>();
-
 
             var dblist = en.Product;
 
@@ -32,47 +35,11 @@ namespace PETHOTEL.Models
                 pro.p_content = item.p_content;
                 pro.p_price = item.p_price;
                 pro.p_image = item.p_image;
-                
+                pro.p_image_href = Path.Combine(ConfigurationManager.AppSettings["IMG_FOLDER_PATH"].ToString(), item.p_image);
 
                 pro_list.Add(pro);
-
             }
-
-
             return pro_list;
-
-
-
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

@@ -13,19 +13,21 @@
         <div class="col-md-4 ">
             <div class="thumbnail">
                 <div class="caption">
+
+                    <img src="@product.p_image_href" />                    
                     <h3>@product.p_name</h3>
                     <p>@product.p_content</p>
                     <p>售價 : @product.p_price</p>
                     <p>庫存 : @product.p_count</p>
                     @*<p>
-                        <a onclick="AddToCart('@product.Id')" href="javascript:void(0);"
-                           class="btn btn-primary" role="button">
-                            加入購物車
-                        </a>
-                        <a href="javascript:void(0);" class="btn btn-default" role="button">
-                            詳細資訊
-                        </a>
-                    </p>*@
+            <a onclick="AddToCart('@product.Id')" href="javascript:void(0);"
+               class="btn btn-primary" role="button">
+                加入購物車
+            </a>
+            <a href="javascript:void(0);" class="btn btn-default" role="button">
+                詳細資訊
+            </a>
+        </p>*@
                 </div>
             </div>
         </div>

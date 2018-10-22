@@ -30,7 +30,7 @@ div.table-title {
 /*** Table Styles **/
 
 .table-fill {
-  background: white;
+  /*background: white;
   border-radius:3px;
   border-collapse: collapse;
   height: 320px;
@@ -39,7 +39,7 @@ div.table-title {
   padding:5px;
   width: 100%;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  animation: float 5s infinite;
+  animation: float 5s infinite;*/
 }
  
 th {
@@ -143,5 +143,5 @@ td.text-right {
 }
 
 .btnCreate{
-    float:right;
+   margin-top:20px;
 }

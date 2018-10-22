@@ -33,7 +33,7 @@ namespace pethotel_manager.Controllers
 
             VM.create();
 
-            return View();
+            return View("Index");
         }
 
         public ActionResult Edit(int id)

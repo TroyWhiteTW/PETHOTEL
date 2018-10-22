@@ -31,6 +31,14 @@ namespace PETHOTEL.Controllers
 
             return View();
         }
+        public ActionResult home()
+        {
+
+
+            return View();
+        }
+
+
         public ActionResult TEST()
         {
             

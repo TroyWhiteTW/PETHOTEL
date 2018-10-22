@@ -157,6 +157,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="entity\Customer.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -199,6 +200,7 @@
     <Compile Include="Models\CustomerViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\NewsViewModel.cs" />
+    <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -582,6 +584,7 @@
     <Content Include="Views\Customer\Create.cshtml" />
     <Content Include="Views\Customer\Login.cshtml" />
     <Content Include="Views\Home\home.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

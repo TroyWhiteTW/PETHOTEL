@@ -40,7 +40,7 @@ namespace pethotel_manager.Models
         {
 
             Entities en = new Entities();
-
+            
             News item = new News();
             item.n_title = this.n_title;
             item.n_type = this.n_type;

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+
 using pethotel_manager.Entity;
 
 namespace pethotel_manager.Controllers
@@ -15,6 +16,7 @@ namespace pethotel_manager.Controllers
         public ActionResult Index()
         {
             Entities db = new Entities();
+
             var query = from o in db.Product select o;
             var dataList = query.ToList();
             ViewBag.p = dataList;
@@ -79,12 +81,6 @@ namespace pethotel_manager.Controllers
                     return RedirectToAction("Index");                               
             }
 
-
-
-
-
-
-        }
 
     }
 }

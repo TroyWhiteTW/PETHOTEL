@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
 namespace pethotel_manager.Models
 {
     public class ProductViewModel
     {
         public int p_id { get; set; }
+
         public int p_type { get; set; }
         public string p_name { get; set; }
         public string p_content { get; set; }
@@ -34,4 +34,5 @@ namespace pethotel_manager.Models
         }
      
     }
+
 }

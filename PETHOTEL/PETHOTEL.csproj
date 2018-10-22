@@ -196,6 +196,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CustomerViewModel.cs" />
     <Compile Include="Models\NewsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -577,13 +578,14 @@
     <Content Include="Views\TEST\vacayhome-master\fonts\antonio-exotic\ufonts.com_exotic-350-bold-bt-webfont.woff2" />
     <Content Include="Views\Shared\_Layout_pet.cshtml" />
     <Content Include="Views\Home\TEST.cshtml" />
+    <Content Include="Views\Customer\Create.cshtml" />
+    <Content Include="Views\Customer\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="jicss\css\" />
     <Folder Include="jicss\js\" />
     <Folder Include="jicss\scss\" />
-    <Folder Include="Views\Customer\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

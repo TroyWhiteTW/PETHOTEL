@@ -1,0 +1,70 @@
+﻿
+@{
+				/**/
+
+				ViewBag.Title = "Index";
+				Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Table Style</title>
+
+
+	<meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
+	<link rel="stylesheet" href="~/css/樣式.CSS">
+</head>
+<body>
+	<div class="table-title">
+		<h3>現有商品列表</h3>
+	</div>
+	<table class="table-fill">
+		<thead>
+			<tr>
+				<th class="text-left">p_id</th>
+				<th class="text-left">p_type</th>
+				<th class="text-left">p_name</th>
+				<th class="text-left">p_content</th>
+				<th class="text-left">p_price</th>
+				<th class="text-left">p_count</th>
+				<th class="text-left">p_image</th>
+				<th class="text-left">manager_process</th>
+			</tr>
+
+		</thead>
+
+		<tbody class="table-hover">
+
+			<a class="btn btn-primary btnCreate" href="/Product/Create">新增</a>
+
+
+			@foreach (var product in ViewBag.p)
+			{
+				<tr>
+					<td class="text-left">@product.p_id</td>
+					<td class="text-left">@product.p_type</td>
+					<td class="text-left">@product.p_name</td>
+					<td class="text-left">@product.p_content</td>
+					<td class="text-left">@product.p_price</td>
+					<td class="text-left">@product.p_count</td>
+					<td class="text-left">@product.p_image</td>
+
+					<td>
+
+						<a class="btn btn-warning " href="/Product/Edit/@product.p_id">新增</a>
+
+
+						<a class="btn btn-danger " href="/Product/Delete/@product.p_id">刪除</a>
+
+					</td>
+				</tr>
+
+			}
+
+		</tbody>
+		</table>
+
+
+</body>
+
+</html>

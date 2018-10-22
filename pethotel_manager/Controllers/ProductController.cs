@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 
 using pethotel_manager.Entity;
+using System.IO;
 
 namespace pethotel_manager.Controllers
 {
@@ -28,12 +29,29 @@ namespace pethotel_manager.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(ProductViewModel VM)
+        public ActionResult Create(ProductViewModel VM, HttpPostedFileBase productImg)
         {
+            if (productImg != null && productImg.ContentLength > 0)
+            {
+                //設定上傳路徑               
+                string fileName = Path.GetFileName(productImg.FileName);
+                string folder = Server.MapPath("~/FileUploads");
+                string path = Path.Combine(folder, fileName);
+
+                //上傳檔案
+                bool exists = System.IO.Directory.Exists(folder);
+                if (!exists)
+                    System.IO.Directory.CreateDirectory(folder);
+                productImg.SaveAs(path);
+
+                VM.p_image = fileName;
+            }
+
+            
 
             VM.create();
 
-            return View("Index");
+            return RedirectToAction("Index");
         }
 
         public ActionResult Edit(int id)

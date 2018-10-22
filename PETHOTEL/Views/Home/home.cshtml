@@ -80,37 +80,54 @@
                     <h4>最新消息</h4>
                     <ul>
                         @foreach (var it in Model)
-                        {
-                            <li><a><i class="fa fa-caret-right"> </i>@it.n_title</a></li>
-                            <div class="blog-text">
-                                <p><a>@it.n_content</a></p>
-                                <span class="link">
-                                    @it.n_create_time
-                                </span>
-                            </div>
-
-
+                         {
+                            if (it.n_type == 1)
+                            {
+                                 <li>
+                                 <a><i class="fa fa-caret-right"> </i>@it.n_title</a>
+                                       <div class="blog-text">
+                                        <p><a>@it.n_content</a></p>
+                                                <span class="link">
+                                                 @it.n_create_time
+                                                </span>
+                                       </div>
+                                 </li>
+                            }
+                            else
+                            {
+                                continue;
+                            }
 
                         }
-
-
                     </ul>
 
                     <div class="clearfix"> </div>
                 </div>
                 <div class="blog-list">
-                    <h4>Archives List</h4>
+                    <h4>新商品上架</h4>
                     <ul>
-                        <li><a><i class="fa fa-caret-right"> </i>July (15)</a></li>
-                        <li><a><i class="fa fa-caret-right"> </i>Oct (20)</a></li>
-                        <li><a><i class="fa fa-caret-right"> </i>November (8)</a></li>
-                        <li><a><i class="fa fa-caret-right"> </i>December (25)</a></li>
-                        <li><a><i class="fa fa-caret-right"> </i>August (9)</a></li>
-                        <li><a><i class="fa fa-caret-right"> </i>July (15)</a></li>
-                        <li><a><i class="fa fa-caret-right"> </i>Mar (25)</a></li>
+                        @foreach (var it in Model)
+                        {
+                            if (it.n_type == 2)
+                            {
+                                <li>
+                                    <a><i class="fa fa-caret-right"> </i>@it.n_title</a>
+                                    <div class="blog-text">
+                                        <p><a>@it.n_content</a></p>
+                                        <span class="link">
+                                            @it.n_create_time
+                                        </span>
+                                    </div>
+                                </li>
+                            }
+                            else{
+                                continue;
+                            }
+
+                        }
                     </ul>
                 </div>
-                <div class="blog-list1">
+                @*<div class="blog-list1">
                     <h4>Popular Posts</h4>
                     <div class="blog-list-top">
                         <div class="blog-img">
@@ -163,7 +180,7 @@
                         </div>
                         <div class="clearfix"> </div>
                     </div>
-                </div>
+                </div>*@
             </aside>
         </div>
     </div>

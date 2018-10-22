@@ -8,77 +8,81 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
 
-<div class="form-horizontal">
-	<h4>ProductViewModel</h4>
-	<hr />
-	@Html.ValidationSummary(true, "", new { @class = "text-danger" })
-	<div class="form-group">
-		@Html.LabelFor(model => model.p_id,"商品編號",htmlAttributes: new { @class = "control-label col-md-2" })
-		<div class="col-md-10">
-			@Html.EditorFor(model => model.p_id, new { htmlAttributes = new { @class = "form-control" } })
-			@Html.ValidationMessageFor(model => model.p_id, "", new { @class = "text-danger" })
-		</div>
-	</div>
 
-	<div class="form-group">
-		@Html.LabelFor(model => model.p_type,"商品類型",htmlAttributes: new { @class = "control-label col-md-2" })
-		<div class="col-md-10">
-			@Html.EditorFor(model => model.p_type, new { htmlAttributes = new { @class = "form-control" } })
-			@Html.ValidationMessageFor(model => model.p_type, "", new { @class = "text-danger" })
-		</div>
-	</div>
+    <div class="form-horizontal">
+        <h4>ProductViewModel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.p_id, "商品編號", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.p_id, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.p_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-	<div class="form-group">
-		@Html.LabelFor(model => model.p_name,"商品名稱",htmlAttributes: new { @class = "control-label col-md-2" })
-		<div class="col-md-10">
-			@Html.EditorFor(model => model.p_name, new { htmlAttributes = new { @class = "form-control" } })
-			@Html.ValidationMessageFor(model => model.p_name, "", new { @class = "text-danger" })
-		</div>
-	</div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.p_type, "商品類型", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.p_type, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.p_type, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-	<div class="form-group">
-		@Html.LabelFor(model => model.p_content,"商品內容",htmlAttributes: new { @class = "control-label col-md-2" })
-		<div class="col-md-10">
-			@Html.EditorFor(model => model.p_content, new { htmlAttributes = new { @class = "form-control" } })
-			@Html.ValidationMessageFor(model => model.p_content, "", new { @class = "text-danger" })
-		</div>
-	</div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.p_name, "商品名稱", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.p_name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.p_name, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-	<div class="form-group">
-		@Html.LabelFor(model => model.p_price,"商品售價",htmlAttributes: new { @class = "control-label col-md-2" })
-		<div class="col-md-10">
-			@Html.EditorFor(model => model.p_price, new { htmlAttributes = new { @class = "form-control" } })
-			@Html.ValidationMessageFor(model => model.p_price, "", new { @class = "text-danger" })
-		</div>
-	</div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.p_content, "商品內容", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.p_content, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.p_content, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-	<div class="form-group">
-		@Html.LabelFor(model => model.p_count,"商品數量",htmlAttributes: new { @class = "control-label col-md-2" })
-		<div class="col-md-10">
-			@Html.EditorFor(model => model.p_count, new { htmlAttributes = new { @class = "form-control" } })
-			@Html.ValidationMessageFor(model => model.p_count, "", new { @class = "text-danger" })
-		</div>
-	</div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.p_price, "商品售價", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.p_price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.p_price, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-	<div class="form-group">
-			@Html.LabelFor(model => model.p_image,"商品圖片",htmlAttributes: new { @class = "control-label col-md-2" })
-			<div class="col-md-10">
-				@Html.EditorFor(model => model.p_image, new { htmlAttributes = new { @class = "form-control" } })
-				@Html.ValidationMessageFor(model => model.p_image, "", new { @class = "text-danger" })
-			</div>
-		</div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.p_count, "商品數量", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.p_count, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.p_count, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-	<div class="form-group">
-		<div class="col-md-offset-2 col-md-10">
-			<input type="submit" value="Create" class="btn btn-default" />
-		</div>
-	</div>
-</div>
+        <div class="form-group">
+            @*如何上傳圖片~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*@
+            @Html.LabelFor(model => model.p_image, "商品圖片", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                <input type="file" name="productImg" />
+
+                @*@Html.EditorFor(model => model.p_image, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.p_image, "", new { @class = "text-danger" })*@
+            </div>
+        </div> @*如何上傳圖片~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
 
 }
 

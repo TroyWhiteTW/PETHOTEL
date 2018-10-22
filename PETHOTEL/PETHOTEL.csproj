@@ -281,6 +281,11 @@
     <Content Include="images\pic04.jpg" />
     <Content Include="images\pic05.jpg" />
     <Content Include="images\pic06.jpg" />
+    <Content Include="img\0.jpg" />
+    <Content Include="img\1.jpg" />
+    <Content Include="img\2.jpg" />
+    <Content Include="img\3.jpg" />
+    <Content Include="img\4.jpg" />
     <Content Include="img\about-img.jpg" />
     <Content Include="img\client-1.jpg" />
     <Content Include="img\client-2.jpg" />

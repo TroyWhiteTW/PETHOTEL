@@ -1,8 +1,10 @@
 ﻿@model PETHOTEL.Models.CustomerViewModel
 
 @{
-    Layout = null;
+
     ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout_pet.cshtml";
+
 }
 
 
@@ -83,6 +85,6 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-@section Scripts {
+@*@section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-}
+}*@

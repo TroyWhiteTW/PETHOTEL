@@ -580,6 +580,7 @@
     <Content Include="Views\Home\TEST.cshtml" />
     <Content Include="Views\Customer\Create.cshtml" />
     <Content Include="Views\Customer\Login.cshtml" />
+    <Content Include="Views\Home\home.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

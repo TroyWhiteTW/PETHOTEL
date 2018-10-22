@@ -33,9 +33,13 @@ namespace PETHOTEL.Controllers
         }
         public ActionResult home()
         {
+            NewsViewModel VM = new NewsViewModel();
 
 
-            return View();
+
+            ViewBag.Message = "Your application description page.";
+
+            return View(VM.getlist());
         }
 
 

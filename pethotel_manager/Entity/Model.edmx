@@ -83,7 +83,7 @@
           <Key>
             <PropertyRef Name="r_id" />
           </Key>
-          <Property Name="r_id" Type="int" Nullable="false" />
+          <Property Name="r_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="r_name" Type="nvarchar" MaxLength="50" />
           <Property Name="r_content" Type="nvarchar(max)" />
           <Property Name="r_price" Type="money" />

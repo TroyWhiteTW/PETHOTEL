@@ -3,13 +3,13 @@
 <head>
     <title>@Page.Title</title>
     @RenderSection("head", required: false)
-    
+
     <link href="~/QQQQQ/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/QQQQQ/css/lightbox.min.css" rel="stylesheet" />
     <link href="~/QQQQQ/css/responsive.css" rel="stylesheet" />
     <link href="~/QQQQQ/css/style.css" rel="stylesheet" />
     <link href="~/QQQQQ/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-   
+
     <script src="~/QQQQQ/js/bootstrap.min.js"></script>
     <script src="~/QQQQQ/js/custom.js"></script>
     <script src="~/QQQQQ/js/instafeed.min.js"></script>
@@ -18,7 +18,52 @@
     <script src="~/QQQQQ/js/lightbox-plus-jquery.min.js"></script>
     <script src="~/QQQQQ/js/masonry.pkgd.min.js"></script>
 
+    @* 購物車Js *@
+    <script type="text/javascript">
+        //網頁載入完成時執行之function
+        $(document).ready(function () {
+            console.log("ready!");
+        });
 
+        //加入編號為productId的商品進購物車
+        function AddToCart(productId) {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("AddToCart", "Cart")',
+                data: { id: productId }
+            })
+                .done(function (msg) {
+                    //將回傳的購物車頁面 填入 li#Cart
+                    $('li#Cart').html(msg);
+                });
+        }
+
+        //移除購物車內商品
+        function RemoveFromCart(productId) {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("RemoveFromCart", "Cart")',
+                data: { id: productId }
+            })
+                .done(function (msg) {
+                    //將回傳的購物車頁面 填入 li#Cart
+                    $('li#Cart').html(msg);
+                });
+        }
+
+        //清空購物車內所有商品
+        function ClearCart() {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ClearCart", "Cart")',
+                data: {}
+            })
+            .done(function (msg) {
+                //將回傳的購物車頁面 填入 li#Cart
+                $('li#Cart').html(msg);
+            });
+        }
+    </script>
 </head>
 <body>
 
@@ -71,7 +116,7 @@
                                 <ul class="list-unstyled nav1 cl-effect-10">
                                     <li><a data-hover="首頁" href="/Home/Home" class="active"><span>首頁</span></a></li>
                                     <li><a data-hover="關於我們" href="/Home/About"><span>關於我們</span></a></li>
-                                    <li><a data-hover="房型介紹" href="/Customer/Create"><span>房型介紹</span></a></li>
+                                    <li><a data-hover="房型介紹" href="/Room/Index"><span>房型介紹</span></a></li>
                                     <li><a data-hover="寵物商品" href="/Product/Index"><span>寵物商品</span></a></li>
                                     <li><a data-hover="訂房系統" href="dinning.html"><span>訂房系統</span></a></li>
                                     <li><a data-hover="最新消息" href="news.html"><span>最新消息</span></a></li>

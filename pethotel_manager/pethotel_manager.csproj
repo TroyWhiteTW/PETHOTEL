@@ -377,7 +377,11 @@
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Room\Create.cshtml" />
     <Content Include="Views\Room\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Order\Create.cshtml" />
+=======
+    <Content Include="Views\Room\Edit.cshtml" />
+>>>>>>> ae7bafb988fae299ac8f08d1f39bac7698be5f04
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

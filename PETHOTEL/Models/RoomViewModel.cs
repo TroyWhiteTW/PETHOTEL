@@ -30,12 +30,12 @@ namespace PETHOTEL.Models
             foreach (var item in dblist)
             {
                 RoomViewModel ro = new RoomViewModel();
-                ro.r_image = ro.r_image;
-                ro.r_name = ro.r_name;
-                ro.r_price = ro.r_price;
-                ro.r_content = ro.r_content;
-                ro.r_temperature = ro.r_temperature;
-                ro.r_wet = ro.r_wet;
+                ro.r_image = item.r_image;
+                ro.r_name = item.r_name;
+                ro.r_price = item.r_price;
+                ro.r_content = item.r_content;
+                ro.r_temperature = item.r_temperature;
+                ro.r_wet = item.r_wet;
                 ro.r_image_href = Path.Combine(ConfigurationManager.AppSettings["IMG_FOLDER_PATH"].ToString(), item.r_image);
 
                 ro_list.Add(ro);

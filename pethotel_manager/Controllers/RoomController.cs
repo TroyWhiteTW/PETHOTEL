@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using pethotel_manager.Entity;
+using System.IO;
 
 namespace pethotel_manager.Controllers
 {
@@ -18,7 +19,7 @@ namespace pethotel_manager.Controllers
 
             var query = from o in db.Room select o;
             var dataList = query.ToList();
-            ViewBag.p = dataList;
+            ViewBag.r = dataList;
             return View();
         }
 
@@ -28,12 +29,25 @@ namespace pethotel_manager.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(RoomViewModel RM)
+        public ActionResult Create(RoomViewModel RM , HttpPostedFileBase roomImg)
         {
+            if (roomImg != null && roomImg.ContentLength > 0)
+            {
+                //設定上傳路徑               
+                string fileName = Path.GetFileName(roomImg.FileName);
+                string folder = Server.MapPath("~/FileUploads");
+                string path = Path.Combine(folder, fileName);
+
+                //上傳檔案
+                bool exists = System.IO.Directory.Exists(folder);
+                if (!exists)
+                    System.IO.Directory.CreateDirectory(folder);
+                roomImg.SaveAs(path);
+
+                RM.r_image = fileName;
+            }
             RM.create();
-
-            return View("Index");
-
+            return RedirectToAction("Index");
 
 
         }

@@ -23,16 +23,16 @@ namespace PETHOTEL.Models
         [DataType(DataType.Password)]
         public string c_password { get; set; }
 
-        public void Login()
-        {
+        //public void Login()
+        //{
             
-            Entities db = new Entities();
-            LoginViewModel lv = new LoginViewModel();
+        //    Entities db = new Entities();
+        //    LoginViewModel lv = new LoginViewModel();
             
-            var v = db.Customer.Where(a => a.c_account == lv.c_account).FirstOrDefault();
+        //    var v = db.Customer.Where(a => a.c_account == lv.c_account).FirstOrDefault();
                 
                    
-        }
+        //}
 
 
 

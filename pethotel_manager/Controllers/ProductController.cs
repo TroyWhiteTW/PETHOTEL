@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
 using pethotel_manager.Entity;
 using System.IO;
 
@@ -20,8 +19,8 @@ namespace pethotel_manager.Controllers
 
             var query = from o in db.Product select o;
             var dataList = query.ToList();
-           
-            return View(dataList);
+            ViewBag.p = dataList;
+            return View();
         }
 
         public ActionResult Create()

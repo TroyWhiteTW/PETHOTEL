@@ -38,6 +38,8 @@ namespace pethotel_manager.Controllers
                 string folder = Server.MapPath("~/FileUploads");
                 string path = Path.Combine(folder, fileName);
 
+                
+
                 //上傳檔案
                 bool exists = System.IO.Directory.Exists(folder);
                 if (!exists)

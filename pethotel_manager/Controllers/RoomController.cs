@@ -67,7 +67,7 @@ namespace pethotel_manager.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Models.RoomViewModel postback)
+        public ActionResult Edit(Models.RoomViewModel postback, HttpPostedFileBase roomImg)
         {
             var query = from o in db.Room
                         where o.r_id == postback.r_id
@@ -82,8 +82,26 @@ namespace pethotel_manager.Controllers
             rm.r_temperature = postback.r_temperature;
             rm.r_wet= postback.r_wet;
             rm.r_image = postback.r_image;
-           
-            
+
+
+            //if (roomImg != null && roomImg.ContentLength > 0)
+            //{
+            //    //設定上傳路徑               
+            //    string fileName = Path.GetFileName(roomImg.FileName);
+            //    string folder = Server.MapPath("~/FileUploads");
+            //    string path = Path.Combine(folder, fileName);
+
+
+
+            //    //上傳檔案
+            //    bool exists = System.IO.Directory.Exists(folder);
+            //    if (!exists)
+            //        System.IO.Directory.CreateDirectory(folder);
+            //    roomImg.SaveAs(path);
+
+            //    postback.r_image = fileName;
+            //}
+
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -14,7 +14,15 @@ namespace pethotel_manager.Controllers
         // GET: Order
         public ActionResult Index()
         {
+            Entities db = new Entities();
+
+            var query = from o in db.Order select o;
+            var dataList = query.ToList();
+            ViewBag.p = dataList;
             return View();
+
+
+           
         }
         public ActionResult Create()
         {

@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Table Style</title>
+
+
+    <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
+    <link rel="stylesheet" href="~/css/樣式.CSS">
+</head>
+<body>
+    <div class="table-title">
+        <h3>訂單列表</h3>
+    </div>
+
+    <table class="table-fill">
+        <thead>
+            <tr>
+                <th class="">訂單編號</th>
+                <th class="">房間編號</th>
+                <th class="text-left">寵物名稱</th>
+                <th class="text-left">寵物種類</th>
+                <th class="text-left">寵物性別</th>
+                <th class="text-left">備註欄</th>
+                <th class="text-left">寵物圖片上傳</th>
+                <th class="text-left">價格</th>
+                <th class="text-left">訂單狀態</th>
+                <th class="text-left">下單日期</th>
+                <th class="text-left">入住時間</th>
+                <th class="text-left">退房時間</th>
+
+
+                <th class="text-left">管理者操作</th>
+            </tr>
+
+        </thead>
+
+        <tbody class="table-hover">
+
+
+
+
+            @foreach (var ord in ViewBag.p)
+            {
+            <tr>
+                <td class="text-left">@ord.o_id</td>
+                <td class="text-left">@ord.o_id</td>
+                <td class="text-left">@ord.o_pet_name</td>
+                <td class="text-left">@ord.o_pet_type</td>
+                <td class="text-left">@ord.o_pet_sex</td>
+                <td class="text-left">@ord.o_pet_content</td>
+                <td class="text-left">@ord.o_pet_image</td>
+                <td class="text-left">@ord.o_pet_price</td>
+                <td class="text-left">@ord.o_status</td>
+                <td class="text-left">@ord.o_create_datetime</td>
+                <td class="text-left">@ord.o_start_date</td>
+                <td class="text-left">@ord.o_end_date</td>
+
+
+
+                @*<td class="text-left">
+                    <img class="img-responsive" src="~/FileUploads/@ord" style="height: 200px; width: 200px;">
+                </td>*@
+
+                <td>
+
+
+                    <a class="btn btn-warning " href="/Order/Edit/@ord.o_id">修改</a>
+
+
+                    <a class="btn btn-danger " href="/Order/Delete/@ord.o_id">刪除</a>
+
+                </td>
+            </tr>
+
+            }
+
+        </tbody>
+    </table>
+    <a class="btn btn-primary btnCreate" href="/Product/Create">商品上架</a>
+
+</body>
+
+</html>
+

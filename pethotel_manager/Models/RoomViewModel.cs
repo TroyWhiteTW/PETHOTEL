@@ -20,7 +20,7 @@ namespace pethotel_manager.Models
         public float r_temperature { get; set; }
         public float r_wet { get; set; }
         public string r_image { get; set; }
-        public string r_image_href { get; set; }
+  
 
 
         public void create()

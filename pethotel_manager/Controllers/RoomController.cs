@@ -31,21 +31,21 @@ namespace pethotel_manager.Controllers
         [HttpPost]
         public ActionResult Create(RoomViewModel RM , HttpPostedFileBase roomImg)
         {
-            //if (roomImg != null && roomImg.ContentLength > 0)
-            //{
-            //    //設定上傳路徑               
-            //    string fileName = Path.GetFileName(roomImg.FileName);
-            //    string folder = Server.MapPath("~/FileUploads");
-            //    string path = Path.Combine(folder, fileName);
+            if (roomImg != null && roomImg.ContentLength > 0)
+            {
+                //設定上傳路徑               
+                string fileName = Path.GetFileName(roomImg.FileName);
+                string folder = Server.MapPath("~/FileUploads");
+                string path = Path.Combine(folder, fileName);
 
-            //    //上傳檔案
-            //    bool exists = System.IO.Directory.Exists(folder);
-            //    if (!exists)
-            //        System.IO.Directory.CreateDirectory(folder);
-            //    roomImg.SaveAs(path);
+                //上傳檔案
+                bool exists = System.IO.Directory.Exists(folder);
+                if (!exists)
+                    System.IO.Directory.CreateDirectory(folder);
+                roomImg.SaveAs(path);
 
-            //    RM.r_image = fileName;
-            //}
+                RM.r_image = fileName;
+            }
             RM.create();
             return RedirectToAction("Index");
 

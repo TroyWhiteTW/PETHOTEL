@@ -17,7 +17,7 @@ namespace PETHOTEL.Controllers
         //取得目前購物車頁面
         public ActionResult GetCart()
         {
-            return PartialView("Index");
+            return PartialView("_CartPartial");
         }
 
         //以id加入Product至購物車，並回傳購物車頁面
@@ -25,7 +25,7 @@ namespace PETHOTEL.Controllers
         {
             var currentCart = Models.Cart.Operation.GetCurrentCart();
             currentCart.AddProduct(p_id);
-            return PartialView("Index");
+            return PartialView("_CartPartial");
         }
 
         //以id移除購物車Product，並回傳購物車頁面
@@ -33,7 +33,7 @@ namespace PETHOTEL.Controllers
         {
             var currentCart = Models.Cart.Operation.GetCurrentCart();
             currentCart.RemoveProduct(id);
-            return PartialView("Index");
+            return PartialView("_CartPartial");
         }
 
         //清空購物車，並回傳購物車頁面
@@ -41,7 +41,7 @@ namespace PETHOTEL.Controllers
         {
             var currentCart = Models.Cart.Operation.GetCurrentCart();
             currentCart.ClearCart();
-            return PartialView("Index");
+            return PartialView("_CartPartial");
         }
 
     }

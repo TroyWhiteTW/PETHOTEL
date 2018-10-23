@@ -599,13 +599,14 @@
     <Content Include="Views\Home\home.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Room\Index.cshtml" />
-    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Shared\_CartPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="jicss\css\" />
     <Folder Include="jicss\js\" />
     <Folder Include="jicss\scss\" />
+    <Folder Include="Views\Cart\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

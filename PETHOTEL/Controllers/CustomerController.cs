@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PETHOTEL.entity;
 using PETHOTEL.Models;
 
 namespace PETHOTEL.Controllers
@@ -44,9 +45,19 @@ namespace PETHOTEL.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel lv)
         {
-            lv.Login();
-            return RedirectToAction("create", "Customer");
-        }
+            Entities db = new Entities();
+            var v = db.Customer.Where(a => a.c_account == lv.c_account).FirstOrDefault();
+            if (v != null)
+            {
+                
+                    
+                    return RedirectToAction("home", "Home");
+      
+            }
+            return View();
 
+        }
+        
     }
+        
 }

@@ -120,13 +120,19 @@
                                     <li><a data-hover="寵物商品" href="/Product/Index"><span>寵物商品</span></a></li>
                                     <li><a data-hover="訂房系統" href="dinning.html"><span>訂房系統</span></a></li>
                                     <li><a data-hover="最新消息" href="news.html"><span>最新消息</span></a></li>
+                                    
                                     <li><a data-hover="聯絡我們" href="contact.html"><span>聯絡我們</span></a></li>
                                 </ul>
                             </div>
                         </nav>
                     </div>
                     <div class="col-md-2  col-sm-4 col-xs-12 hidden-sm">
+                        <ul>
+                            <li id="Cart">
 
+                                @Html.Partial("_CartPartial")
+                            </li>
+                        </ul>
                         @*<div class="text-right"><a data-hover="房型介紹" href="/Customer/Login"><span>登入</span></a></div>*@
                         <div class="text-right"><button type="button" onclick="location.href='/Customer/Login'" class="book-now-btn">登入</button></div>
 

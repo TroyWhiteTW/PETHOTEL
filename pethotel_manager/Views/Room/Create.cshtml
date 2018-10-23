@@ -67,10 +67,10 @@
             @Html.LabelFor(model => model.r_image,"房間照片",htmlAttributes: new { @class = "control-label col-md-2" })
 			<div class="col-md-10">
 
-				<input type="file" name="roomImg" />
+				@*<input type="file" name="roomImg" />*@
 
-				@*@Html.EditorFor(model => model.r_image, new { htmlAttributes = new { @class = "form-control" } })
-		@Html.ValidationMessageFor(model => model.r_image, "", new { @class = "text-danger" })*@
+			@Html.EditorFor(model => model.r_image, new { htmlAttributes = new { @class = "form-control" } })
+		    @Html.ValidationMessageFor(model => model.r_image, "", new { @class = "text-danger" })
 			</div>
         </div>
 

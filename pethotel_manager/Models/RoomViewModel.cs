@@ -35,7 +35,7 @@ namespace pethotel_manager.Models
             roomitem.r_wet = this.r_wet;
             roomitem.r_image = this.r_image;
 
-            roomitem.r_image_href = Path.Combine(ConfigurationManager.AppSettings["IMG_FOLDER_PATH"].ToString(), roomitem.r_image);
+            //roomitem.r_image_href = Path.Combine(ConfigurationManager.AppSettings["IMG_FOLDER_PATH"].ToString(), roomitem.r_image);
 
 
             en.Room.Add(roomitem);

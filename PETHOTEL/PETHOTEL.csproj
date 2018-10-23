@@ -306,6 +306,7 @@
     <Content Include="img\quote_sign_left.png" />
     <Content Include="img\quote_sign_right.png" />
     <Content Include="img\services-bg.jpg" />
+    <Content Include="img\shopcar.png" />
     <Content Include="img\subscribe-bg.jpg" />
     <Content Include="img\team-1.jpg" />
     <Content Include="img\team-2.jpg" />

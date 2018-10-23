@@ -4,7 +4,39 @@
     Layout = "~/Views/Shared/_Layout_pet.cshtml";
 }
 
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+<h2>Index</h2>
+
+<div class="row">
+    @foreach (var product in Model)
+    {
+    
+        <div class="col-md-4 ">
+            <div class="thumbnail">
+                <div class="caption">
+
+
+                    <img src="@product.p_image_href" style="height:100px ; width:100px" />                    
+
+                    <h3>@product.p_name</h3>
+                    <p>@product.p_content</p>
+                    <p>售價 : @product.p_price</p>
+                    <p>庫存 : @product.p_count</p>
+                    @*<p>
+            <a onclick="AddToCart('@product.Id')" href="javascript:void(0);"
+               class="btn btn-primary" role="button">
+                加入購物車
+            </a>
+            <a href="javascript:void(0);" class="btn btn-default" role="button">
+                詳細資訊
+            </a>
+        </p>*@
+                </div>
+
+>>>>>>> 597e17052370f139639ed40bc1989ceb117e4f8d
 
 <div id="myCarousel1" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -19,6 +51,7 @@
             <img src="~/img/1.jpg" style="width:100%; height: 200px" alt="First slide">
             <div class="carousel-caption">
                 <h1><br>購物車系統~~~~ </h1>
+                <h1><br> </h1>
             </div>
         </div>
         <div class="item">
@@ -31,6 +64,27 @@
             <img src="~/img/2.jpg" style="width:100%; height: 500px" alt="Third slide">
             <div class="carousel-caption">
                 <h1>vacayhome<br> spa & Resort</h1>
+<<<<<<< HEAD
+=======
+
+            </div>
+        </div>
+
+    </div>
+    <a class="left carousel-control" href="#myCarousel1" data-slide="prev"> <img src="images/icons/left-arrow.png" onmouseover="this.src = 'images/icons/left-arrow-hover.png'" onmouseout="this.src = 'images/icons/left-arrow.png'" alt="left"></a>
+    <a class="right carousel-control" href="#myCarousel1" data-slide="next"><img src="images/icons/right-arrow.png" onmouseover="this.src = 'images/icons/right-arrow-hover.png'" onmouseout="this.src = 'images/icons/right-arrow.png'" alt="left"></a>
+
+</div>
+<div class="clearfix"></div>
+
+
+
+<!--gallery block--->
+<section class="gallery-block gallery-front">
+    <div class="container">
+        <div class="blog-list">
+            <h4>上架商品</h4>
+>>>>>>> 597e17052370f139639ed40bc1989ceb117e4f8d
 
 <h2>Index</h2>
 
@@ -62,6 +116,7 @@
 
 
 @*<div class="row">
+<div class="row">
         @foreach (var product in Model)
         {
 
@@ -89,4 +144,7 @@
 
         }
     </div>*@
+    </div>
 
+
+</div>

@@ -1,4 +1,4 @@
-﻿
+﻿@model List<pethotel_manager.Models.ProductViewModel>
 ﻿
 @{
 				/**/
@@ -40,8 +40,9 @@
 
 
 
-			@foreach (var product in ViewBag.p)
+			@foreach (var product in this.Model)
 			{
+<<<<<<< HEAD
             <tr>
                 
                 <td class="text-left">@product.p_id</td>
@@ -53,6 +54,23 @@
                 <td class="text-left"><img src="~/FileUploads/@product.p_image"style="height:100px; width:100px;" /></td>
 
                 <td>
+=======
+				<tr>
+					<td class="text-left">@product.p_id</td>
+					<td class="text-left">@product.p_type</td>
+					<td class="text-left">@product.p_name</td>
+					<td class="text-left">@product.p_content</td>
+					<td class="text-left">@product.p_price</td>
+					<td class="text-left">@product.p_count</td>
+					<td class="text-left"><img src="~/FileUploads/@product.p_image" style="height:100px ; width:100px ;"/></td>
+
+					<td class="text-left">
+					<img src="~/FileUploads/@product.p_image" style="height:100px ; width:100px ;"/>
+					</td>
+					
+					<td>
+<<<<<<< .merge_file_a08184
+>>>>>>> 96a76150f31eb8058542aa984dbe45677e38c082
 
                     <a class="btn btn-warning " href="/Product/Edit/@product.p_id">修改</a>
 
@@ -61,6 +79,12 @@
 
                 </td>
             </tr>
+=======
+					<a class="btn btn-warning " href="/Product/Edit/@product.p_id">修改</a>
+					<a class="btn btn-danger " href="/Product/Delete/@product.p_id">刪除</a>
+					</td>
+				</tr>
+>>>>>>> .merge_file_a14496
 
 			}
 

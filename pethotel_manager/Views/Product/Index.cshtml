@@ -1,7 +1,6 @@
 ﻿
 ﻿
 @{
-				/**/
 
 				ViewBag.Title = "Index";
 				Layout = "~/Views/Shared/_Layout.cshtml";
@@ -49,15 +48,14 @@
 					<td class="text-left">@product.p_content</td>
 					<td class="text-left">@product.p_price</td>
 					<td class="text-left">@product.p_count</td>
-					<td class="text-left"><img src="~/FileUploads/@product.p_image" style="height:100px ; width:100px ;"/></td>
+
+					<td class="text-left">
+					<img src="~/FileUploads/@product.p_image" style="height:100px ; width:100px ;"/>
+					</td>
 					
 					<td>
-
-						<a class="btn btn-warning " href="/Product/Edit/@product.p_id">修改</a>
-
-
-						<a class="btn btn-danger " href="/Product/Delete/@product.p_id">刪除</a>
-
+					<a class="btn btn-warning " href="/Product/Edit/@product.p_id">修改</a>
+					<a class="btn btn-danger " href="/Product/Delete/@product.p_id">刪除</a>
 					</td>
 				</tr>
 

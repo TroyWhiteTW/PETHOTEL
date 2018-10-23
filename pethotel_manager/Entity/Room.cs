@@ -21,5 +21,7 @@ namespace pethotel_manager.Entity
         public Nullable<double> r_temperature { get; set; }
         public Nullable<double> r_wet { get; set; }
         public string r_image { get; set; }
+        public string r_image_href { get; internal set; }
+        public string p_image_href { get; internal set; }
     }
 }

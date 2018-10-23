@@ -53,18 +53,117 @@
                 @*<img src="~/img/shopcar.png" />*@
                 @foreach (var product in Model)
                 {
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4">
+
+
+                    <div class="product-desc-side">
                         <div class="gallery-image">
-                            <img class="img-responsive" src="@product.p_image_href" style="height: 200px; width: 200px;">
+                            <img class="img-responsive" src="@product.p_image_href" style="height: 120px; width: 150px;">
                             <div class="overlay">
-                                <a class="info pop example-image-link img-responsive" href="@product.p_image_href" data-lightbox="example-1"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                                <p><a><i class="fa fa-shopping-basket" aria-hidden="true"></i>加入購物車</a></p>
+                                <a class="info pop example-image-link img-responsive" href="@product.p_image_href" data-lightbox="example-1"><i class="fa fa-search" aria-hidden="true"></i></a>
+
+                                @*<p><a>加入購物車</a></p>*@
                             </div>
                         </div>
-                        <p> @product.p_content</p>
-                        <p>售價 : @product.p_price</p>
-                        <p>庫存 : @product.p_count</p>
+
+                        <h3><a href="single-blog.html">@product.p_name</a></h3>
+                        <p>@product.p_content</p>
+                        <div class="links"><label>售價: @product.p_price </label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="single-blog.html">加入購物車</a></div>
                     </div>
+                    @*<p> @product.p_content</p>
+        <p>售價 : @product.p_price</p>
+        <p>庫存 : @product.p_count</p>
+            style="height: 278px; width: 280px;"
+                    <i class="fa fa-search" aria-hidden="true"></i>*@
+                </div>
+
+
+
+
+
+
+                    @*<section class="resort-overview-block">
+                        <div class="container">
+                           
+                                <div class="col-md-2 col-sm-2 col-xs-2">
+                                    <div class="side-A">
+                                        <div class="product-thumb">
+                                            <div class="image">
+                                                <a href=""><img alt="image" class="img-responsive" src="@product.p_image_href" ></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="side-B">
+                                        <div class="product-desc-side">
+                                            <h3><a href="single-blog.html">@product.p_name</a></h3>
+                                            <p>@product.p_content</p>
+                                            <div class="links"><a href="single-blog.html">加入購物車</a></div>
+                                        </div>
+                                    </div>
+                                </div>*@
+                                @*<div class="clear"></div>*@
+                                @*<div class="col-md-6 col-sm-12 col-xs-12 remove-padd-left">
+                                    <div class="side-A">
+                                        <div class="product-thumb">
+                                            <div class="image">
+                                                <a href="single-blog.html"><img src="@product.p_image_href" class="img-responsive" alt="image"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="side-B">
+                                        <div class="product-desc-side">
+                                            <h3><a href="single-blog.html">@product.p_name</a></h3>
+                                            <p>@product.p_content</p>
+                                            <div class="links"><a href="single-blog.html">加入購物車</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                                <div class="col-md-12 offspace-45"></div>
+                                <div class="col-md-6 col-sm-12 col-xs-12 remove-padd-right">
+                                    <div class="side-A">
+                                        <div class="product-desc-side">
+                                            <h3><a href="single-blog.html">@product.p_name</a></h3>
+                                            <p>@product.p_content</p>
+                                            <div class="links"><a href="single-blog.html">Read more</a></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="side-B">
+                                        <div class="product-thumb">
+                                            <div class="image txt-rgt">
+                                                <a class="arrow-left" href=""><img alt="imaga" class="img-responsive" src="@product.p_image_href"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                                <div class="col-md-6 col-sm-12 col-xs-12 remove-padd-left">
+                                    <div class="side-A">
+                                        <div class="product-desc-side">
+                                            <h3><a href="single-blog.html">@product.p_name</a></h3>
+                                            <p>Lorem ipsum dolor sit amet, consec adipiscing elit. Nunc lorem nulla, ornare eu felis luctus non maximus vitae, portt neque. ipsum dolor sit amet, consec adipiscing elit.</p>
+                                            <div class="links"><a href="single-blog.html">Read more</a></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="side-B">
+                                        <div class="product-thumb txt-rgt">
+                                            <div class="image">
+                                                <a class="arrow-left" href=""><img alt="imaga" class="img-responsive" src="@product.p_image_href"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>*@
+                                @*<div class="clearfix"></div>*@
+
+                            
+                        @*</div>
+                    </section>*@
+
+
+
+
                 }
             </div>
             </div>

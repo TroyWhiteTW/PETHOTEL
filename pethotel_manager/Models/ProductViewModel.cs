@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
-
 namespace pethotel_manager.Models
 {
     public class ProductViewModel
@@ -32,31 +30,9 @@ namespace pethotel_manager.Models
             item.p_image = this.p_image;
 
             en.Product.Add(item);
-            en.SaveChanges();
+            en.SaveChanges();         
         }
-
-
-
-        public List<ProductViewModel> getlist()
-        {
-            Entities en = new Entities();
-            List<ProductViewModel> pro_list = new List<ProductViewModel>();
-
-            var dblist = en.Product;
-
-            foreach (var item in dblist)
-            {
-                ProductViewModel pro = new ProductViewModel();
-                pro.p_name = item.p_name;
-                pro.p_content = item.p_content;
-                pro.p_price = item.p_price;
-                pro.p_image = item.p_image;
-                pro.p_image_href = Path.Combine(ConfigurationManager.AppSettings["IMG_FOLDER_PATH"].ToString(), item.p_image);
-
-                pro_list.Add(pro);
-            }
-            return pro_list;
-
-        }
+     
     }
+
 }

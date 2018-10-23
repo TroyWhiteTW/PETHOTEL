@@ -89,7 +89,6 @@
           <Property Name="r_price" Type="money" />
           <Property Name="r_temperature" Type="float" />
           <Property Name="r_wet" Type="float" />
-          <Property Name="r_image" Type="nvarchar(max)" />
         </EntityType>
         <EntityContainer Name="pethotelDBModelStoreContainer">
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
@@ -188,7 +187,6 @@
           <Property Name="r_price" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="r_temperature" Type="Double" />
           <Property Name="r_wet" Type="Double" />
-          <Property Name="r_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Customer" EntityType="Self.Customer" />
@@ -288,7 +286,6 @@
           <EntitySetMapping Name="Room">
             <EntityTypeMapping TypeName="pethotelDBModel.Room">
               <MappingFragment StoreEntitySet="Room">
-                <ScalarProperty Name="r_image" ColumnName="r_image" />
                 <ScalarProperty Name="r_id" ColumnName="r_id" />
                 <ScalarProperty Name="r_name" ColumnName="r_name" />
                 <ScalarProperty Name="r_content" ColumnName="r_content" />

@@ -1,4 +1,4 @@
-﻿
+﻿@model List<pethotel_manager.Models.ProductViewModel>
 ﻿
 @{
 				/**/
@@ -40,7 +40,7 @@
 
 
 
-			@foreach (var product in ViewBag.p)
+			@foreach (var product in this.Model)
 			{
             <tr>
                 

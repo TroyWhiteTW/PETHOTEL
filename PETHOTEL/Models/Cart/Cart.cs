@@ -44,24 +44,25 @@ namespace PETHOTEL.Models.Cart
         }
 
         //新增一筆Product，使用ProductId
-        public bool AddProduct(int ProductId)
+        public bool AddProducts(int id)
         {
             var findItem = this.cartItems
-                            .Where(s => s.Id == ProductId)
+                            .Where(s => s.Id == id)
                             .Select(s => s)
                             .FirstOrDefault();
 
             //判斷相同Id的CartItem是否已經存在購物車內
             if (findItem == default(Models.Cart.CartItem))
             {   //不存在購物車內，則新增一筆
-                using (entity.Entities db = new Entities())
+                using (Entities db = new Entities())
                 {
-                    var product = (from s in db.Product
-                                   where s.p_id == ProductId
+                    
+                    var pro = (from s in db.Product
+                                   where s.p_id == id
                                    select s).FirstOrDefault();
-                    if (product != default(entity.Product))
+                    if (pro != default(entity.Product))
                     {
-                        this.AddProduct(product);
+                        this.AddProduct(pro);
                     }
                 }
             }
@@ -76,7 +77,7 @@ namespace PETHOTEL.Models.Cart
         private bool AddProduct(Product product)
         {
             //將Product轉為CartItem
-            var cartItem = new Models.Cart.CartItem()
+            var cartItem = new CartItem()
             {
                 Id = product.p_id,
                 Name = product.p_name,
@@ -91,10 +92,10 @@ namespace PETHOTEL.Models.Cart
         }
 
         //移除一筆Product，使用ProductId
-        public bool RemoveProduct(int ProductId)
+        public bool RemoveProduct(int id)
         {
             var findItem = this.cartItems
-                            .Where(s => s.Id == ProductId)
+                            .Where(s => s.Id == id)
                             .Select(s => s)
                             .FirstOrDefault();
 

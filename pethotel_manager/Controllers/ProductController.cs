@@ -81,6 +81,7 @@ namespace pethotel_manager.Controllers
 
             var pro = query.FirstOrDefault();
             pro.p_id = postback.p_id;
+            pro.p_type = postback.p_type;
             pro.p_name = postback.p_name;
             pro.p_content = postback.p_content;
             pro.p_price = postback.p_price;

@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>使用者登入</h2>
+<h2>PETHOTEL後台管理者登入</h2>
 @*<font face="標楷體" align="center">使用者登入</font>*@
 
 @using (Html.BeginForm())
@@ -17,7 +17,7 @@
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
-                @Html.LabelFor(model => model.m_account, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.m_account,"帳號",htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-4">
                     @Html.EditorFor(model => model.m_account, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                     @Html.ValidationMessageFor(model => model.m_account, "", new { @class = "text-danger" })
@@ -25,7 +25,7 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.m_password, htmlAttributes: new { @class = "control-label col-md-2 " })
+                @Html.LabelFor(model => model.m_password,"密碼",htmlAttributes: new { @class = "control-label col-md-2 " })
                 <div class="col-md-4">
                     @Html.EditorFor(model => model.m_password, new { htmlAttributes = new { @class = "form-control", @name = "EmailId", required = "required" } })
                     @Html.ValidationMessageFor(model => model.m_password, "", new { @class = "text-danger", @name = "Password" })

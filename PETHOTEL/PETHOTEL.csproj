@@ -619,6 +619,7 @@
     <Folder Include="jicss\js\" />
     <Folder Include="jicss\scss\" />
     <Folder Include="Views\Cart\" />
+    <Folder Include="Views\TEST\4564789\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css.map" />

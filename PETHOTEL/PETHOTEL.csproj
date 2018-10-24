@@ -155,6 +155,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -200,6 +201,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BookViewModel.cs" />
     <Compile Include="Models\CartViewModel.cs" />
     <Compile Include="Models\Cart\Cart.cs" />
     <Compile Include="Models\Cart\CartItem.cs" />
@@ -212,6 +214,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\bookstyle.css" />
+    <Content Include="bookingwebbbb\index.html" />
+    <Content Include="js\bookindex.js" />
+    <Content Include="bookingwebbbb\license.txt" />
+    <Content Include="bookingwebbbb\README.txt" />
+    <Content Include="images\ban4.jpg" />
+    <Content Include="images\c-arrows.png" />
     <Content Include="contactform\contactform.js" />
     <Content Include="contactform\readme.txt" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -233,7 +242,6 @@
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="IanCSS\contactform\contactform.js" />
@@ -469,6 +477,7 @@
     <Content Include="QQQQQ\fonts\antonio-exotic\exotic_350_demi-bold_bt-webfont.woff2" />
     <Content Include="QQQQQ\fonts\antonio-exotic\ufonts.com_exotic-350-bold-bt-webfont.woff" />
     <Content Include="QQQQQ\fonts\antonio-exotic\ufonts.com_exotic-350-bold-bt-webfont.woff2" />
+    <Content Include="scss\style.scss" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

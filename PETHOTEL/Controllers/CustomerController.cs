@@ -49,9 +49,9 @@ namespace PETHOTEL.Controllers
             var v = db.Customer.Where(a => a.c_account == lv.c_account).FirstOrDefault();
             if (v != null)
             {
-                
-                    
-                    return RedirectToAction("home", "Home");
+
+                //Session["customer"] = lv.c_account;
+                return RedirectToAction("home", "Home");
       
             }
             return View();

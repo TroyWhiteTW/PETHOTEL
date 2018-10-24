@@ -12,9 +12,14 @@ namespace PETHOTEL.Controllers
         // GET: Product
         public ActionResult Index()
         {
-
-            ProductViewModel pvm = new ProductViewModel();
-            return View(pvm.getlist());
+           // if (Session["customer"] != null) { 
+                ProductViewModel pvm = new ProductViewModel();
+                return View(pvm.getlist());
+            //}
+            //else
+            //{
+            //    return RedirectToAction("Login", "Customer");
+            //}
         }
     }
 }

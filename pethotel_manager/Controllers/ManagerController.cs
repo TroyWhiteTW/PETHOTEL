@@ -24,7 +24,7 @@ namespace pethotel_manager.Controllers
 
             MM.create();
 
-            return View();
+            return RedirectToAction("Login");
 
         }
 
@@ -55,10 +55,10 @@ namespace pethotel_manager.Controllers
             }
 
 
-            return Content("123");  //登入失敗
-           
+            return RedirectToAction("Login");  //登入失敗
 
-           
+
+
 
         }
         public ActionResult Logout()

@@ -1,3 +1,15 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (Session["managerid"] != null) // 如果不空值 就要做登出  
+    {
+        Layout = "~/Views/Shared/_Layout1.cshtml";
+    }
+    else                           //要做登入
+    
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+    }
 }
+
+

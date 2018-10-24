@@ -1,108 +1,205 @@
 ﻿﻿@model pethotel_manager.Entity.Product
 @{
-				/**/
+    /**/
 
-				ViewBag.Title = "修改商品";
-				Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "修改商品";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
-<html>
+<h2>修改商品資訊</h2>
+
+
+
+@*<html>
 <head>
-	<meta charset="utf-8" />
-	<title>Table Style</title>
+    <meta charset="utf-8" />
 
 
-	<meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
-	<link rel="stylesheet" href="~/css/樣式.CSS">
+
+    <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
+    <link rel="stylesheet" href="~/css/樣式.CSS">
 </head>
 <body>
 
-	<div class="container">
+    <div class="container">
 
-		<!-- form區塊 -->
-		<div class="container orderForm">
-			<!-- <div class="image">
-				<img src="./pic/ticket.png" />
-			</div> -->
-			<form method="post" action="">
-				<h2>修改商品資料</h2>
+        <!-- form區塊 -->
+        <div class="container orderForm">
+            <!-- <div class="image">
+                <img src="./pic/ticket.png" />
+            </div> -->
+            <form method="post" action="">
+                <h2>修改商品資料</h2>
 
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="textinput">商品編號</label>
+                    <div class="col-md-4">
+                        <input id="p_id" name="p_id" type="text" placeholder="" value="@Model.p_id" class="form-control input-md">
 
+                    </div>
+                </div>
 
-				<div class="form-group row">
-					<label for="colFormLabelLg" class="col-sm-3 col-form-label col-form-label-lg title">p_id</label>
-					<div class="col-sm-9">
-						<input type="text" id="p_id" name="p_id" class="form-control" placeholder="" readonly value="@Model.p_id" />
-					</div>
-				</div>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="textinput">商品類別</label>
+                    <div class="col-md-4">
+                        <input id="p_type" name="p_type" type="text" placeholder="" value="@Model.p_type" class="form-control input-md">
 
+                    </div>
+                </div>
 
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="textinput">商品名稱</label>
+                    <div class="col-md-4">
+                        <input id="p_name" name="p_name" type="text" placeholder="" value="@Model.p_name" class="form-control input-md">
 
-				<div class="form-group row">
-					<label for="colFormLabelLg" class="col-sm-3 col-form-label col-form-label-lg title">p_type</label>
-					<div class="col-sm-9">
-						<input type="text" id="p_type" name="p_type" class="form-control" placeholder="" value="@Model.p_type" />
-					</div>
-				</div>
+                    </div>
+                </div>
 
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="textinput">商品內容</label>
+                    <div class="col-md-4">
+                        <input id="p_content" name="p_content" type="text" placeholder="placeholder" value="@Model.p_content" class="form-control input-md">
 
+                    </div>
+                </div>
 
-				<div class="form-group row">
-					<label for="colFormLabelLg" class="col-sm-3 col-form-label col-form-label-lg title">p_name</label>
-					<div class="col-sm-9">
-						<input type="text" id="p_name" name="p_name" class="form-control" placeholder="" value="@Model.p_name" />
-					</div>
-				</div>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="textinput">商品售價</label>
+                    <div class="col-md-4">
+                        <input id="p_price" name="p_price" type="text" placeholder="" value="@Model.p_price" class="form-control input-md">
 
-				<div class="form-group row">
-					<label for="colFormLabelLg" class="col-sm-3 col-form-label col-form-label-lg title">p_content</label>
-					<div class="col-sm-9">
-						<input type="text" id="p_content" name="p_content" class="form-control" placeholder="" value="@Model.p_content" />
-					</div>
-				</div>
+                    </div>
+                </div>
 
-				<div class="form-group row">
-					<label for="colFormLabelLg" class="col-sm-3 col-form-label col-form-label-lg title">p_price</label>
-					<div class="col-sm-9">
-						<input type="text" id="p_price" name="p_price" class="form-control" placeholder="" value="@Model.p_price" />
-					</div>
-				</div>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="textinput">商品數量</label>
+                    <div class="col-md-4">
+                        <input id="p_count" name="p_count" type="text" placeholder="" value="@Model.p_count" class="form-control input-md">
 
-				<div class="form-group row">
-					<label for="colFormLabelLg" class="col-sm-3 col-form-label col-form-label-lg title">p_count</label>
-					<div class="col-sm-9">
-						<input type="text" id="p_count" name="p_count" class="form-control" placeholder="" value="@Model.p_count" />
-					</div>
-				</div>
+                    </div>
+                </div>
 
-				<div class="form-group row">
-					<label for="colFormLabelLg" class="col-sm-3 col-form-label col-form-label-lg title">p_image</label>
-					<div class="col-sm-9">
-						<input type="text" id="p_image" name="p_image" class="form-control" placeholder="" value="@Model.p_image" />
-					</div>
-				</div>
+                <!-- Button -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="singlebutton">Single Button</label>
+                    <div class="col-md-4">
+                        <button id="singlebutton" name="singlebutton" class="btn btn-primary">Button</button>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
 
-
-
-
-				<!-- modal按鈕 -->
-				<input type="submit" class="btn" value="確認" />
-
-			</form>
-
-
-
-		</div>
-
-		<!-- form區塊 -->
+        <!-- form區塊 -->
 
 
 
-	</div>
+    </div>
 
 
 
 </body>
 
-</html>
+</html>*@
+
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+
+        <div class="container">
+
+            <!-- form區塊 -->
+            <div class="container orderForm">
+                <!-- <div class="image">
+                    <img src="./pic/ticket.png" />
+                </div> -->
+                <form method="post" action="">
+                   
+
+
+
+                    <div class="form-group row">
+                        <label for="colFormLabelLg" class="col-sm-1 col-form-label col-form-label-lg title">商品編號</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="p_id" name="p_id" class="form-control" placeholder="" value="@Model.p_id" />
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group row">
+                        <label for="colFormLabelLg" class="col-sm-1 col-form-label col-form-label-lg title">商品類別</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="p_type" name="p_type" class="form-control" placeholder="" value="@Model.p_type" />
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group row">
+                        <label for="colFormLabelLg" class="col-sm-1 col-form-label col-form-label-lg title">商品名稱</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="p_name" name="p_name" class="form-control" placeholder="" value="@Model.p_name" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="colFormLabelLg" class="col-sm-1 col-form-label col-form-label-lg title">商品內容</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="p_content" name="p_content" class="form-control" placeholder="" value="@Model.p_content" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="colFormLabelLg" class="col-sm-1 col-form-label col-form-label-lg title">商品售價</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="p_price" name="p_price" class="form-control" placeholder="" value="@Model.p_price" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="colFormLabelLg" class="col-sm-1 col-form-label col-form-label-lg title">商品數量</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="p_count" name="p_count" class="form-control" placeholder="" value="@Model.p_count" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="colFormLabelLg" class="col-sm-1 col-form-label col-form-label-lg title">商品照片</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="p_image" name="p_image" class="form-control" placeholder="" value="@Model.p_image" />
+                        </div>
+                    </div>
+
+
+
+
+                    <!-- modal按鈕 -->
+                    <input type="submit" class="btn" value="確認" />
+
+                </form>
+
+
+
+            </div>
+
+            <!-- form區塊 -->
+
+
+
+        </div>
+
+
+
+    </body>
+
+    </html>

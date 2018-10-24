@@ -47,42 +47,42 @@
 
             @foreach (var ord in ViewBag.p)
             {
-            <tr>
-                <td class="text-left">@ord.o_id</td>
-                <td class="text-left">@ord.o_id</td>
-                <td class="text-left">@ord.o_pet_name</td>
-                <td class="text-left">@ord.o_pet_type</td>
-                <td class="text-left">@ord.o_pet_sex</td>
-                <td class="text-left">@ord.o_pet_content</td>
-                <td class="text-left">@ord.o_pet_image</td>
-                <td class="text-left">@ord.o_pet_price</td>
-                <td class="text-left">@ord.o_status</td>
-                <td class="text-left">@ord.o_create_datetime</td>
-                <td class="text-left">@ord.o_start_date</td>
-                <td class="text-left">@ord.o_end_date</td>
+                <tr>
+                    <td class="text-left">@ord.o_id</td>
+                    <td class="text-left">@ord.o_id</td>
+                    <td class="text-left">@ord.o_pet_name</td>
+                    <td class="text-left">@ord.o_pet_type</td>
+                    <td class="text-left">@ord.o_pet_sex</td>
+                    <td class="text-left">@ord.o_pet_content</td>
+                    <td class="text-left">@ord.o_pet_image</td>
+                    <td class="text-left">@ord.o_pet_price</td>
+                    <td class="text-left">@ord.o_status</td>
+                    <td class="text-left">@ord.o_create_datetime</td>
+                    <td class="text-left">@ord.o_start_date</td>
+                    <td class="text-left">@ord.o_end_date</td>
+                    
 
 
+                    @*<td class="text-left">
+                            <img class="img-responsive" src="~/FileUploads/@ord" style="height: 200px; width: 200px;">
+                        </td>*@
 
-                @*<td class="text-left">
-                    <img class="img-responsive" src="~/FileUploads/@ord" style="height: 200px; width: 200px;">
-                </td>*@
-
-                <td>
-
-
-                    <a class="btn btn-warning " href="/Order/Edit/@ord.o_id">修改</a>
+                    <td>
 
 
-                    <a class="btn btn-danger " href="/Order/Delete/@ord.o_id">刪除</a>
+                        <a class="btn btn-warning " href="/Order/Edit/@ord.o_id">修改</a>
 
-                </td>
-            </tr>
+
+                        <a class="btn btn-danger " href="/Order/Delete/@ord.o_id">刪除</a>
+
+                    </td>
+                </tr>
 
             }
 
         </tbody>
     </table>
-    <a class="btn btn-primary btnCreate" href="/Product/Create">商品上架</a>
+    <a class="btn btn-primary btnCreate" href="/Order/Create">商品上架</a>
 
 </body>
 

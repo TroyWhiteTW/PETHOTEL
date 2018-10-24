@@ -5,5 +5,78 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>View</h2>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Table Style</title>
+
+
+    <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
+    <link rel="stylesheet" href="~/css/樣式.CSS">
+</head>
+<body>
+    <div class="table-title">
+        <h3>最新消息列表</h3>
+    </div>
+
+    <table class="table-fill">
+        <thead>
+            <tr>
+                <th class="">消息編號</th>
+               
+                <th class="text-left">消息名稱</th>
+               
+                <th class="text-left">消息內容</th>
+                
+                <th class="text-left">消息類別</th>
+               
+                <th class="text-left">消息日期</th>
+              
+
+
+                <th class="text-left">管理者操作</th>
+            </tr>
+
+        </thead>
+
+        <tbody class="table-hover">
+
+
+
+
+            @foreach (var ord in ViewBag.p)
+            {
+                <tr>
+                    <td class="text-left">@ord.n_id</td>
+                    <td class="text-left">@ord.n_title</td>
+   
+                    <td class="text-left">@ord.n_content</td>
+                    <td class="text-left">@ord.n_type</td>
+         
+                    <td class="text-left">@ord.n_create_time</td>
+                  
+                    <td>
+
+
+                        <a class="btn btn-warning " href="/News/Edit/@ord.n_id">修改</a>
+
+
+                        <a class="btn btn-danger " href="/News/Delete/@ord.n_id">刪除</a>
+
+                    </td>
+                </tr>
+
+            }
+
+        </tbody>
+    </table>
+    <a class="btn btn-primary btnCreate" href="/News/Create">商品上架</a>
+
+</body>
+
+</html>

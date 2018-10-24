@@ -13,6 +13,27 @@ namespace pethotel_manager.Models
         public int c_id { get; set; }
         public string o_pet_name { get; set; }
         public int o_pet_type { get; set; }
+        public string o_pet_type_string {
+            get {
+                string s = "";
+
+                switch (o_pet_type)
+                {
+                    case 0:
+                        s = "小狗";
+                        break;
+                    case 1:
+                        s = "小貓";
+                        break;
+
+                }
+
+                return s;
+
+            }
+        }
+
+
         public int o_pet_sex { get; set; }
         public string o_pet_content { get; set; }
         public string o_pet_image { get; set; }
@@ -38,9 +59,10 @@ namespace pethotel_manager.Models
             item.o_pet_image = this.o_pet_image;
             item.o_pet_price = this.o_pet_price;
             item.o_status = this.o_status;
-            item.o_create_datetime = this.o_create_datetime;
+            item.o_create_datetime = DateTime.Now;
             item.o_start_date = this.o_start_date;
             item.o_end_date = this.o_end_date;
+
 
 
             en.Order.Add(item);

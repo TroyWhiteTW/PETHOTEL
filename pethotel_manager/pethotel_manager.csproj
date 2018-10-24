@@ -385,6 +385,7 @@
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Manager\Registration.cshtml" />
     <Content Include="Views\Manager\Login.cshtml" />
+    <Content Include="Views\News\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

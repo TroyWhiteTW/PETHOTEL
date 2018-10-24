@@ -13,7 +13,7 @@ namespace pethotel_manager.Models
         public string n_content { get; set; }
         public int n_type { get; set; }
         public string n_type_string { get 
-                
+               
                 {
                 string s = "";
 

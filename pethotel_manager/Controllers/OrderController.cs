@@ -19,6 +19,10 @@ namespace pethotel_manager.Controllers
             var query = from o in db.Order select o;
             var dataList = query.ToList();
             ViewBag.p = dataList;
+
+
+
+
             return View();
 
 

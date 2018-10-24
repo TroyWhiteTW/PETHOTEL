@@ -35,9 +35,7 @@
           </Key>
           <Property Name="m_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="m_account" Type="nvarchar(max)" />
-          <Property Name="m_pawword" Type="nvarchar(max)" />
-          <Property Name="m_name" Type="nvarchar(max)" />
-          <Property Name="m_mail" Type="nvarchar(max)" />
+          <Property Name="m_password" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="News">
           <Key>
@@ -128,16 +126,6 @@
           <Property Name="r_id" Type="Int32" />
           <Property Name="i_status" Type="Int32" />
         </EntityType>
-        <EntityType Name="Manager">
-          <Key>
-            <PropertyRef Name="m_id" />
-          </Key>
-          <Property Name="m_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="m_account" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="m_pawword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="m_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="m_mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="News">
           <Key>
             <PropertyRef Name="n_id" />
@@ -193,12 +181,20 @@
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Customer" EntityType="Self.Customer" />
           <EntitySet Name="Invoice" EntityType="Self.Invoice" />
-          <EntitySet Name="Manager" EntityType="Self.Manager" />
           <EntitySet Name="News" EntityType="Self.News" />
           <EntitySet Name="Order" EntityType="Self.Order" />
           <EntitySet Name="Product" EntityType="Self.Product" />
           <EntitySet Name="Room" EntityType="Self.Room" />
+          <EntitySet Name="Manager" EntityType="pethotelDBModel.Manager" />
         </EntityContainer>
+        <EntityType Name="Manager">
+          <Key>
+            <PropertyRef Name="m_id" />
+          </Key>
+          <Property Name="m_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="m_account" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="m_password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -228,17 +224,6 @@
                 <ScalarProperty Name="c_id" ColumnName="c_id" />
                 <ScalarProperty Name="r_id" ColumnName="r_id" />
                 <ScalarProperty Name="i_status" ColumnName="i_status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Manager">
-            <EntityTypeMapping TypeName="pethotelDBModel.Manager">
-              <MappingFragment StoreEntitySet="Manager">
-                <ScalarProperty Name="m_id" ColumnName="m_id" />
-                <ScalarProperty Name="m_account" ColumnName="m_account" />
-                <ScalarProperty Name="m_pawword" ColumnName="m_pawword" />
-                <ScalarProperty Name="m_name" ColumnName="m_name" />
-                <ScalarProperty Name="m_mail" ColumnName="m_mail" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -295,6 +280,15 @@
                 <ScalarProperty Name="r_price" ColumnName="r_price" />
                 <ScalarProperty Name="r_temperature" ColumnName="r_temperature" />
                 <ScalarProperty Name="r_wet" ColumnName="r_wet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manager">
+            <EntityTypeMapping TypeName="pethotelDBModel.Manager">
+              <MappingFragment StoreEntitySet="Manager">
+                <ScalarProperty Name="m_password" ColumnName="m_password" />
+                <ScalarProperty Name="m_account" ColumnName="m_account" />
+                <ScalarProperty Name="m_id" ColumnName="m_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -160,6 +160,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="entity\Customer.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -599,7 +600,9 @@
     <Content Include="Views\Home\home.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Room\Index.cshtml" />
+    <Content Include="Views\Shared\_1CartPartial.cshtml" />
     <Content Include="Views\Shared\_CartPartial.cshtml" />
+    <Content Include="Views\TEST\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

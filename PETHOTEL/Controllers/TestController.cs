@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PETHOTEL.entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,12 +7,17 @@ using System.Web.Mvc;
 
 namespace PETHOTEL.Controllers
 {
-    public class CartController : Controller
+    public class TestController : Controller
     {
         // GET: Cart
         public ActionResult Index()
         {
-            return View();
+            using (entity.Entities db = new Entities())
+            {
+                var result = (from s in db.Product select s).ToList();
+                return View(result);
+            }
+            
         }
 
         //取得目前購物車頁面
@@ -23,7 +29,7 @@ namespace PETHOTEL.Controllers
         //以id加入Product至購物車，並回傳購物車頁面
         public ActionResult AddToCart(int id)
         {
-            System.Diagnostics.Debug.WriteLine("A"+ id);
+            System.Diagnostics.Debug.WriteLine("A" + id);
             var currentCart = Models.Cart.Operation.GetCurrentCart();
             currentCart.AddProduct(id);
             System.Diagnostics.Debug.WriteLine(id);
@@ -47,6 +53,5 @@ namespace PETHOTEL.Controllers
             currentCart.ClearCart();
             return PartialView("_CartPartial");
         }
-
     }
 }

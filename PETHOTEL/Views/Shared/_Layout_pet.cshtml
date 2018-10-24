@@ -17,7 +17,28 @@
     <script src="~/QQQQQ/js/jquery.min.js"></script>
     <script src="~/QQQQQ/js/lightbox-plus-jquery.min.js"></script>
     <script src="~/QQQQQ/js/masonry.pkgd.min.js"></script>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <style>
+        ul.Cart li {
+            width: 260px;
+        }
 
+            ul.Cart li span {
+                margin: 2px;
+            }
+
+        #CartButtons {
+            display: inline-block;
+        }
+
+            #CartButtons > a {
+                margin: 6px;
+            }
+    </style>
     @* 購物車Js *@
     <script type="text/javascript">
         //網頁載入完成時執行之function
@@ -30,7 +51,7 @@
             console.log(productId);
             $.ajax({
                 type: 'POST',
-                url: '@Url.Action("AddToCart", "Cart")',
+                url:@Url.Action("AddToCart", "Test"),
                 data: { id: productId }
             })
                 .done(function (msg) {
@@ -43,7 +64,7 @@
         function RemoveFromCart(productId) {
             $.ajax({
                 type: 'POST',
-                url: '@Url.Action("RemoveFromCart", "Cart")',
+                url: '@Url.Action("RemoveFromCart", "Test")',
                 data: { id: productId }
             })
                 .done(function (msg) {
@@ -56,7 +77,7 @@
         function ClearCart() {
             $.ajax({
                 type: 'POST',
-                url: '@Url.Action("ClearCart", "Cart")',
+                url: '@Url.Action("ClearCart", "Test")',
                 data: {}
             })
             .done(function (msg) {
@@ -70,25 +91,25 @@
 
     <!---header top---->
     @*<div class="top-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                                                <a href="#"> </a>
-                                                <div class="info-block"><i class="fa fa-map"></i>701 Old York Drive Richmond USA.</div>
-                </div>
-                <div class="col-md-6">
-                    <div class="social-grid">
-                        <ul class="list-unstyled text-right">
-                            <li><a><i class="fa fa-facebook"></i></a></li>
-                            <li><a><i class="fa fa-twitter"></i></a></li>
-                            <li><a><i class="fa fa-linkedin"></i></a></li>
-                            <li><a><i class="fa fa-instagram"></i></a></li>
-                        </ul>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                                                    <a href="#"> </a>
+                                                    <div class="info-block"><i class="fa fa-map"></i>701 Old York Drive Richmond USA.</div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="social-grid">
+                            <ul class="list-unstyled text-right">
+                                <li><a><i class="fa fa-facebook"></i></a></li>
+                                <li><a><i class="fa fa-twitter"></i></a></li>
+                                <li><a><i class="fa fa-linkedin"></i></a></li>
+                                <li><a><i class="fa fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>*@
+        </div>*@
     <!--header--->
     <header class="header-container">
         <div class="container">
@@ -121,7 +142,7 @@
                                     <li><a data-hover="寵物商品" href="/Product/Index"><span>寵物商品</span></a></li>
                                     <li><a data-hover="訂房系統" href="dinning.html"><span>訂房系統</span></a></li>
                                     <li><a data-hover="最新消息" href="news.html"><span>最新消息</span></a></li>
-                                    
+
                                     <li><a data-hover="聯絡我們" href="contact.html"><span>聯絡我們</span></a></li>
                                 </ul>
                             </div>
@@ -232,7 +253,8 @@
 
 
 
-
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
 
 
 

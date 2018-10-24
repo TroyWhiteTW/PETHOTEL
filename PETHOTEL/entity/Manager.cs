@@ -16,8 +16,6 @@ namespace PETHOTEL.entity
     {
         public int m_id { get; set; }
         public string m_account { get; set; }
-        public string m_pawword { get; set; }
-        public string m_name { get; set; }
-        public string m_mail { get; set; }
+        public string m_password { get; set; }
     }
 }

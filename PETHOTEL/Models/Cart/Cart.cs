@@ -44,20 +44,21 @@ namespace PETHOTEL.Models.Cart
         }
 
         //新增一筆Product，使用ProductId
-        public bool AddProduct(int ProductId)
+        public bool AddProduct(int p_id)
         {
             var findItem = this.cartItems
-                            .Where(s => s.Id == ProductId)
+                            .Where(s => s.Id == p_id)
                             .Select(s => s)
                             .FirstOrDefault();
 
             //判斷相同Id的CartItem是否已經存在購物車內
             if (findItem == default(Models.Cart.CartItem))
             {   //不存在購物車內，則新增一筆
-                using (entity.Entities db = new Entities())
+                using (Entities db = new Entities())
                 {
+                    
                     var product = (from s in db.Product
-                                   where s.p_id == ProductId
+                                   where s.p_id == p_id
                                    select s).FirstOrDefault();
                     if (product != default(entity.Product))
                     {
@@ -76,7 +77,7 @@ namespace PETHOTEL.Models.Cart
         private bool AddProduct(Product product)
         {
             //將Product轉為CartItem
-            var cartItem = new Models.Cart.CartItem()
+            var cartItem = new CartItem()
             {
                 Id = product.p_id,
                 Name = product.p_name,

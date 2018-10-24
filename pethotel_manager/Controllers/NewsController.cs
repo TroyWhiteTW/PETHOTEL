@@ -15,13 +15,28 @@ namespace pethotel_manager.Controllers
         public ActionResult Index()
         {
 
-            Entities db = new Entities();
+    
 
-            var query = from o in db.News select o;
-            var dataList = query.ToList();
-            ViewBag.p = dataList;
 
-            return View();
+
+
+
+            if (Session["managerid"] != null)     //防跨頁 如果session 不等於null 
+            {
+                Entities db = new Entities();
+
+                var query = from o in db.News select o;
+                var dataList = query.ToList();
+                ViewBag.p = dataList;
+                return View();
+            }
+            else                      //如果強行進入則導到Login頁
+            {
+                return RedirectToAction("Login", "Manager");
+            }
+
+
+            
         }
 
         public ActionResult Create()

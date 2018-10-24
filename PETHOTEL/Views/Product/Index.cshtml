@@ -4,10 +4,7 @@
     Layout = "~/Views/Shared/_Layout_pet.cshtml";
 }
 
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
 <h2>Index</h2>
 
 <div class="row">
@@ -36,36 +33,7 @@
         </p>*@
                 </div>
 
->>>>>>> 597e17052370f139639ed40bc1989ceb117e4f8d
 
-<div id="myCarousel1" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel1" data-slide-to="1"></li>
-        <li data-target="#myCarousel1" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-        <div class="item active">
-            <img src="~/img/1.jpg" style="width:100%; height: 200px" alt="First slide">
-            <div class="carousel-caption">
-                <h1><br>購物車系統~~~~ </h1>
-                <h1><br> </h1>
-            </div>
-        </div>
-        <div class="item">
-            <img src="~/img/1.jpg" style="width:100%; height: 500px" alt="Second slide">
-            <div class="carousel-caption">
-                <h1>vacayhome<br> spa & Resort</h1>
-            </div>
-        </div>
-        <div class="item">
-            <img src="~/img/2.jpg" style="width:100%; height: 500px" alt="Third slide">
-            <div class="carousel-caption">
-                <h1>vacayhome<br> spa & Resort</h1>
-<<<<<<< HEAD
-=======
 
             </div>
         </div>
@@ -84,33 +52,37 @@
     <div class="container">
         <div class="blog-list">
             <h4>上架商品</h4>
->>>>>>> 597e17052370f139639ed40bc1989ceb117e4f8d
+
 
 <h2>Index</h2>
 
-<div class="row">
-    @foreach (var product in Model)
-    {
-    
-        <div class="col-md-4 ">
-            <div class="thumbnail">
-                <div class="caption">
-                    
-                  <img src="@product.p_image_href" width="320" height="180" />
-                                  
-                    <h3>@product.p_name</h3>
-                    <p>@product.p_content</p>
-                    <p>售價 : @product.p_price</p>
-                    <p>庫存 : @product.p_count</p>
-                    @*<p>
-            <a onclick="AddToCart('@product.Id')" href="javascript:void(0);"
-               class="btn btn-primary" role="button">
-                加入購物車
-            </a>
-            <a href="javascript:void(0);" class="btn btn-default" role="button">
-                詳細資訊
-            </a>
-        </p>*@
+
+                    <div class="product-desc-side">
+                        <div class="gallery-image">
+                            <img class="img-responsive" src="@product.p_image_href" style="height: 120px; width: 150px;">
+                            <div class="overlay">
+                                <a class="info pop example-image-link img-responsive" href="@product.p_image_href" data-lightbox="example-1"><i class="fa fa-search" aria-hidden="true"></i></a>
+
+                                @*<p><a>加入購物車</a></p>*@
+                            </div>
+                        </div>
+
+                        <h3><a href="single-blog.html">@product.p_name</a></h3>
+                        <p>@product.p_content</p>
+                        @*<div class="links"><label>售價: @product.p_price </label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a onclick="AddToCart('@product.p_id')">加入購物車</a></div>*@
+                    <p>售價:@product.p_price</p>
+                        <p>
+                            <a onclick="AddToCart('@product.p_id')" href="javascript:void(0);"
+                               class="btn btn-primary" role="button">
+                                加入購物車
+                            </a>
+</div>
+                    @*<p> @product.p_content</p>
+        <p>售價 : @product.p_price</p>
+        <p>庫存 : @product.p_count</p>
+            style="height: 278px; width: 280px;"
+                    <i class="fa fa-search" aria-hidden="true"></i>*@
+
                 </div>
 
 

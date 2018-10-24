@@ -44,10 +44,10 @@ namespace PETHOTEL.Models.Cart
         }
 
         //新增一筆Product，使用ProductId
-        public bool AddProduct(int p_id)
+        public bool AddProducts(int id)
         {
             var findItem = this.cartItems
-                            .Where(s => s.Id == p_id)
+                            .Where(s => s.Id == id)
                             .Select(s => s)
                             .FirstOrDefault();
 
@@ -57,12 +57,12 @@ namespace PETHOTEL.Models.Cart
                 using (Entities db = new Entities())
                 {
                     
-                    var product = (from s in db.Product
-                                   where s.p_id == p_id
+                    var pro = (from s in db.Product
+                                   where s.p_id == id
                                    select s).FirstOrDefault();
-                    if (product != default(entity.Product))
+                    if (pro != default(entity.Product))
                     {
-                        this.AddProduct(product);
+                        this.AddProduct(pro);
                     }
                 }
             }
@@ -92,10 +92,10 @@ namespace PETHOTEL.Models.Cart
         }
 
         //移除一筆Product，使用ProductId
-        public bool RemoveProduct(int ProductId)
+        public bool RemoveProduct(int id)
         {
             var findItem = this.cartItems
-                            .Where(s => s.Id == ProductId)
+                            .Where(s => s.Id == id)
                             .Select(s => s)
                             .FirstOrDefault();
 

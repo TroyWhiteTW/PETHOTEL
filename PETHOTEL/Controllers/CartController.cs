@@ -25,7 +25,7 @@ namespace PETHOTEL.Controllers
         {
             System.Diagnostics.Debug.WriteLine("A"+ id);
             var currentCart = Models.Cart.Operation.GetCurrentCart();
-            currentCart.AddProduct(id);
+            currentCart.AddProducts(id);
             System.Diagnostics.Debug.WriteLine(id);
             return PartialView("_CartPartial");
         }

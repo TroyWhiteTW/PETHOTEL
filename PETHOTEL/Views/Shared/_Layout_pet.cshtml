@@ -27,6 +27,7 @@
 
         //加入編號為productId的商品進購物車
         function AddToCart(productId) {
+            console.log(productId);
             $.ajax({
                 type: 'POST',
                 url: '@Url.Action("AddToCart", "Cart")',

@@ -1,0 +1,76 @@
+﻿﻿@model PETHOTEL.Models.BookViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A Pen by  deago</title>
+
+
+
+    <link rel="stylesheet" href="~/css/bookstyle.css">
+
+</head>
+<body>
+
+    <form method="post">
+        <!--  General -->
+        <div class="form-group">
+            <h2 class="heading">預訂房間 Booking Room</h2>
+            <div class="controls">
+                <input type="text" id="o_pet_name" class="floatLabel" name="o_pet_name" >
+                <label for="name">姓名</label>
+            </div>
+            <div class="controls">
+                <input type="text" id="o_pet_sex" class="floatLabel" name="o_pet_sex">
+                <label for="email">手機</label>
+            </div>
+            <div class="controls">
+                <input type="tel" id="o_pet_image" class="floatLabel" name="o_pet_image">
+                <label for="phone">地址</label>
+            </div>
+
+        </div>
+        <!--  Details -->
+        <div class="form-group">
+            <h2 class="heading">Details</h2>
+            <div class="grid">
+                <div class="col-1-4 col-1-4-sm">
+                    <div class="controls">
+                        <input type="date" id="o_start_date" class="floatLabel" name="o_start_date" value="<?php echo date('Y-m-d'); ?>">
+                        <label for="arrive" class="label-date"><i class="fa fa-calendar" ></i>&nbsp;&nbsp;入住日期</label>
+                    </div>
+                </div>
+                <div class="col-1-4 col-1-4-sm">
+                    <div class="controls">
+                        <input type="date" id="o_end_date" class="floatLabel" name="o_end_date" value="<?php echo date('Y-m-d'); ?>" />
+                        <label for="depart" class="label-date"><i class="fa fa-calendar" ></i>&nbsp;&nbsp;退房日期</label>
+                    </div>
+                </div>
+            </div>
+            <div class="grid">
+
+
+
+            </div>
+            <div class="grid">
+                <p class="info-text ">特別需求請填寫於備註欄</p>
+                <br>
+                <div class="controls">
+                    <textarea name="o_pet_content" class="floatLabel" id="o_pet_content" ></textarea>
+                    <label for="comments">備註欄位</label>
+                </div>
+                <button type="submit" value="Submit" class="col-1-4">確定訂房 </button>
+            </div>
+        </div> <!-- /.form-group -->
+    </form>
+
+
+    <script src="~/js/bookindex.js"></script>
+
+
+</body>
+</html>

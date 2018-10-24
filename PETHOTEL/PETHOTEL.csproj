@@ -155,6 +155,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -199,6 +200,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BookViewModel.cs" />
     <Compile Include="Models\CartViewModel.cs" />
     <Compile Include="Models\Cart\Cart.cs" />
     <Compile Include="Models\Cart\CartItem.cs" />
@@ -211,6 +213,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\bookstyle.css" />
+    <Content Include="bookingwebbbb\index.html" />
+    <Content Include="js\bookindex.js" />
+    <Content Include="bookingwebbbb\license.txt" />
+    <Content Include="bookingwebbbb\README.txt" />
+    <Content Include="images\ban4.jpg" />
+    <Content Include="images\c-arrows.png" />
     <Content Include="contactform\contactform.js" />
     <Content Include="contactform\readme.txt" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -232,7 +241,6 @@
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="IanCSS\contactform\contactform.js" />
@@ -468,6 +476,7 @@
     <Content Include="QQQQQ\fonts\antonio-exotic\exotic_350_demi-bold_bt-webfont.woff2" />
     <Content Include="QQQQQ\fonts\antonio-exotic\ufonts.com_exotic-350-bold-bt-webfont.woff" />
     <Content Include="QQQQQ\fonts\antonio-exotic\ufonts.com_exotic-350-bold-bt-webfont.woff2" />
+    <Content Include="scss\style.scss" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -600,19 +609,18 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Room\Index.cshtml" />
     <Content Include="Views\Shared\_CartPartial.cshtml" />
+    <Content Include="Views\Booking\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="bookingwebbbb\css\" />
+    <Folder Include="bookingwebbbb\js\" />
     <Folder Include="jicss\css\" />
     <Folder Include="jicss\js\" />
     <Folder Include="jicss\scss\" />
     <Folder Include="Views\Cart\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />

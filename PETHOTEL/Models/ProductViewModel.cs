@@ -31,6 +31,7 @@ namespace PETHOTEL.Models
             foreach (var item in dblist)
             {
                 ProductViewModel pro = new ProductViewModel();
+                pro.p_id = item.p_id;
                 pro.p_name = item.p_name;
                 pro.p_content = item.p_content;
                 pro.p_price = item.p_price;

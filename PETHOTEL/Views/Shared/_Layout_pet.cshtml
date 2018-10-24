@@ -4,24 +4,41 @@
     <title>@Page.Title</title>
     @RenderSection("head", required: false)
 
-    <link href="~/QQQQQ/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/QQQQQ/css/lightbox.min.css" rel="stylesheet" />
-    <link href="~/QQQQQ/css/responsive.css" rel="stylesheet" />
-    <link href="~/QQQQQ/css/style.css" rel="stylesheet" />
-    <link href="~/QQQQQ/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    @*<link href="~/QQQQQ/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/QQQQQ/css/lightbox.min.css" rel="stylesheet" />
+        <link href="~/QQQQQ/css/responsive.css" rel="stylesheet" />
+        <link href="~/QQQQQ/css/style.css" rel="stylesheet" />
+        <link href="~/QQQQQ/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 
-    <script src="~/QQQQQ/js/bootstrap.min.js"></script>
-    <script src="~/QQQQQ/js/custom.js"></script>
-    <script src="~/QQQQQ/js/instafeed.min.js"></script>
-    <script src="~/QQQQQ/js/jquery.imagesloaded.js"></script>
-    <script src="~/QQQQQ/js/jquery.min.js"></script>
-    <script src="~/QQQQQ/js/lightbox-plus-jquery.min.js"></script>
-    <script src="~/QQQQQ/js/masonry.pkgd.min.js"></script>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
-    <script src="~/Scripts/bootstrap.js"></script>
-    <script src="~/Scripts/jquery-1.10.2.js"></script>
+        <script src="~/QQQQQ/js/bootstrap.min.js"></script>
+        <script src="~/QQQQQ/js/custom.js"></script>
+        <script src="~/QQQQQ/js/instafeed.min.js"></script>
+        <script src="~/QQQQQ/js/jquery.imagesloaded.js"></script>
+        <script src="~/QQQQQ/js/jquery.min.js"></script>
+        <script src="~/QQQQQ/js/lightbox-plus-jquery.min.js"></script>
+        <script src="~/QQQQQ/js/masonry.pkgd.min.js"></script>
+
+        <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+        <script src="~/Scripts/modernizr-2.6.2.js"></script>
+        <script src="~/Scripts/bootstrap.js"></script>
+        <script src="~/Scripts/jquery-1.10.2.js"></script>*@
+
+    <!-- Bootstrap core CSS -->
+    <link href="/QQQQQ/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/QQQQQ/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="/QQQQQ/css/style.css" rel="stylesheet" />
+    <link href="/QQQQQ/fonts/antonio-exotic/stylesheet.css" rel="stylesheet" />
+    <link href="/QQQQQ/css/lightbox.min.css" rel="stylesheet" />
+    <link href="/QQQQQ/css/responsive.css" rel="stylesheet" />
+    <script src="/QQQQQ/js/jquery.min.js"></script>
+    <script src="/QQQQQ/js/bootstrap.min.js"></script>
+    <script src="/QQQQQ/js/lightbox-plus-jquery.min.js"></script>
+    @*<script src="/QQQQQ/js/instafeed.min.js"></script>*@
+    <script src="/QQQQQ/js/custom.js"></script>
+
     <style>
         ul.Cart li {
             width: 260px;
@@ -40,52 +57,7 @@
             }
     </style>
     @* 購物車Js *@
-    <script type="text/javascript">
-        //網頁載入完成時執行之function
-        $(document).ready(function () {
-            console.log("ready!");
-        });
 
-        //加入編號為productId的商品進購物車
-        function AddToCart(productId) {
-            console.log(productId);
-            $.ajax({
-                type: 'POST',
-                url:@Url.Action("AddToCart", "Test"),
-                data: { id: productId }
-            })
-                .done(function (msg) {
-                    //將回傳的購物車頁面 填入 li#Cart
-                    $('li#Cart').html(msg);
-                });
-        }
-
-        //移除購物車內商品
-        function RemoveFromCart(productId) {
-            $.ajax({
-                type: 'POST',
-                url: '@Url.Action("RemoveFromCart", "Test")',
-                data: { id: productId }
-            })
-                .done(function (msg) {
-                    //將回傳的購物車頁面 填入 li#Cart
-                    $('li#Cart').html(msg);
-                });
-        }
-
-        //清空購物車內所有商品
-        function ClearCart() {
-            $.ajax({
-                type: 'POST',
-                url: '@Url.Action("ClearCart", "Test")',
-                data: {}
-            })
-            .done(function (msg) {
-                //將回傳的購物車頁面 填入 li#Cart
-                $('li#Cart').html(msg);
-            });
-        }
-    </script>
 </head>
 <body>
 
@@ -152,7 +124,7 @@
                         <ul>
                             <li id="Cart">
 
-                                @Html.Partial("_CartPartial")
+                                @Html.Partial("_CartPartial")                       @*呼叫表單_CartPartial*@    @*在shared/_CartPartial*@    @*購物車一直跑不出來   不行的話就要砍掉重做了*@
                             </li>
                         </ul>
                         @*<div class="text-right"><a data-hover="房型介紹" href="/Customer/Login"><span>登入</span></a></div>*@
@@ -246,17 +218,56 @@
 
 
 
+    @*<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>*@
 
+    <script type="text/javascript">
+        //網頁載入完成時執行之function
+        $(document).ready(function () {
+            //console.log("ready!");
+            //alert("ready");
+        });
 
+        //加入編號為productId的商品進購物車
+        function AddToCart(productId) {
+            console.log(productId);
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("AddToCart", "Cart")',
+                data: { id: productId }
+            })
+                .done(function (msg) {
+                    //將回傳的購物車頁面 填入 li#Cart
+                    $('li#Cart').html(msg);
+                });
+        }
 
+        //移除購物車內商品
+        function RemoveFromCart(productId) {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("RemoveFromCart", "Cart")',
+                data: { id: productId }
+            })
+                .done(function (msg) {
+                    //將回傳的購物車頁面 填入 li#Cart
+                    $('li#Cart').html(msg);
+                });
+        }
 
-
-
-
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-
-
+        //清空購物車內所有商品
+        function ClearCart() {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ClearCart", "Cart")',
+                data: {}
+            })
+            .done(function (msg) {
+                //將回傳的購物車頁面 填入 li#Cart
+                $('li#Cart').html(msg);
+            });
+        }
+    </script>
 
 </body>
 </html>

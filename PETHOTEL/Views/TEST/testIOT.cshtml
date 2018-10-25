@@ -1,0 +1,431 @@
+﻿
+@{
+    ViewBag.Title = "testIOT";
+}
+
+<h2>testIOT</h2>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>IOT</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+          crossorigin="anonymous">
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <style>
+        body {
+            background: url(./blublurvert.jpg) no-repeat center top;
+            background-size: 100%;
+            font-family: Yu Gothic, Microsoft JhengHei, 微軟正黑體;
+        }
+
+        .bgd {
+            background-color: rgba(0, 0, 0, 0.25);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 8px 16px;
+        }
+
+
+        /* *{
+            border: 1px solid blue
+        } */
+    </style>
+    <script>
+
+        // function getListDetail() {
+        //     $.ajax({
+        //         type: 'GET',
+        //         url: 'http://opendata.cwb.gov.tw/opendata/DIV2/O-A0001-001.xml',
+        //         dataType: 'xml',
+        //         // async:false,
+        //         success: function (e) {
+        //             // console.log(e);
+        //             // var data = $(e).find('location');
+        //             // var num = data.length;
+        //             // var city = data.eq(154).find('parameter').eq(0).find('parameterValue').text();
+        //             // var town = data.eq(154).find('parameter').eq(2).find('parameterValue').text();
+        //             // var temp = data.eq(154).find('weatherElement').eq(3).find('elementValue').text();
+        //             // var humd = data.eq(154).find('weatherElement').eq(4).find('elementValue').text();
+        //             // var h24r = data.eq(154).find('weatherElement').eq(7).find('elementValue').text();
+        //             // var wdsd = data.eq(154).find('weatherElement').eq(2).find('elementValue').text();
+
+        //             // $("#area").html(town);
+        //             // $("#temp").html(temp);
+        //             // $("#humd").html(humd);
+        //             // $("#h24r").html(h24r);
+        //             // $("#wdsd").html(wdsd);
+        //             // $("#listTime").html(timeOnlyDay);
+        //         }
+        //     });
+        // }
+        // window.onload = getListDetail();
+        function timeTik() {
+            var todayTik = new Date();
+            var currentDateTime = todayTik.getFullYear() + ' 年 ' + (todayTik.getMonth() + 1) + ' 月 ' + todayTik.getDate() + ' 日 ' + todayTik.getHours() + ':' + todayTik.getMinutes() + ':' + todayTik.getSeconds();
+            //document.getElementById("today").innerHTML = currentDateTime;
+            $("#today").html(currentDateTime);
+            setTimeout('timeTik()', 1000);
+        }
+        //window.onload =
+        timeTik();
+    </script>
+</head>
+
+<body onload="timeTik()">
+    <header class="bgd" style="color:white;">
+        <h4 style="padding-top: 10px;">
+            <i class="fas fa-home mr-2 ml-2"></i>RaspberryPi
+        </h4>
+    </header>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb ml-2 text-white mb-0" style="background-color: transparent;">
+            <li class="breadcrumb-item active">首頁</li>
+            <li class="breadcrumb-item active">Homekit</li>
+            <li class="breadcrumb-item " aria-current="page">控制面板</li>
+        </ol>
+    </nav>
+    <div class="jumbotron jumbotron-fluid bg-transparent" style="height: 200px;">
+        <div class="container">
+            <h1 class="display-4 text-white">
+                <i class="fas fa-cloud-sun mr-3"></i>室外氣溫
+                <span id="outsideTemp" class="mr-3">28.8</span>℃
+                <span class="ml-5">降雨機率</span>
+                <span id="rainRate" class="mr-3">11</span>%
+            </h1>
+            <p id="today" class="lead text-white " style="margin-left: 8%;"></p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card" style="height: 390px;">
+                    <div class="card-header text-center" style="color: rgba(0,0,0,0.6); font-weight: bold;font-size: 20px">
+                        <i class="fas fa-video mr-2"></i> 即時影像
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-4 mt-4">
+
+                            
+                            <img src="http://192.168.203.131:8001/?action=stream"; style="width:100%; height:250px; border-radius:8%"/>
+
+                            @*<h1 class="text-center" style="color: rgba(0,0,0,0.5)">
+                                <i class="fas fa-dog fa-3x mr-2"></i>
+                                <i class="fas fa-cat fa-3x"></i>
+                            </h1>
+                            <h5 class="text-center mt-5 ">看看頑皮蛋在做什麼</h5>*@
+                        </div>
+
+
+                        <hr>
+                        @*<div class="d-flex justify-content-center " style="">
+                            <a href="http://192.168.203.230:8081/" id="goMotion" target="_blank" class="btn btn-secondary">開啟影像</a>
+
+                        </div>*@
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card" style="height: 390px;">
+                    <div class="card-header text-center" style="color: rgba(0,0,0,0.6); font-weight: bold;font-size: 20px">
+                        <i class="fas fa-cloud mr-2"></i>天氣詳細資訊
+                    </div>
+                    <div id="showWeather" class="card-body">
+                        
+                        <ul class="ml-4" style="list-style: none;">
+                            <li class="mb-2">
+                                寵物姓名：
+                                <span id="area">南屯區</span>
+                            </li>
+                            <li class="mb-2">
+                                寵物類別：
+                                <span id="area"></span>
+                            </li>
+                            <li class="mb-2">
+                                寵物姓別：
+                                <span id="area"></span>
+                            </li>
+                            <li class="mb-2">
+                                入住日期：
+                                <span id="area"></span>
+                            </li>
+                            <li class="mb-2">
+                                退房日期：
+                                <span id="area"></span>
+                            </li>
+                            <li class="mb-2">
+                                顧客姓名：
+                                <span id="area"></span>
+                            </li>
+                            <li class="mb-2">
+                                房名：
+                                <span id="area"></span>
+                            </li>
+
+                        </ul>
+                        <hr class="mt-4">
+                        <div class="d-flex justify-content-center" style="">
+                            <a href="https://www.cwb.gov.tw/V7/observe/real/46749.htm" target="_blank" id="getJson" class="btn btn-secondary">中央氣象局</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card" style="height: 390px;">
+                    <div class="card-header text-center" style="color: rgba(0,0,0,0.6); font-weight: bold;font-size: 20px">
+                        <i class="fas fa-thermometer-half"></i> 溫度
+                    </div>
+              
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card" style="height: 390px;">
+                    <div class="card-header text-center" style="color: rgba(0,0,0,0.6); font-weight: bold;font-size: 20px">
+                        <i class="fas fa-umbrella mr-2"></i>濕度
+                    </div>
+
+                   
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+    <script>
+        var today = new Date();
+        var currentDateTime = today.getFullYear() + ' 年 ' + (today.getMonth() + 1) + ' 月 ' + today.getDate() +
+            ' 日 ' + today.getHours() + ':' + today.getMinutes();
+        var timeOnlyDay = today.getFullYear() + ' 年 ' + (today.getMonth() + 1) + ' 月 ' + today.getDate() +
+            ' 日 ';
+        $("#listTime").html(timeOnlyDay);
+        $("#goMotion").on('click', function (e) {
+            // e.preventDefault();
+            $.ajax({
+                url: 'http://192.168.203.230/cgi-bin/goMotion.cgi',
+                success: function () {
+                    console.log("OK");
+                    window.location.href = 'http://192.168.203.230:8081/';
+                }
+
+            })
+
+        });
+
+        $("#openSwitch").on('click',function () {
+            $.ajax({
+                type:'GET',
+                url:'http://192.168.203.230/cgi-bin/controlLed.cgi?id=1',
+                success:function(){
+                    console.log("light on")
+                }
+            })
+          });
+
+        $("#closeSwitch").on('click',function () {
+            $.ajax({
+                type:'GET',
+                url:'http://192.168.203.230/cgi-bin/controlLed.cgi?id=0',
+                success:function(){
+                    console.log("light off")
+                }
+            })
+          });
+        // var arr = [];
+        // $("#getSpeak").on('click',function () {
+        //     $.ajax({
+        //         type:'GET',
+        //         url:'https://api.thingspeak.com/channels/597556/feeds.json?results=100',
+        //         success: function (response) {
+        //             response = JSON.stringify(response);
+        //             response = JSON.parse(response);
+        //             response = response.reverse();
+
+        //             for(var i = 0 ;i < response["feeds"].length; i++){
+        //                 arr.push( response["feeds"][i]["field1"])
+        //             }
+        //             // var data1 = response["feeds"][0]["field1"];
+        //             // console.log(data1);
+        //             console.log(arr);
+        //             console.log(response);
+
+        //           }
+
+        //     })
+
+        //   })
+
+
+    </script>
+    <script>
+        window.chartColors = {
+            red: 'rgb(255, 99, 132)',
+            orange: 'rgb(255, 159, 64)',
+            yellow: 'rgb(255, 205, 86)',
+            green: 'rgb(75, 192, 192)',
+            blue: 'rgb(54, 162, 235)',
+            purple: 'rgb(153, 102, 255)',
+            grey: 'rgb(201, 203, 207)'
+        };
+
+        var colors = Chart.helpers.color;
+
+        window.onload = function () {
+            var arr=[];
+            var arrHumd = [];
+            $.ajax({
+                type:'GET',
+                url:'https://api.thingspeak.com/channels/597556/feeds.json?results=15',
+                async:false,
+                success: function (response) {
+                    response = JSON.stringify(response);
+                    response = JSON.parse(response);
+
+
+                    for(var i = 0 ;i < response["feeds"].length; i++){
+                        response["feeds"] = response["feeds"].reverse();
+                        arr.push( response["feeds"][i]["field1"])
+                        arrHumd.push(response["feeds"][i]["field2"])
+                    }
+                    // var data1 = response["feeds"][0]["field1"];
+                    // console.log(data1);
+                    console.log(arr);
+                    console.log(response);
+
+                  }
+            });
+
+
+            var lineChartData = {
+
+
+
+                26度
+            //labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+            //datasets: [{
+            //    label: '溫度變化',
+            //    // backgroundColor: colors(window.chartColors.red).alpha(0.5).rgbString(),
+            //    backgroundColor: 'rgba(0,0,0,0)',
+            //    borderColor: window.chartColors.red,
+            //    borderWidth: 1,
+            //    data: arr
+            },
+            ]
+        };
+
+        var lineHumdData = {
+            labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+            datasets: [{
+                label: '濕度變化',
+                backgroundColor: 'rgba(0,0,0,0)',
+                borderColor: window.chartColors.green,
+                borderWidth: 1,
+                data: arrHumd
+            },
+            ]
+        };
+
+
+
+
+
+            // line
+            var lineCtx = document.getElementById("lineCanvas").getContext("2d");
+            window.myline = new Chart(lineCtx, {
+                type: 'line',
+                data: lineChartData,
+                options: {
+                    responsive: true,
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: '溫度 / 時間',
+                        fontSize: '16'
+                    },
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                suggestedMin: 0,
+                                suggestedMax: 40
+                            }
+                        }],
+
+
+                    }
+                }
+            });
+
+            var lineCtxHumd = document.getElementById("lineChartHumd").getContext("2d");
+            window.myline = new Chart(lineCtxHumd, {
+                type: 'line',
+                data: lineHumdData,
+                options: {
+                    responsive: true,
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: '濕度 / 時間',
+                        fontSize: '16'
+                    },
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                suggestedMin: 0,
+                                suggestedMax: 100
+                            }
+                        }],
+
+
+                    }
+                }
+            });
+
+
+
+
+        };
+    </script>
+
+
+
+
+
+</body>
+
+</html>

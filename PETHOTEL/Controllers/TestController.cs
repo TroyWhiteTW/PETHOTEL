@@ -53,5 +53,11 @@ namespace PETHOTEL.Controllers
             currentCart.ClearCart();
             return PartialView("_CartPartial");
         }
+
+
+        public ActionResult testIOT()
+        {
+            return View();
+        }
     }
 }

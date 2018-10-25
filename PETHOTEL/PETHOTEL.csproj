@@ -610,6 +610,8 @@
     <Content Include="Views\Shared\_CartPartial.cshtml" />
     <Content Include="Views\TEST\Index.cshtml" />
     <Content Include="Views\Booking\Index.cshtml" />
+    <Content Include="Views\Shared\_LoginView.cshtml" />
+    <Content Include="Views\TEST\testIOT.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

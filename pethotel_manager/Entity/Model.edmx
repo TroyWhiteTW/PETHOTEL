@@ -59,7 +59,7 @@
           <Property Name="o_pet_sex" Type="int" />
           <Property Name="o_pet_content" Type="nvarchar(max)" />
           <Property Name="o_pet_image" Type="nvarchar(max)" />
-          <Property Name="o_pet_price" Type="money" />
+          <Property Name="o_pet_price" Type="decimal" Precision="19" Scale="4" />
           <Property Name="o_status" Type="int" />
           <Property Name="o_create_datetime" Type="datetime" />
           <Property Name="o_start_date" Type="datetime" />
@@ -73,7 +73,7 @@
           <Property Name="p_type" Type="int" />
           <Property Name="p_name" Type="nvarchar" MaxLength="50" />
           <Property Name="p_content" Type="nvarchar(max)" />
-          <Property Name="p_price" Type="money" />
+          <Property Name="p_price" Type="decimal" Precision="19" Scale="4" />
           <Property Name="p_count" Type="int" />
           <Property Name="p_image" Type="nvarchar(max)" />
         </EntityType>
@@ -84,7 +84,7 @@
           <Property Name="r_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="r_name" Type="nvarchar" MaxLength="50" />
           <Property Name="r_content" Type="nvarchar(max)" />
-          <Property Name="r_price" Type="money" />
+          <Property Name="r_price" Type="decimal" Precision="19" Scale="4" />
           <Property Name="r_temperature" Type="float" />
           <Property Name="r_wet" Type="float" />
           <Property Name="r_image" Type="nvarchar(max)" />

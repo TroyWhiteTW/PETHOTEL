@@ -54,7 +54,7 @@ namespace pethotel_manager.Controllers
                 VM.p_image = fileName;
             }
 
-            
+
 
             VM.create();
 

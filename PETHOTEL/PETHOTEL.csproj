@@ -215,10 +215,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\bookstyle.css" />
-    <Content Include="bookingwebbbb\index.html" />
     <Content Include="js\bookindex.js" />
-    <Content Include="bookingwebbbb\license.txt" />
-    <Content Include="bookingwebbbb\README.txt" />
     <Content Include="images\ban4.jpg" />
     <Content Include="images\c-arrows.png" />
     <Content Include="contactform\contactform.js" />

@@ -156,6 +156,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BookingController.cs" />
+    <Compile Include="Controllers\BuyController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -202,6 +203,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BookViewModel.cs" />
+    <Compile Include="Models\BuyViewModel.cs" />
     <Compile Include="Models\CartViewModel.cs" />
     <Compile Include="Models\Cart\Cart.cs" />
     <Compile Include="Models\Cart\CartItem.cs" />
@@ -612,6 +614,7 @@
     <Content Include="Views\Booking\Index.cshtml" />
     <Content Include="Views\Shared\_LoginView.cshtml" />
     <Content Include="Views\TEST\testIOT.cshtml" />
+    <Content Include="Views\Buy\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

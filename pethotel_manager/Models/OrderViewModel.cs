@@ -13,11 +13,11 @@ namespace pethotel_manager.Models
         public int c_id { get; set; }
         public string o_pet_name { get; set; }
         public int o_pet_type { get; set; }
-        public string o_pet_type_string {
-            get {
-                string s = "";
+        public string o_pet_type_string (int x){
+          
+                string s = "123";
 
-                switch (o_pet_type)
+                switch (x)
                 {
                     case 0:
                         s = "小狗";
@@ -30,7 +30,7 @@ namespace pethotel_manager.Models
 
                 return s;
 
-            }
+           
         }
 
 
@@ -53,11 +53,13 @@ namespace pethotel_manager.Models
             
             Order item = new Order();
             item.o_pet_name = this.o_pet_name;
+            item.r_id = this.r_id;
+            item.c_id = this.c_id;
             item.o_pet_type = this.o_pet_type;
             item.o_pet_sex = this.o_pet_sex;
             item.o_pet_content = this.o_pet_content;
-            item.o_pet_image = this.o_pet_image;
-            item.o_pet_price = this.o_pet_price;
+            //item.o_pet_image = this.o_pet_image;
+            //item.o_pet_price = this.o_pet_price;
             item.o_status = this.o_status;
             item.o_create_datetime = DateTime.Now;
             item.o_start_date = this.o_start_date;

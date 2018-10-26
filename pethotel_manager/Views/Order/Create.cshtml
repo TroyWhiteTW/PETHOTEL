@@ -2,9 +2,13 @@
 
 @{
     ViewBag.Title = "Create";
+
+
+
+
 }
 
-<h2>Create</h2>
+<h2>新增訂單</h2>
 
 
 @using (Html.BeginForm()) 
@@ -12,17 +16,24 @@
     @Html.AntiForgeryToken()
     
 <div class="form-horizontal">
-    <h4>Order</h4>
+
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 
 
     <div class="form-group">
-        @Html.Label("房間ID", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.Label("房間編號", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.r_id, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.r_id, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("客戶編號", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.c_id, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.c_id, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
@@ -30,22 +41,36 @@
         <div class="col-md-10">
             @Html.EditorFor(model => model.o_pet_name, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.o_pet_name, "", new { @class = "text-danger" })
+
         </div>
     </div>
 
     <div class="form-group">
         @Html.Label("寵物種類", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.o_pet_type, new { htmlAttributes = new { @class = "form-control" } })
+            @*@Html.EditorFor(model => model.o_pet_type, new { htmlAttributes = new { @class = "form-control" } })*@
             @Html.ValidationMessageFor(model => model.o_pet_type, "", new { @class = "text-danger" })
+            <select class="form-control" id="selector" name="o_pet_type">
+                <option value="0">小狗</option>
+                <option selected="selected" value="1">小貓</option>
+                <option value="2">小雞雞</option>
+            </select>
+
+
         </div>
     </div>
 
     <div class="form-group">
         @Html.Label("寵物性別", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.o_pet_sex, new { htmlAttributes = new { @class = "form-control" } })
+            @*@Html.EditorFor(model => model.o_pet_sex, new { htmlAttributes = new { @class = "form-control" } })*@
             @Html.ValidationMessageFor(model => model.o_pet_sex, "", new { @class = "text-danger" })
+
+            <select class="form-control" id="selector" name="o_pet_sex">
+                <option value="0">公</option>
+                <option selected="selected" value="1">母</option>
+                <option value="2">不知道</option>
+            </select>
         </div>
     </div>
 
@@ -57,51 +82,68 @@
         </div>
     </div>
 
-    <div class="form-group">
-        @Html.Label("寵物圖片上傳", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.o_pet_image, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.o_pet_image, "", new { @class = "text-danger" })
+    @*<div class="form-group">
+            @Html.Label("寵物圖片上傳", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.o_pet_image, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.o_pet_image, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.Label("價格", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.o_pet_price, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.o_pet_price, "", new { @class = "text-danger" })
-        </div>
-    </div>
+        <div class="form-group">
+            @Html.Label("價格", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.o_pet_price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.o_pet_price, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
 
-    <div class="form-group">
-        @Html.Label("訂單狀態", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.o_status, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.o_status, "", new { @class = "text-danger" })
-        </div>
-    </div>
+    @*<div class="form-group">
+            @Html.Label("訂單狀態", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.o_status, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.o_status, "", new { @class = "text-danger" })
 
-    <div class="form-group">
-        @Html.Label("下單日期", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.o_create_datetime, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.o_create_datetime, "", new { @class = "text-danger" })
-        </div>
-    </div>
+                <select class="form-control" id="selector" name="o_pet_type">
+                    <option value="0">小狗</option>
+                    <option selected="selected" value="1">小貓</option>
+                    <option value="2">小雞雞</option>
+                </select>
+
+            </div>
+        </div>*@
+
+    @*<div class="form-group">
+            @Html.Label("下單日期", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.o_create_datetime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.o_create_datetime, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
 
     <div class="form-group">
         @Html.Label("入住時間", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.o_start_date, new { htmlAttributes = new { @class = "form-control" } })
+            @*@Html.EditorFor(model => model.o_start_date, new { htmlAttributes = new { @class = "form-control" } })*@
             @Html.ValidationMessageFor(model => model.o_start_date, "", new { @class = "text-danger" })
+
+            <div class="controls">
+                <input type="date" id="o_start_date" class="form-control" name="o_start_date">
+
+            </div>
+
         </div>
     </div>
 
     <div class="form-group">
         @Html.Label("退房時間", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.o_end_date, new { htmlAttributes = new { @class = "form-control" } })
+            @*@Html.EditorFor(model => model.o_end_date, new { htmlAttributes = new { @class = "form-control" } })*@
             @Html.ValidationMessageFor(model => model.o_end_date, "", new { @class = "text-danger" })
+
+            <div class="controls">
+                <input type="date" id="o_end_date" class="form-control" name="o_end_date">
+            </div>
         </div>
     </div>
 
@@ -114,7 +156,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("返回訂單列表", "Index")
 </div>
 
 @section Scripts {

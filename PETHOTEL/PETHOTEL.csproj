@@ -216,6 +216,57 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\Antlr3.Runtime.pdb" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\EntityFramework.xml" />
+    <Content Include="bin\Microsoft.AI.Agent.Intercept.dll" />
+    <Content Include="bin\Microsoft.AI.DependencyCollector.dll" />
+    <Content Include="bin\Microsoft.AI.DependencyCollector.xml" />
+    <Content Include="bin\Microsoft.AI.PerfCounterCollector.dll" />
+    <Content Include="bin\Microsoft.AI.ServerTelemetryChannel.dll" />
+    <Content Include="bin\Microsoft.AI.Web.dll" />
+    <Content Include="bin\Microsoft.AI.Web.xml" />
+    <Content Include="bin\Microsoft.AI.WindowsServer.dll" />
+    <Content Include="bin\Microsoft.AI.WindowsServer.xml" />
+    <Content Include="bin\Microsoft.ApplicationInsights.dll" />
+    <Content Include="bin\Microsoft.AspNet.TelemetryCorrelation.dll" />
+    <Content Include="bin\Microsoft.AspNet.TelemetryCorrelation.xml" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\PETHOTEL.dll" />
+    <Content Include="bin\PETHOTEL.pdb" />
+    <Content Include="bin\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="bin\System.Diagnostics.DiagnosticSource.xml" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Helpers.xml" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Mvc.xml" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Optimization.xml" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\System.Web.WebPages.Deployment.xml" />
+    <Content Include="bin\System.Web.WebPages.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.xml" />
+    <Content Include="bin\WebGrease.dll" />
+    <Content Include="bin\zh-Hant\EntityFramework.resources.dll" />
+    <Content Include="bin\zh-Hant\EntityFramework.SqlServer.resources.dll" />
+    <Content Include="bin\zh-Hant\System.Web.Helpers.resources.dll" />
+    <Content Include="bin\zh-Hant\System.Web.Mvc.resources.dll" />
+    <Content Include="bin\zh-Hant\System.Web.Optimization.resources.dll" />
+    <Content Include="bin\zh-Hant\System.Web.Razor.resources.dll" />
+    <Content Include="bin\zh-Hant\System.Web.WebPages.Deployment.resources.dll" />
+    <Content Include="bin\zh-Hant\System.Web.WebPages.Razor.resources.dll" />
+    <Content Include="bin\zh-Hant\System.Web.WebPages.resources.dll" />
     <Content Include="css\bookstyle.css" />
     <Content Include="js\bookindex.js" />
     <Content Include="images\ban4.jpg" />
@@ -477,6 +528,8 @@
     <Content Include="QQQQQ\fonts\antonio-exotic\ufonts.com_exotic-350-bold-bt-webfont.woff" />
     <Content Include="QQQQQ\fonts\antonio-exotic\ufonts.com_exotic-350-bold-bt-webfont.woff2" />
     <Content Include="scss\style.scss" />
+    <Content Include="bin\ApplicationInsights.config" />
+    <Content Include="bin\PETHOTEL.dll.config" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -618,6 +671,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="bin\roslyn\" />
     <Folder Include="jicss\css\" />
     <Folder Include="jicss\js\" />
     <Folder Include="jicss\scss\" />

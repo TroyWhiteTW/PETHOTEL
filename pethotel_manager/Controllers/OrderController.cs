@@ -22,6 +22,16 @@ namespace pethotel_manager.Controllers
                 var query = from o in db.Order select o;
                 var dataList = query.ToList();
                 ViewBag.p = dataList;
+
+                var query_C = from o in db.Customer select o;
+                var dataList_C = query_C.ToList();
+                ViewBag.c = dataList_C;
+
+                var query_R = from o in db.Room select o;
+                var dataList_R = query_R.ToList();
+                ViewBag.r = dataList_R;
+
+
                 return View();
             }
             else                      //如果強行進入則導到Login頁
@@ -41,9 +51,22 @@ namespace pethotel_manager.Controllers
         public ActionResult Create(OrderViewModel VM)
         {
 
+                var selectList = new List<SelectListItem>()
+                {
+                     new SelectListItem {Text="text-1", Value="value-1" },
+                     new SelectListItem {Text="text-2", Value="value-2" },
+                     new SelectListItem {Text="text-3", Value="value-3" },
+                };
+
+                //預設選擇哪一筆
+                selectList.Where(q => q.Value == "value-2").First().Selected = true;
+
+                ViewBag.SelectList = selectList;
+
+
             VM.create();
 
-            return View();
+            return RedirectToAction("Index");
         }
 
 
@@ -64,11 +87,13 @@ namespace pethotel_manager.Controllers
         [HttpPost]
         public ActionResult Edit(Models.OrderViewModel postback)
         {
+            //Entities db = new Entities();
             var query = from o in db.Order
                         where o.o_id == postback.o_id
                         select o;
 
             var ord = query.FirstOrDefault();
+            //var item = db.Customer.SingleOrDefault(a => a.c_id == o_c_id);
             ord.o_id = postback.o_id;
             ord.o_pet_name = postback.o_pet_name;
             ord.o_pet_type = postback.o_pet_type;

@@ -116,22 +116,22 @@
                     <div class="card-body">
                         <div class="mb-4 mt-4">
 
-                            
-                            <img src="http://192.168.203.183:8001/?action=stream"; style="width:100%; height:250px; border-radius:8%"/>
+
+                            <img src="http://192.168.203.183:8001/?action=stream" ; style="width:100%; height:250px; border-radius:8%" />
 
                             @*<h1 class="text-center" style="color: rgba(0,0,0,0.5)">
-                                <i class="fas fa-dog fa-3x mr-2"></i>
-                                <i class="fas fa-cat fa-3x"></i>
-                            </h1>
-                            <h5 class="text-center mt-5 ">看看頑皮蛋在做什麼</h5>*@
+                                    <i class="fas fa-dog fa-3x mr-2"></i>
+                                    <i class="fas fa-cat fa-3x"></i>
+                                </h1>
+                                <h5 class="text-center mt-5 ">看看頑皮蛋在做什麼</h5>*@
                         </div>
 
 
                         <hr>
                         @*<div class="d-flex justify-content-center " style="">
-                            <a href="http://192.168.203.230:8081/" id="goMotion" target="_blank" class="btn btn-secondary">開啟影像</a>
+                                <a href="http://192.168.203.230:8081/" id="goMotion" target="_blank" class="btn btn-secondary">開啟影像</a>
 
-                        </div>*@
+                            </div>*@
 
                     </div>
                 </div>
@@ -142,7 +142,7 @@
                         <i class="fas fa-cloud mr-2"></i>天氣詳細資訊
                     </div>
                     <div id="showWeather" class="card-body">
-                        
+
                         <ul class="ml-4" style="list-style: none;">
                             <li class="mb-2">
                                 寵物姓名：
@@ -174,30 +174,32 @@
                             </li>
 
                         </ul>
-                       
-                        
+
+
                     </div>
 
                 </div>
             </div>
-            
+
         </div>
         <div class="row">
             <div class="col-md-6">
-                <div class="card" style="height: 390px;">
+                <div class="card" id="temp" style="height: 390px;">
                     <div class="card-header text-center" style="color: rgba(0,0,0,0.6); font-weight: bold;font-size: 20px">
-                        <i class="fas fa-thermometer-half"></i> 溫度
+                        <i class="fas fa-thermometer-half"></i>  
+                        <div id="aaa"></div>
                     </div>
-              
+
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="card" style="height: 390px;">
                     <div class="card-header text-center" style="color: rgba(0,0,0,0.6); font-weight: bold;font-size: 20px">
-                        <i class="fas fa-umbrella mr-2"></i>濕度
+                        <i class="fas fa-umbrella mr-2"></i>
+                        <div id="bbb"></div>
                     </div>
 
-                   
+
                 </div>
             </div>
 
@@ -242,49 +244,135 @@
 
         });
 
-        $("#openSwitch").on('click',function () {
+        $("#openSwitch").on('click', function () {
             $.ajax({
-                type:'GET',
-                url:'http://192.168.203.230/cgi-bin/controlLed.cgi?id=1',
-                success:function(){
+                type: 'GET',
+                url: 'http://192.168.203.230/cgi-bin/controlLed.cgi?id=1',
+                success: function () {
                     console.log("light on")
                 }
             })
-          });
+        });
 
-        $("#closeSwitch").on('click',function () {
+        $("#closeSwitch").on('click', function () {
             $.ajax({
-                type:'GET',
-                url:'http://192.168.203.230/cgi-bin/controlLed.cgi?id=0',
-                success:function(){
+                type: 'GET',
+                url: 'http://192.168.203.230/cgi-bin/controlLed.cgi?id=0',
+                success: function () {
                     console.log("light off")
                 }
             })
-          });
-        // var arr = [];
-        // $("#getSpeak").on('click',function () {
-        //     $.ajax({
-        //         type:'GET',
-        //         url:'https://api.thingspeak.com/channels/597556/feeds.json?results=100',
-        //         success: function (response) {
-        //             response = JSON.stringify(response);
-        //             response = JSON.parse(response);
-        //             response = response.reverse();
+        });
+        var arr = [];
+        $("#getSpeak").on('click', function () {
+            $.ajax({
+                type: 'GET',
+                url: 'https://api.thingspeak.com/channels/597560/feeds.json?results=2',
+                success: function (response) {
+                    response = JSON.stringify(response);
+                    response = JSON.parse(response);
+                    response = response.reverse();
 
-        //             for(var i = 0 ;i < response["feeds"].length; i++){
-        //                 arr.push( response["feeds"][i]["field1"])
-        //             }
-        //             // var data1 = response["feeds"][0]["field1"];
-        //             // console.log(data1);
-        //             console.log(arr);
-        //             console.log(response);
+                    for (var i = 0; i < response["feeds"].length; i++) {
+                        arr.push(response["feeds"][i]["field1"])
+                    }
+                    //var data1 = response["feeds"][0]["field1"];
+                    //console.log(data1);
+                    console.log(arr);
+                    console.log(response);
 
-        //           }
+                }
 
-        //     })
+            })
 
-        //   })
+        })
 
+
+    </script>
+    
+    <script>
+        @** @param sMethod { string } 'GET' or 'POST'
+            * @param sUrl { string }
+ * @param oParameter { JSON }
+ * @param fSuccessCallBack { function} callback function* @param fFailCallBack { function} callback function optional
+ */*@
+function ajax(sMethod, sUrl, oParameter, fSuccessCallBack, fFailCallBack) {
+    // if (sMethod !== 'GET' || sMethod !== 'POST') {
+    //     return 'method error!!';
+    // }
+
+    // 1. 創建 ajax 物件
+    let xhttp = new XMLHttpRequest();
+
+    switch (sMethod) {
+        case 'GET':
+            if (oParameter !== null) {
+                sUrl += "?";
+                for (let key in oParameter) {
+                    sUrl += key + "=" + oParameter[key] + "&";
+                }
+                sUrl = sUrl.substr(0, sUrl.length - 1);
+            }
+
+            // 2. 連接伺服器
+            xhttp.open(sMethod, sUrl, true);
+
+            // 3. 發送請求
+            xhttp.send();
+            break;
+        case 'POST':
+            let sParameter = "";
+            if (oParameter !== null) {
+                for (let key in oParameter) {
+                    sParameter += key + "=" + oParameter[key] + "&";
+                }
+                sParameter = sParameter.substr(0, sParameter.length - 1);
+            }
+            xhttp.open(sMethod, sUrl, true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send(sParameter);
+            break;
+    }
+
+    // 4. 接收返回
+    xhttp.onreadystatechange = () => {
+        if (xhttp.readyState === 4) {
+            if (xhttp.status === 200) {
+                fSuccessCallBack(xhttp.responseText);
+            } else {
+                if (fFailCallBack) {
+                    fFailCallBack(xhttp.status);
+                }
+            }
+        }
+    };
+        }
+
+
+        function a() {
+            ajax('GET', 'http://192.168.203.231/cgi-bin/feel1.cgi', null, (response) => {  //溫度
+              
+              
+
+                var test = JSON.parse(response);
+                //innerText('temp: ' + test.Temp);
+
+                //console.log('hum: ' + test.Hum);
+                //console.log('----------');
+                
+                //alert(response);
+
+                //a();
+                document.getElementById('aaa').innerText = test.Temp + "℃";
+
+                document.getElementById('bbb').innerText = test.Hum + "%";
+            });
+        }
+
+        a();
+
+   
+        
 
     </script>
     <script>
@@ -418,6 +506,14 @@
 
 
         };
+
+
+
+
+
+
+
+
     </script>
 
 

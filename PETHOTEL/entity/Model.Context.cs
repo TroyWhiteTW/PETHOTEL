@@ -26,11 +26,12 @@ namespace PETHOTEL.entity
         }
     
         public virtual DbSet<Customer> Customer { get; set; }
-        public virtual DbSet<Invoice> Invoice { get; set; }
         public virtual DbSet<News> News { get; set; }
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<Room> Room { get; set; }
         public virtual DbSet<Manager> Manager { get; set; }
+        public virtual DbSet<Invoice> Invoice { get; set; }
+        public virtual DbSet<Invoice_Detail> Invoice_Detail { get; set; }
     }
 }

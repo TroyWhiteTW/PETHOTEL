@@ -12,11 +12,11 @@ namespace pethotel_manager.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Invoice
+    public partial class Invoice_Detail
     {
         public int i_id { get; set; }
-        public Nullable<int> c_id { get; set; }
-        public Nullable<int> i_status { get; set; }
-        public Nullable<int> i_send { get; set; }
+        public int id_id { get; set; }
+        public int p_id { get; set; }
+        public int r_id { get; set; }
     }
 }

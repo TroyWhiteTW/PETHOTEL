@@ -33,11 +33,28 @@ namespace pethotel_manager.Controllers
 
         public ActionResult Create()
         {
+            var selectList = new List<SelectListItem>()
+                {
+                     new SelectListItem {Text="text-1", Value="value-1" },
+                     new SelectListItem {Text="text-2", Value="value-2" },
+                     new SelectListItem {Text="text-3", Value="value-3" },
+                };
+
+            //預設選擇哪一筆
+            selectList.Where(q => q.Value == "value-2").First().Selected = true;
+
+            ViewBag.SelectList = selectList;
+
+
             return View();
         }
         [HttpPost]
         public ActionResult Create(ProductViewModel VM, HttpPostedFileBase productImg)
         {
+
+
+
+
             if (productImg != null && productImg.ContentLength > 0)
             {
                 //設定上傳路徑               

@@ -45,6 +45,7 @@ namespace PETHOTEL.Controllers
         //Login POST
         [HttpPost]
         [ValidateAntiForgeryToken]
+        //[Authorize]
         public ActionResult Login(LoginViewModel lv)
         {
 
@@ -79,7 +80,7 @@ namespace PETHOTEL.Controllers
         public ActionResult Logout()
         {
 
-            Session.RemoveAll();
+            Session["Customer"] = "";
 
             return RedirectToAction("Login", "Customer");
             //return RedirectToAction("Login", "Account");

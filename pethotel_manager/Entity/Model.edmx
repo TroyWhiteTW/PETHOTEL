@@ -24,10 +24,18 @@
             <PropertyRef Name="i_id" />
           </Key>
           <Property Name="i_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="p_id" Type="int" />
           <Property Name="c_id" Type="int" />
-          <Property Name="r_id" Type="int" />
           <Property Name="i_status" Type="int" />
+          <Property Name="i_send" Type="int" />
+        </EntityType>
+        <EntityType Name="Invoice_Detail">
+          <Key>
+            <PropertyRef Name="id_id" />
+          </Key>
+          <Property Name="i_id" Type="int" Nullable="false" />
+          <Property Name="id_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="p_id" Type="int" Nullable="false" />
+          <Property Name="r_id" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Manager">
           <Key>
@@ -92,6 +100,7 @@
         <EntityContainer Name="pethotelDBModelStoreContainer">
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invoice_Detail" EntityType="Self.Invoice_Detail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Manager" EntityType="Self.Manager" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
@@ -115,16 +124,6 @@
           <Property Name="c_gmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="c_valid_guid" Type="Guid" />
           <Property Name="c_status" Type="Int32" />
-        </EntityType>
-        <EntityType Name="Invoice">
-          <Key>
-            <PropertyRef Name="i_id" />
-          </Key>
-          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="p_id" Type="Int32" />
-          <Property Name="c_id" Type="Int32" />
-          <Property Name="r_id" Type="Int32" />
-          <Property Name="i_status" Type="Int32" />
         </EntityType>
         <EntityType Name="News">
           <Key>
@@ -180,12 +179,13 @@
         </EntityType>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Customer" EntityType="Self.Customer" />
-          <EntitySet Name="Invoice" EntityType="Self.Invoice" />
           <EntitySet Name="News" EntityType="Self.News" />
           <EntitySet Name="Order" EntityType="Self.Order" />
           <EntitySet Name="Product" EntityType="Self.Product" />
           <EntitySet Name="Room" EntityType="Self.Room" />
           <EntitySet Name="Manager" EntityType="pethotelDBModel.Manager" />
+          <EntitySet Name="Invoice" EntityType="pethotelDBModel.Invoice" />
+          <EntitySet Name="Invoice_Detail" EntityType="pethotelDBModel.Invoice_Detail" />
         </EntityContainer>
         <EntityType Name="Manager">
           <Key>
@@ -194,6 +194,24 @@
           <Property Name="m_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="m_account" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="m_password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="i_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="c_id" Type="Int32" />
+          <Property Name="i_status" Type="Int32" />
+          <Property Name="i_send" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Invoice_Detail">
+          <Key>
+            <PropertyRef Name="id_id" />
+          </Key>
+          <Property Name="i_id" Type="Int32" Nullable="false" />
+          <Property Name="id_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="p_id" Type="Int32" Nullable="false" />
+          <Property Name="r_id" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -213,17 +231,6 @@
                 <ScalarProperty Name="c_gmail" ColumnName="c_gmail" />
                 <ScalarProperty Name="c_valid_guid" ColumnName="c_valid_guid" />
                 <ScalarProperty Name="c_status" ColumnName="c_status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Invoice">
-            <EntityTypeMapping TypeName="pethotelDBModel.Invoice">
-              <MappingFragment StoreEntitySet="Invoice">
-                <ScalarProperty Name="i_id" ColumnName="i_id" />
-                <ScalarProperty Name="p_id" ColumnName="p_id" />
-                <ScalarProperty Name="c_id" ColumnName="c_id" />
-                <ScalarProperty Name="r_id" ColumnName="r_id" />
-                <ScalarProperty Name="i_status" ColumnName="i_status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -289,6 +296,26 @@
                 <ScalarProperty Name="m_password" ColumnName="m_password" />
                 <ScalarProperty Name="m_account" ColumnName="m_account" />
                 <ScalarProperty Name="m_id" ColumnName="m_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoice">
+            <EntityTypeMapping TypeName="pethotelDBModel.Invoice">
+              <MappingFragment StoreEntitySet="Invoice">
+                <ScalarProperty Name="i_send" ColumnName="i_send" />
+                <ScalarProperty Name="i_status" ColumnName="i_status" />
+                <ScalarProperty Name="c_id" ColumnName="c_id" />
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoice_Detail">
+            <EntityTypeMapping TypeName="pethotelDBModel.Invoice_Detail">
+              <MappingFragment StoreEntitySet="Invoice_Detail">
+                <ScalarProperty Name="r_id" ColumnName="r_id" />
+                <ScalarProperty Name="p_id" ColumnName="p_id" />
+                <ScalarProperty Name="id_id" ColumnName="id_id" />
+                <ScalarProperty Name="i_id" ColumnName="i_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

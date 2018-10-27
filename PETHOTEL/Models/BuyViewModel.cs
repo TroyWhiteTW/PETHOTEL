@@ -8,6 +8,13 @@ namespace PETHOTEL.Models
 {
     public class BuyViewModel
     {
+
+
+
+
+
+
+
         /// <summary>
      /// 收貨人姓名
      /// </summary>

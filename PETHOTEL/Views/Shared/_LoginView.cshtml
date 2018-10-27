@@ -1,19 +1,20 @@
 ﻿
-@if (Request.IsAuthenticated)
+@if(!string.IsNullOrEmpty(Session["Customer"].ToString()))
 {
     using (Html.BeginForm("Logout", "Customer", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
-        @Html.AntiForgeryToken()
-
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                @Html.ActionLink("Hello " + User.Identity.Name + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-            </li>
-            <li>
-                @Html.ActionLink("我的訂單", "MyOrder", "Order", routeValues: null, htmlAttributes: new { title = "Order" })
-            </li>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()">登出</a></li>
-        </ul>
+        //@Html.AntiForgeryToken()
+        
+<ul class="nav navbar-nav navbar-right " style="margin-right:200px">
+    <li>
+        @Html.ActionLink("Hello " + Session["Customer"].ToString() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+    </li>
+    <li id="Cart">@Html.Partial("_CartPartial")</li>
+    <li>
+        @Html.ActionLink("我的訂單", "MyOrder", "Order", routeValues: null, htmlAttributes: new { title = "Order" })
+    </li>
+    <li><a href="javascript:document.getElementById('logoutForm').submit()">登出</a></li>
+</ul>
     }
 }
 else

@@ -27,7 +27,5 @@ namespace PETHOTEL.entity
         public Nullable<System.DateTime> o_create_datetime { get; set; }
         public Nullable<System.DateTime> o_start_date { get; set; }
         public Nullable<System.DateTime> o_end_date { get; set; }
-
-        
     }
 }

@@ -16,7 +16,7 @@ namespace PETHOTEL.Models.Cart
         }
 
         //儲存所有商品
-        private List<CartItem> cartItems;
+        public List<CartItem> cartItems;
 
         /// <summary>
         /// 取得購物車內商品的總數量

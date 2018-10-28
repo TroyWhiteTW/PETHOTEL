@@ -1,9 +1,15 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <title>@ViewBag.Title </title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -26,7 +32,8 @@
                     <li>@Html.ActionLink("連絡人", "Contact", "Home")</li>
                     <li>@Html.ActionLink("商品管理", "Index", "Product")</li>
                     <li>@Html.ActionLink("房間管理", "Index", "Room")</li>
-                    <li>@Html.ActionLink("訂單管理", "Index", "Order")</li>
+                    <li>@Html.ActionLink("房間訂單管理", "Index", "Order")</li>
+                    <li>@Html.ActionLink("商品訂單管理", "Index", "Invoice")</li>
                     <li>@Html.ActionLink("最新消息管理", "Index", "News")</li>
 
                     <li>@Html.ActionLink("登出", "Logout", "Manager")</li>

@@ -106,7 +106,7 @@ namespace PETHOTEL.Controllers
                     //db.Order.AddRange(orderDetails);
                     //db.SaveChanges();
                 }
-                return View("Thanks");
+                return RedirectToAction("Index");
             }
             return RedirectToAction("Index");
 

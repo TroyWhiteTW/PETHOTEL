@@ -49,21 +49,21 @@ namespace pethotel_manager.Controllers
 
             mySelectItemList.Add(new SelectListItem()
             {
-                Text = "最新消息",
+                Text = "其他",
                 Value = "0",
                 Selected = false
             });
 
             mySelectItemList.Add(new SelectListItem()
             {
-                Text = "新品上架",
+                Text = "最新消息",
                 Value = "1",
                 Selected = false
             });
 
             mySelectItemList.Add(new SelectListItem()
             {
-                Text = "其他",
+                Text = "新品上架",
                 Value = "2",
                 Selected = false
             });
@@ -106,7 +106,7 @@ namespace pethotel_manager.Controllers
 
             VM.create();
 
-            return View();
+            return RedirectToAction("Index");
         }
    
         public ActionResult Edit(int id)

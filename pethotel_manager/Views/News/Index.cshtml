@@ -14,70 +14,69 @@
 <head>
     <meta charset="utf-8" />
     <title>Table Style</title>
+    
 
-
-    <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
-    <link rel="stylesheet" href="~/css/樣式.CSS">
+            <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
+            @*<link rel="stylesheet" href="~/css/樣式.CSS">*@
 </head>
 <body>
-    <div class="table-title">
-        <h3>最新消息列表</h3>
+ 
+    <div class="container">
+        <div class="table-title">
+            <h3>最新消息列表</h3>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr class="info">
+                    <th scope="col" class="text-center">消息<br>編號</th>
+
+                    <th scope="col" class="text-center">消息<br>名稱</th>
+
+                    <th scope="col" class="text-center">消息<br>內容</th>
+
+                    <th scope="col" class="text-center">消息類別</th>
+
+                    <th scope="col" class="text-center">消息<br>日期</th>
+
+
+
+                    <th scope="col" class="text-center">管理者<br>操作</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (var ord in ViewBag.p)
+                {
+
+                    <tr class="text-uppercase">
+                        <th style="vertical-align: middle !important;text-align: center;"scope="row">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp @ord.n_id</th>
+
+                        <td style="vertical-align: middle !important;text-align: center;"class="text-center">@ord.n_title</td>
+
+                        <td style="vertical-align: middle !important"class="text-left">@ord.n_content</td>
+                        <td style="vertical-align: middle !important;text-align: center;"class="text-center">@ord.n_type</td>
+
+                        <td style="vertical-align: middle !important;text-align: center;"class="text-center" placeholder="2018-10-25">@ord.n_create_time</td>
+
+
+                        <td style="vertical-align: middle !important;text-align: center;">
+
+
+                            <a class="btn btn-warning " href="/News/Edit/@ord.n_id">修改</a>
+
+
+                            <a class="btn btn-danger " href="/News/Delete/@ord.n_id">刪除</a>
+
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+
+            </table>
+        <a class="btn btn-primary btnCreate" href="/News/Create">商品上架</a>
+
     </div>
-
-    <table class="table-fill">
-        <thead>
-            <tr>
-                <th class="">消息編號</th>
-               
-                <th class="text-left">消息名稱</th>
-               
-                <th class="text-left">消息內容</th>
-                
-                <th class="text-left">消息類別</th>
-               
-                <th class="text-left">消息日期</th>
-              
-
-
-                <th class="text-left">管理者操作</th>
-            </tr>
-
-        </thead>
-
-        <tbody class="table-hover">
-
-
-
-
-            @foreach (var ord in ViewBag.p)
-            {
-            <tr>
-                <td class="text-left">@ord.n_id</td>
-                <td class="text-left">@ord.n_title</td>
-
-                <td class="text-left">@ord.n_content</td>
-                <td class="text-left">@ord.n_type</td>
-
-                <td class="text-left" placeholder="2018-10-25">@ord.n_create_time</td>
-                
-
-                <td>
-
-
-                    <a class="btn btn-warning " href="/News/Edit/@ord.n_id">修改</a>
-
-
-                    <a class="btn btn-danger " href="/News/Delete/@ord.n_id">刪除</a>
-
-                </td>
-            </tr>
-
-            }
-
-        </tbody>
-    </table>
-    <a class="btn btn-primary btnCreate" href="/News/Create">商品上架</a>
-
 </body>
 
 </html>

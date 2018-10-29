@@ -27,18 +27,18 @@ namespace pethotel_manager.Controllers
             return RedirectToAction("Login");
 
         }
-
-        public ActionResult Login()
-        {
-            return View(); ;
-        }
-
         public ActionResult LP33()
         {
 
 
             return RedirectToAction("Registration");
         }
+        public ActionResult Login()
+        {
+            return View(); ;
+        }
+
+
 
 
 

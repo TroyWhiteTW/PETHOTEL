@@ -47,7 +47,7 @@
 <section class="gallery-block gallery-front">
     <div class="container">
         <div class="blog-list">
-            <h4>上架商品</h4>
+            <h4>房間上架</h4>
 
             <div class="row">
 
@@ -58,15 +58,13 @@
                     <div class="gallery-image">
                         <img class="img-responsive" src="@room.r_image_href" style="height: 200px; width: 200px;">
                         <div class="overlay">
-                            <a class="info pop example-image-link img-responsive" href="@room.r_image_href" data-lightbox="example-1"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                            <p><a>加入購物車<i class="fa fa-shopping-cart" aria-hidden="true"></i></a></p>
+                            <p><a href="@Url.Action("Index", "Booking")">我要訂房!<i class="fa fa-shopping-cart" aria-hidden="true"></i></a></p>
                         </div>
                     </div>
-                    <p> @room.r_name</p>
+                    <p>房間編號： @room.r_id</p>
+                    <p>房間名稱： @room.r_name</p>
                     <p>售價 : @room.r_price</p>
-                    <p>@room.r_content</p>
-                    
-
+                    <p>房間資訊：@room.r_content</p>
                 </div>
                 }
             </div>

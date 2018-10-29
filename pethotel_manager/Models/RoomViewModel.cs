@@ -54,7 +54,7 @@ namespace pethotel_manager.Models
         {
             Entities en = new Entities();
             Room roomitem = new Room();
-            //roomitem.r_id = this.r_id;
+            roomitem.r_id = this.r_id;
             roomitem.r_name = this.r_name;
             roomitem.r_content = this.r_content;
             roomitem.r_price = this.r_price;

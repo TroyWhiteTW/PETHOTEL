@@ -12,14 +12,14 @@ namespace PETHOTEL.Controllers
         // GET: Room
         public ActionResult Index()
         {
-            //if (Session["customer"] != null) { 
+            if (Session["customer"] != null) { 
             RoomViewModel rvm = new RoomViewModel();
             return View(rvm.getlist());
-           //}
-            //else
-            //{
-            //    return RedirectToAction("Login", "Customer");
-            //}
+            }
+            else
+            {
+                return RedirectToAction("Login", "Customer");
+            }
         }
     }
 }

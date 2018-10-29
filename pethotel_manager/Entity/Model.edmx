@@ -32,8 +32,8 @@
           <Key>
             <PropertyRef Name="id_id" />
           </Key>
-          <Property Name="i_id" Type="int" Nullable="false" />
           <Property Name="id_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="i_id" Type="int" Nullable="false" />
           <Property Name="p_id" Type="int" Nullable="false" />
           <Property Name="r_id" Type="int" Nullable="false" />
         </EntityType>

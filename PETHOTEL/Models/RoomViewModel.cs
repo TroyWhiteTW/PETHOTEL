@@ -30,6 +30,7 @@ namespace PETHOTEL.Models
             foreach (var item in dblist)
             {
                 RoomViewModel ro = new RoomViewModel();
+                ro.r_id = item.r_id;
                 ro.r_image = item.r_image;
                 ro.r_name = item.r_name;
                 ro.r_price = item.r_price;

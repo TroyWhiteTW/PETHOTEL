@@ -51,7 +51,7 @@ namespace pethotel_manager.Controllers
             if(query == 1)
             {
                 Session["managerid"] = reg.m_account;
-                return RedirectToAction("Index", "Product");
+                return RedirectToAction("Index", "Home");
             }
 
 

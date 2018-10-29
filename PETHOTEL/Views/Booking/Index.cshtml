@@ -22,18 +22,26 @@
         <div class="form-group" style="margin-top:200px">
             <h2 class="heading">預訂房間 Booking Room</h2>
             <div class="controls">
+                <input type="text" id="r_id" class="floatLabel" name="r_id" value="@Model.r_id">
+                <label for="name">房間編號</label>
+            </div>
+            <div class="controls">
+                <input type="text" id="c_id" class="floatLabel" name="c_id" value="@Model.c_id">
+                <label for="name">顧客編號</label>
+            </div>
+            <div class="controls">
                 <input type="text" id="o_pet_name" class="floatLabel" name="o_pet_name">
-                <label for="name">姓名</label>
+                <label for="name">寵物姓名</label>
             </div>
             <div class="controls">
-                <input type="text" id="o_pet_sex" class="floatLabel" name="o_pet_sex">
-                <label for="email">手機</label>
+                <input type="text" id="o_pet_type" class="floatLabel" name="o_pet_type">
+                <label for="email">寵物類別</label>
             </div>
             <div class="controls">
-                <input type="tel" id="o_pet_image" class="floatLabel" name="o_pet_image">
-                <label for="phone">地址</label>
+                <input type="tel" id="o_pet_sex" class="floatLabel" name="o_pet_sex">
+                <label for="phone">寵物性別</label>
             </div>
-
+           
         </div>
 
         <!--  Details -->

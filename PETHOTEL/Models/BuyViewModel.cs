@@ -16,8 +16,8 @@ namespace PETHOTEL.Models
 
 
         /// <summary>
-     /// 收貨人姓名
-     /// </summary>
+        /// 收貨人姓名
+        /// </summary>
         [Required]
         [Display(Name = "收貨人姓名")]
         [StringLength(30, ErrorMessage = "{0} 的長度至少必須為 {2} 個字元。"

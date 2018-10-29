@@ -23,15 +23,15 @@
     <tbody>
         @foreach (var pd in cart) /* 使用foreach將所有商品列出 */
         {
-            <tr>
+        <tr>
+            
+            <td><img class="img-responsive" src="~/images/pic01.jpg" width="100" height="100" /></td>
+            <td>@pd.Name</td>
 
-                <td><img class="img-responsive" src="~/images/pic01.jpg" width="50" height="50" /></td>
-                <td>@pd.Name</td>
-
-                <td>@pd.Quantity</td>
-                <td>@pd.Price</td>
-                <td>@pd.Amount</td>
-            </tr>
+            <td>@pd.Price</td>
+            <td>@pd.Quantity</td>
+            <td>@pd.Amount</td>
+        </tr>
         }
         <tr>
             <td colspan="3"></td>

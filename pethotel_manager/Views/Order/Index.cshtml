@@ -1,7 +1,59 @@
-﻿
+﻿@model pethotel_manager.Models.OrderIndexViewModel
+@using pethotel_manager.Models;
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+    string o_pet_type_string(int x)
+    {
+
+        string s = "未定義";
+
+        switch (x)
+        {
+            case 0:
+                s = "小狗";
+                break;
+            case 1:
+                s = "小貓";
+                break;
+            case 2:
+                s = "小雞雞";
+                break;
+
+        }
+
+        return s;
+
+
+    }
+
+    string o_pet_sex_string(int x)
+    {
+
+        string s = "未定義";
+
+        switch (x)
+        {
+            case 0:
+                s = "公";
+                break;
+            case 1:
+                s = "母";
+                break;
+            case 2:
+                s = "小雞雞";
+                break;
+
+        }
+
+        return s;
+
+
+    }
+
 }
 
 <html>
@@ -17,20 +69,24 @@
     <div class="table-title">
         <h3>訂單列表</h3>
     </div>
-
-    <table class="table-fill">
+    @*<div class="col-lg-12">*@
+    <table>
         <thead>
             <tr>
                 <th class="">訂單編號</th>
                 <th class="">房間編號</th>
+                <th class="">房間名稱</th>
+                <th class="">房間價格</th>
+                <th class="">客戶編號</th>
+                <th class="text-nowrap">客戶姓名</th>
+                <th class="text-nowrap">客戶電話</th>
+                <th class="text-nowrap">客戶地址</th>
                 <th class="text-left">寵物名稱</th>
                 <th class="text-left">寵物種類</th>
                 <th class="text-left">寵物性別</th>
                 <th class="text-left">備註欄</th>
-                <th class="text-left">寵物圖片上傳</th>
-                <th class="text-left">價格</th>
                 <th class="text-left">訂單狀態</th>
-                <th class="text-left">下單日期</th>
+                @*<th class="text-left">下單日期</th>*@
                 <th class="text-left">入住時間</th>
                 <th class="text-left">退房時間</th>
 
@@ -45,43 +101,92 @@
 
 
 
-            @foreach (var ord in ViewBag.p)
+            @foreach (OrderViewModel ord in Model.OrderList)
             {
                 <tr>
+
                     <td class="text-left">@ord.o_id</td>
-                    <td class="text-left">@ord.o_id</td>
-                    <td class="text-left">@ord.o_pet_name</td>
-                    <td class="text-left">@ord.o_pet_type</td>
-                    <td class="text-left">@ord.o_pet_sex</td>
-                    <td class="text-left">@ord.o_pet_content</td>
-                    <td class="text-left">@ord.o_pet_image</td>
-                    <td class="text-left">@ord.o_pet_price</td>
-                    <td class="text-left">@ord.o_status</td>
-                    <td class="text-left">@ord.o_create_datetime</td>
-                    <td class="text-left">@ord.o_start_date</td>
-                    <td class="text-left">@ord.o_end_date</td>
-                    
+                    <td class="text-left">@ord.r_id</td>
+                    <td class="text-left">@ord.room.r_name
+                        @*@foreach (var cod in @ViewBag.r)
+                        {
+                            if (@ord.r_id == cod.r_id)
+                            {
+                                @cod.r_name
+                            }
+                        }*@
+                    <td class="text-left">
+                        @ord.room.r_price
+                    @*@foreach (var cod in @ViewBag.r)
+                        {
+                            if (@ord.r_id == cod.r_id)
+                            {
+                                @cod.r_price
+                            }
+                        }*@
+                <td class="text-left">@ord.c_id</td>
+                <td class="text-left">
+                    @ord.customer.c_name
+                @*@foreach (var cod in @ViewBag.c)
+                    {
+                        if (@ord.c_id == cod.c_id)
+                        {
+                            @cod.c_name
+                        }
+                    }*@
+            </td>
+            <td class="text-left">
+                @ord.customer.c_phone
+                @*@foreach (var cod in @ViewBag.c)
+                    {
+                        if (@ord.c_id == cod.c_id)
+                        {
+                            @cod.c_phone
+                        }
+                    }*@
+            </td>
+            <td class="text-left">
+                @ord.customer.c_address
+                @*@foreach (var cod in @ViewBag.c)
+                    {
+                        if (@ord.c_id == cod.c_id)
+                        {
+                            @cod.c_address
+                        }
+                    }*@
+            </td>
+            <td class="text-left">@ord.o_pet_name</td>
+            <td class="text-left">@o_pet_type_string(ord.o_pet_type)</td>
+            <td class="text-left">@o_pet_sex_string(ord.o_pet_sex)</td>
+            <td class="text-left">@ord.o_pet_content</td>
+            <td class="text-left">@ord.o_status</td>
+            @*<td class="text-left">@ord.o_create_datetime</td>*@
+            <td class="text-left">@ord.o_start_date</td>
+            <td class="text-left">@ord.o_end_date</td>
 
 
-                    @*<td class="text-left">
-                            <img class="img-responsive" src="~/FileUploads/@ord" style="height: 200px; width: 200px;">
-                        </td>*@
 
-                    <td>
+            @*<td class="text-left">
+                    <img class="img-responsive" src="~/FileUploads/@ord" style="height: 200px; width: 200px;">
+                </td>*@
 
-
-                        <a class="btn btn-warning " href="/Order/Edit/@ord.o_id">修改</a>
+            <td>
 
 
-                        <a class="btn btn-danger " href="/Order/Delete/@ord.o_id">刪除</a>
+                <a class="btn btn-warning " href="/Order/Edit/@ord.o_id">修改</a>
 
-                    </td>
-                </tr>
 
-            }
+                <a class="btn btn-danger " href="/Order/Delete/@ord.o_id">刪除</a>
+
+            </td>
+        </tr>
+
+    }
 
         </tbody>
     </table>
+
+    @*</div>*@
     <a class="btn btn-primary btnCreate" href="/Order/Create">商品上架</a>
 
 </body>

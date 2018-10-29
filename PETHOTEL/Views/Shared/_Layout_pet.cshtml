@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿  <!DOCTYPE html>
 <html>
 <head>
     <title>@Page.Title</title>
@@ -62,170 +62,160 @@
 <body>
 
     <!---header top---->
-    @*<div class="top-header">
+
+    <!--header--->
+    <header class="header-container navbar-fixed-top" style="background-color: white;">
+        @*<div></div>*@<div style="margin-left:500px ">@Html.Partial("_LoginView")</div>
+            <div class="container">
+
+                <div class="top-row">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-6 col-xs-6">
+                            <div id="logo">
+                                <!--<a href="index.html"><img src="images/logo.png" alt="logo"></a>-->
+                                <a href="/Home/Home"><span>Hotel</span>PETs</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 visible-sm">
+                            <div class="text-right"><button type="button" class="book-now-btn">線上訂房</button></div>
+                        </div>
+                        <div class="col-md-8 col-sm-12 col-xs-12 remove-padd">
+                            <nav class="navbar navbar-default">
+                                <div class="navbar-header page-scroll">
+                                    <button data-target=".navbar-ex1-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+                                <div class="collapse navigation navbar-collapse navbar-ex1-collapse remove-space">
+                                    <ul class="list-unstyled nav1 cl-effect-10">
+                                        <li><a data-hover="首頁" href="/Home/Home" class="active"><span>首頁</span></a></li>
+                                        <li><a data-hover="關於我們" href="/Home/About"><span>關於我們</span></a></li>
+                                        <li><a data-hover="房型介紹" href="/Room/Index"><span>房型介紹</span></a></li>
+                                        <li><a data-hover="寵物商品" href="/Product/Index"><span>寵物商品</span></a></li>
+                                        <li><a data-hover="訂房系統" href="/Booking/Index"><span>訂房系統</span></a></li>
+                                        <li><a data-hover="即時影像" href="/Test/testIOT"><span>即時影像</span></a></li>
+
+                                        <li><a data-hover="聯絡我們" href="contact.html"><span>聯絡我們</span></a></li>
+                                        <li> </li>
+                                    </ul>
+
+
+                                </div>
+                            </nav>
+                        </div>
+                        <div class="col-md-2  col-sm-4 col-xs-12 hidden-sm">
+                            <ul></ul>
+                            @*<div class="text-right"><a data-hover="房型介紹" href="/Customer/Login"><span>登入</span></a></div>*@
+
+
+                            <ul class="nav navbar-nav ">
+                                @*<li>  <button type="button" onclick="location.href='/Customer/Login'" class="book-now-btn">登入</button></li>
+                            <li>  <button type="button" onclick="location.href='/Customer/Create'" class="book-now-btn">註冊</button></li>*@
+                                
+                            </ul>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+</header>
+
+
+    <div @*class="container body-content"*@>
+        @RenderBody()
+        <hr />
+        <!--end-->
+        <!---footer--->
+        <footer>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
-                                                    <a href="#"> </a>
-                                                    <div class="info-block"><i class="fa fa-map"></i>701 Old York Drive Richmond USA.</div>
+                    <div class="col-md-3 col-sm-6 col-xs-12 width-set-50">
+                        <div class="footer-details">
+                            <h4>Get in touch</h4>
+                            <ul class="list-unstyled footer-contact-list">
+                                <li>
+                                    <i class="fa fa-map-marker fa-lg"></i>
+                                    <p>701 Old York Drive Richmond USA.</p>
+                                </li>
+                                <li>
+                                    <i class="fa fa-phone fa-lg"></i>
+                                    <p><a href="tel:+1-202-555-0100"> +1-202-555-0100</a></p>
+                                </li>
+                                <li>
+                                    <i class="fa fa-envelope-o fa-lg"></i>
+                                    <p><a href="mailto:demo@info.com"> demo@info.com</a></p>
+                                </li>
+                            </ul>
+                            <div class="footer-social-icon">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-google-plus"></i></a>
+                                <a href="#"><i class="fa fa-youtube-play"></i></a>
+                            </div>
+                            <div class="input-group" id="subscribe">
+                                <input type="text" class="form-control subscribe-box" value="" name="subscribe" placeholder="EMAIL ID">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn subscribe-button"><i class="fa fa-paper-plane fa-lg"></i></button>
+                                </span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="social-grid">
-                            <ul class="list-unstyled text-right">
-                                <li><a><i class="fa fa-facebook"></i></a></li>
-                                <li><a><i class="fa fa-twitter"></i></a></li>
-                                <li><a><i class="fa fa-linkedin"></i></a></li>
-                                <li><a><i class="fa fa-instagram"></i></a></li>
+                    <div class="col-md-3 col-sm-6 col-xs-12 width-50 width-set-50">
+                        <div class="footer-details">
+                            <h4>explore</h4>
+                            <ul class="list-unstyled footer-links">
+                                <li class="active"><a>Home</a></li>
+                                <li><a href="about.html">About</a></li>
+                                <li><a href="rooms.html">Rooms</a></li>
+                                <li><a href="gallery.html">Gallery</a></li>
+                                <li><a href="#">Dinning</a></li>
+                                <li> <a href="news.html">News</a></li>
+                                <li> <a href="contact.html">Contact</a></li>
                             </ul>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>*@
-    <!--header--->
-    <header class="header-container">
-        <div class="container">
-            <div class="top-row">
-                <div class="row">
-                    <div class="col-md-2 col-sm-6 col-xs-6">
-                        <div id="logo">
-                            <!--<a href="index.html"><img src="images/logo.png" alt="logo"></a>-->
-                            <a href="/Home/Home"><span>Hotel</span>PETs</a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 visible-sm">
-                        <div class="text-right"><button type="button" class="book-now-btn">線上訂房</button></div>
-                    </div>
-                    <div class="col-md-8 col-sm-12 col-xs-12 remove-padd">
-                        <nav class="navbar navbar-default">
-                            <div class="navbar-header page-scroll">
-                                <button data-target=".navbar-ex1-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                            </div>
-                            <div class="collapse navigation navbar-collapse navbar-ex1-collapse remove-space">
-                                <ul class="list-unstyled nav1 cl-effect-10">
-                                    <li><a data-hover="首頁" href="/Home/Home" class="active"><span>首頁</span></a></li>
-                                    <li><a data-hover="關於我們" href="/Home/About"><span>關於我們</span></a></li>
-                                    <li><a data-hover="房型介紹" href="/Room/Index"><span>房型介紹</span></a></li>
-                                    <li><a data-hover="寵物商品" href="/Product/Index"><span>寵物商品</span></a></li>
-                                    <li><a data-hover="訂房系統" href="dinning.html"><span>訂房系統</span></a></li>
-                                    <li><a data-hover="最新消息" href="news.html"><span>最新消息</span></a></li>
-
-                                    <li><a data-hover="聯絡我們" href="contact.html"><span>聯絡我們</span></a></li>
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
-                    <div class="col-md-2  col-sm-4 col-xs-12 hidden-sm">
-                        <ul>
-                            <li id="Cart">
-
-                                @Html.Partial("_CartPartial")                       @*呼叫表單_CartPartial*@    @*在shared/_CartPartial*@    @*購物車一直跑不出來   不行的話就要砍掉重做了*@
-                            </li>
-                        </ul>
-                        @*<div class="text-right"><a data-hover="房型介紹" href="/Customer/Login"><span>登入</span></a></div>*@
-                        <div class="text-right"><button type="button" onclick="location.href='/Customer/Login'" class="book-now-btn">登入</button></div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-
-
-    @RenderBody()
-    <hr />
-    <!--end-->
-    <!---footer--->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-6 col-xs-12 width-set-50">
-                    <div class="footer-details">
-                        <h4>Get in touch</h4>
-                        <ul class="list-unstyled footer-contact-list">
-                            <li>
-                                <i class="fa fa-map-marker fa-lg"></i>
-                                <p>701 Old York Drive Richmond USA.</p>
-                            </li>
-                            <li>
-                                <i class="fa fa-phone fa-lg"></i>
-                                <p><a href="tel:+1-202-555-0100"> +1-202-555-0100</a></p>
-                            </li>
-                            <li>
-                                <i class="fa fa-envelope-o fa-lg"></i>
-                                <p><a href="mailto:demo@info.com"> demo@info.com</a></p>
-                            </li>
-                        </ul>
-                        <div class="footer-social-icon">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-google-plus"></i></a>
-                            <a href="#"><i class="fa fa-youtube-play"></i></a>
-                        </div>
-                        <div class="input-group" id="subscribe">
-                            <input type="text" class="form-control subscribe-box" value="" name="subscribe" placeholder="EMAIL ID">
-                            <span class="input-group-btn">
-                                <button type="button" class="btn subscribe-button"><i class="fa fa-paper-plane fa-lg"></i></button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-12 width-50 width-set-50">
-                    <div class="footer-details">
-                        <h4>explore</h4>
-                        <ul class="list-unstyled footer-links">
-                            <li class="active"><a>Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="rooms.html">Rooms</a></li>
-                            <li><a href="gallery.html">Gallery</a></li>
-                            <li><a href="#">Dinning</a></li>
-                            <li> <a href="news.html">News</a></li>
-                            <li> <a href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-12 col-xs-12">
-                    <div class="footer-details">
-                        <h4>Now On Instagram</h4>
-                        <div class="row">
-                            <div class="instagram-images">
-                                <div id="instafeed"></div>
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <div class="footer-details">
+                            <h4>Now On Instagram</h4>
+                            <div class="row">
+                                <div class="instagram-images">
+                                    <div id="instafeed"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="copyright">
+                    &copy; 2017 All right reserved. Designed by <a href="http://www.themevault.net/" target="_blank">ThemeVault.</a>
+                </div>
+
             </div>
-
-            <div class="copyright">
-                &copy; 2017 All right reserved. Designed by <a href="http://www.themevault.net/" target="_blank">ThemeVault.</a>
-            </div>
-
-        </div>
-    </footer>
-
-    <!--back to top--->
-    <a style="display: none;" href="javascript:void(0);" class="scrollTop back-to-top" id="back-to-top">
-        <span><i aria-hidden="true" class="fa fa-angle-up fa-lg"></i></span>
-        <span>Top</span>
-    </a>
+        </footer>
+    </div>
+        <!--back to top--->
+        <a style="display: none;" href="javascript:void(0);" class="scrollTop back-to-top" id="back-to-top">
+            <span><i aria-hidden="true" class="fa fa-angle-up fa-lg"></i></span>
+            <span>Top</span>
+        </a>
 
 
 
-    @*<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-        <script src="~/Scripts/bootstrap.min.js"></script>*@
+        @*<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+            <script src="~/Scripts/bootstrap.min.js"></script>*@
 
-    <script type="text/javascript">
+        <script type="text/javascript">
+         
         //網頁載入完成時執行之function
         $(document).ready(function () {
             //console.log("ready!");
-            //alert("ready");
+            
+            //Session["Customer"]
         });
 
         //加入編號為productId的商品進購物車
@@ -253,8 +243,8 @@
                     //將回傳的購物車頁面 填入 li#Cart
                     $('li#Cart').html(msg);
                 });
-        }
-
+            }
+        
         //清空購物車內所有商品
         function ClearCart() {
             $.ajax({
@@ -267,7 +257,7 @@
                 $('li#Cart').html(msg);
             });
         }
-    </script>
+        </script>
 
 </body>
 </html>

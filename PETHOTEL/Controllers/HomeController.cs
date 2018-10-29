@@ -35,8 +35,8 @@ namespace PETHOTEL.Controllers
         {
             NewsViewModel VM = new NewsViewModel();
 
-
-
+            Session["123"] = 456;
+            
             ViewBag.Message = "Your application description page.";
 
             return View(VM.getlist());

@@ -15,9 +15,8 @@ namespace PETHOTEL.entity
     public partial class Invoice
     {
         public int i_id { get; set; }
-        public Nullable<int> p_id { get; set; }
         public Nullable<int> c_id { get; set; }
-        public Nullable<int> r_id { get; set; }
         public Nullable<int> i_status { get; set; }
+        public Nullable<int> i_send { get; set; }
     }
 }

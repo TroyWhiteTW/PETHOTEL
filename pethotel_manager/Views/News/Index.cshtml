@@ -51,25 +51,26 @@
 
             @foreach (var ord in ViewBag.p)
             {
-                <tr>
-                    <td class="text-left">@ord.n_id</td>
-                    <td class="text-left">@ord.n_title</td>
-   
-                    <td class="text-left">@ord.n_content</td>
-                    <td class="text-left">@ord.n_type</td>
-         
-                    <td class="text-left">@ord.n_create_time</td>
-                  
-                    <td>
+            <tr>
+                <td class="text-left">@ord.n_id</td>
+                <td class="text-left">@ord.n_title</td>
+
+                <td class="text-left">@ord.n_content</td>
+                <td class="text-left">@ord.n_type</td>
+
+                <td class="text-left" placeholder="2018-10-25">@ord.n_create_time</td>
+                
+
+                <td>
 
 
-                        <a class="btn btn-warning " href="/News/Edit/@ord.n_id">修改</a>
+                    <a class="btn btn-warning " href="/News/Edit/@ord.n_id">修改</a>
 
 
-                        <a class="btn btn-danger " href="/News/Delete/@ord.n_id">刪除</a>
+                    <a class="btn btn-danger " href="/News/Delete/@ord.n_id">刪除</a>
 
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
             }
 

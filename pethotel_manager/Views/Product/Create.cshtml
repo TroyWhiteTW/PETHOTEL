@@ -28,8 +28,17 @@
         <div class="form-group">
             @Html.LabelFor(model => model.p_type, "商品類型", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.p_type, new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.EditorFor(model => model.p_type, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.ValidationMessageFor(model => model.p_type, "", new { @class = "text-danger" })
+                <select class="form-control" id="selector" name="p_type">
+                    <option value="0">零食</option>
+                    <option selected="selected" value="1">罐頭</option>
+                    <option value="2">玩具</option>
+                    <option value="3">清潔用品</option>
+                    <option value="4">貓砂</option>
+                </select>
+
+
             </div>
         </div>
 

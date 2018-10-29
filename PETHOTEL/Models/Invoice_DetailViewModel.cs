@@ -25,6 +25,7 @@ namespace PETHOTEL.Models
             get {
                 Entities en = new Entities();
                 Product item = new Product();
+                
                 item = en.Product.SingleOrDefault(a => a.p_id == p_id);
                 return item;
 

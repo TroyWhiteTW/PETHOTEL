@@ -673,6 +673,8 @@
     <Content Include="Views\Shared\_LoginView.cshtml" />
     <Content Include="Views\TEST\testIOT.cshtml" />
     <Content Include="Views\Buy\Index.cshtml" />
+    <Content Include="Views\Buy\Thank.cshtml" />
+    <Content Include="Views\Buy\Myorder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

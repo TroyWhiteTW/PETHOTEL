@@ -31,7 +31,7 @@ namespace PETHOTEL.Controllers
             
             VM.create();
 
-            return View();
+            return View("Login");
         }
 
 

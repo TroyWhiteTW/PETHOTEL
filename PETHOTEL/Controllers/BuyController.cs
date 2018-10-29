@@ -1,4 +1,5 @@
 ﻿using PETHOTEL.entity;
+using PETHOTEL.Models;
 using PETHOTEL.Models.Cart;
 using System;
 using System.Collections.Generic;
@@ -87,7 +88,7 @@ namespace PETHOTEL.Controllers
                         }
                     }
                     db.SaveChanges();
-
+                    #region 
                     //建立Order物件
                     //var order = new Order()
                     //{                        
@@ -105,11 +106,44 @@ namespace PETHOTEL.Controllers
                     //將其加入OrderDetails資料表後，儲存變更
                     //db.Order.AddRange(orderDetails);
                     //db.SaveChanges();
+                    #endregion
                 }
-                return RedirectToAction("Index");
+                return View("Thank"); 
             }
             return RedirectToAction("Index");
 
+        }
+
+
+        // GET: Invoice
+        public ActionResult Myorder()
+        {
+            InvoiceViewModel VM = new InvoiceViewModel();
+
+
+            return View(VM.getlist());
+        }
+
+
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(InvoiceViewModel VM)
+        {
+
+            VM.create();
+            return View();
+        }
+
+        public ActionResult Edit(int id)
+        {
+
+            InvoiceViewModel VM = new InvoiceViewModel();
+            VM.getone(id);
+            return View(VM);
         }
     }
 }

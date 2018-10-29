@@ -12,6 +12,20 @@ namespace pethotel_manager.Models
         public int i_id { get; set; }
         public int? c_id { get; set; }
         public int? i_status { get; set; }
+
+        public string i_status_string {
+            get {
+                if (i_status == 1)
+                {
+                    return "已付款";
+                }
+                else
+                {
+                    return "未付款";
+                }                
+            }
+        }
+
         public int? i_send { get; set; }
         public Customer cus {
             get {
@@ -22,7 +36,6 @@ namespace pethotel_manager.Models
 
             }
         }
-   
 
         public InvoiceViewModel getone(int id)
         {

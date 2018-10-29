@@ -6,31 +6,26 @@ using System.Web;
 using System.Web.Mvc;
 using pethotel_manager.Entity;
 using System.IO;
+using pethotel_manager.ActionFilter;
 
 namespace pethotel_manager.Controllers
 {
     public class ProductController : Controller
     {
-        Entities db = new Entities();
-        // GET: Product
+        [HttpGet]
+        [LogActionFilter]
         public ActionResult Index()
         {
-            if(Session["managerid"] != null)     //防跨頁 如果session 不等於null 
-            {
-                Entities db = new Entities();
+            Entities db = new Entities();
 
-                var query = from o in db.Product select o;
-                var dataList = query.ToList();
-                ViewBag.p = dataList;
-                return View();
-            }
-            else                      //如果強行進入則導到Login頁
-            {
-                return RedirectToAction("Login", "Manager");
-            }
-                
+            var query = from o in db.Product select o;
+            var dataList = query.ToList();
+            ViewBag.p = dataList;
+            return View();
         }
 
+        [HttpGet]
+        [LogActionFilter]
         public ActionResult Create()
         {
             var selectList = new List<SelectListItem>()
@@ -45,16 +40,13 @@ namespace pethotel_manager.Controllers
 
             ViewBag.SelectList = selectList;
 
-
             return View();
         }
+
         [HttpPost]
+        [LogActionFilter]
         public ActionResult Create(ProductViewModel VM, HttpPostedFileBase productImg)
         {
-
-
-
-
             if (productImg != null && productImg.ContentLength > 0)
             {
                 //設定上傳路徑               
@@ -71,45 +63,70 @@ namespace pethotel_manager.Controllers
                 VM.p_image = fileName;
             }
 
-
-
             VM.create();
 
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        [LogActionFilter]
         public ActionResult Edit(int id)
         {
             using (Entities db = new Entities())
             {
                 var result = (from s in db.Product where s.p_id == id select s).FirstOrDefault();
 
-
                 return View(result);
             }
         }
 
         [HttpPost]
-        public ActionResult Edit(Models.ProductViewModel postback)
+        [LogActionFilter]
+        public ActionResult Edit(Product postback)
         {
-            var query = from o in db.Product
-                        where o.p_id == postback.p_id
-                        select o;
+            using (Entities db = new Entities())
+            {
+                //取得db product資料
+                var query = from o in db.Product
+                            where o.p_id == postback.p_id
+                            select o;
+                var pro = query.FirstOrDefault();
 
-            var pro = query.FirstOrDefault();
-            pro.p_id = postback.p_id;
-            pro.p_type = postback.p_type;
-            pro.p_name = postback.p_name;
-            pro.p_content = postback.p_content;
-            pro.p_price = postback.p_price;
-            pro.p_count = postback.p_count;
-            pro.p_image = postback.p_image;
+                //更新product資料
+                pro.p_id = postback.p_id;
+                pro.p_type = postback.p_type;
+                pro.p_name = postback.p_name;
+                pro.p_content = postback.p_content;
+                pro.p_price = postback.p_price;
+                pro.p_count = postback.p_count;
 
-            db.SaveChanges();
-            return RedirectToAction("Index");
+                //圖片上傳
+                HttpPostedFileBase file = Request.Files["productImg"];
+                if (file != null && file.ContentLength > 0) //有新圖片
+                {
+                    //設定上傳路徑               
+                    string fileName = Path.GetFileName(file.FileName);
+                    string folder = Server.MapPath("~/FileUploads");
+                    string path = Path.Combine(folder, fileName);
+
+                    //上傳檔案
+                    bool exists = System.IO.Directory.Exists(folder);
+                    if (!exists)
+                        System.IO.Directory.CreateDirectory(folder);
+                    file.SaveAs(path);
+
+                    pro.p_image = fileName;
+                }
+                //pro.p_image = postback.p_image;
+
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
         }
 
-
+        [HttpGet]
+        [LogActionFilter]        
         public ActionResult Delete(int id)
         {
             using (Entities db = new Entities())
@@ -123,8 +140,6 @@ namespace pethotel_manager.Controllers
 
                 return RedirectToAction("Index");
             }
-
-
         }
     }
 }

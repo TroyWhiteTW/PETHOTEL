@@ -1,78 +1,56 @@
-﻿
-﻿
-@{
-				/**/
-
-				ViewBag.Title = "商品列表";
-				Layout = "~/Views/Shared/_Layout1.cshtml";
+﻿@{
+    ViewBag.Title = "商品列表";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<html>
-<head>
-	<meta charset="utf-8" />
-	<title>Table Style</title>
 
+<style>
+    .info th{
+        vertical-align: middle !important;
+    }
 
-	<meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
-	@*<link rel="stylesheet" href="~/css/樣式.CSS">*@
-</head>
-<body>
+    .table-hover tr td {
+        vertical-align: middle !important;
+    }
+</style>
 
-
-    <div class="container">
-        <div class="table-title">
-            <h3>現有商品列表</h3>
-        </div>
-
-        <table class="table table-hover">
-            <thead>
-                <tr class="info">
-                    <th style="vertical-align: middle !important;text-align: center;" class="text-center">商品編號</th>
-                    <th style="vertical-align: middle !important;text-align: center;" class="text-center">商品類別</th>
-                    <th style="vertical-align: middle !important;text-align: center;" class="text-center">商品名稱</th>
-                    <th style="vertical-align: middle !important;text-align: center;" class="text-center">商品內容</th>
-                    <th style="vertical-align: middle !important;text-align: center;" class="text-center">商品售價</th>
-                    <th style="vertical-align: middle !important;text-align: center;" class="text-center">商品數量</th>
-                    <th style="vertical-align: middle !important;text-align: center;" class="text-center">商品圖片</th>
-                    <th style="vertical-align: middle !important;text-align: center;" class="text-center">管理者操作</th>
-                </tr>
-
-            </thead>
-
-            <tbody class="table-hover">
-
-
-
-
-                @foreach (var product in ViewBag.p)
-                {
-                    <tr>
-                        <td style="vertical-align: middle !important;text-align: center;" class="text-center">@product.p_id</td>
-                        <td style="vertical-align: middle !important;text-align: center;" class="text-center">@product.p_type</td>
-                        <td style="vertical-align: middle !important;text-align: center;" class="text-center">@product.p_name</td>
-                        <td style="vertical-align: middle !important;text-align: center;" class="text-center">@product.p_content</td>
-                        <td style="vertical-align: middle !important;text-align: center;" class="text-center">@product.p_price</td>
-                        <td style="vertical-align: middle !important;text-align: center;" class="text-center">@product.p_count</td>
-                        <td align="center">
-                            <img class="img-responsive" src="~/FileUploads/@product.p_image" style="height: 100px; width: 100px;">
-                        </td>
-
-                        <td style="vertical-align: middle !important;text-align: center;" class="text-center">
-
-
-                            <a class="btn btn-warning " href="/Product/Edit/@product.p_id">修改</a>
-
-
-                            <a class="btn btn-danger " href="/Product/Delete/@product.p_id">刪除</a>
-
-                        </td>
-                    </tr>
-
-                }
-
-            </tbody>
-        </table>
-        <a class="btn btn-primary btnCreate" href="/Product/Create">商品上架</a>
+<div class="container">
+    <div class="table-title">
+        <h3>現有商品列表</h3>
     </div>
-</body>
 
-</html>
+    <table class="table table-hover" style="margin-top: 5px;">
+        <thead>
+            <tr class="info">
+                <th class="text-center">商品編號</th>
+                <th class="text-center">商品類別</th>
+                <th class="text-center">商品名稱</th>
+                <th class="text-center">商品內容</th>
+                <th class="text-center">商品售價</th>
+                <th class="text-center">商品數量</th>
+                <th class="text-center">商品圖片</th>
+                <th class="text-center">管理者操作</th>
+            </tr>
+        </thead>
+        <tbody class="table-hover">
+            @foreach (var product in ViewBag.p)
+            {
+                <tr>
+                    <td class="text-center">@product.p_id</td>
+                    <td class="text-center">@product.p_type</td>
+                    <td class="text-center">@product.p_name</td>
+                    <td class="text-center">@product.p_content</td>
+                    <td class="text-center">@product.p_price.ToString("G29")</td>
+                    <td class="text-center">@product.p_count</td>
+                    <td align="center">
+                        <img class="img-responsive" src="~/FileUploads/@product.p_image" style="height: 100px; width: 100px;">
+                    </td>
+                    <td class="text-center">
+                        <a class="btn btn-warning" href="/Product/Edit/@product.p_id">修改</a>
+                        <a class="btn btn-danger" href="/Product/Delete/@product.p_id" onclick="return confirm('確定刪除?');">刪除</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-primary btnCreate" href="/Product/Create">商品上架</a>
+</div>

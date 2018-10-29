@@ -13,8 +13,12 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <style type="text/css">
-        container {
-            transform: scale(0.2); /* 80% */
+        .container {
+            /*transform: scale(0.8);*/ /* 80% */
+        }
+
+        body {
+            font-family: "微軟正黑體", "Microsoft JhengHei","Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
         }
     </style>
 
@@ -28,7 +32,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               
+
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -38,19 +42,21 @@
                     <li>@Html.ActionLink("房間訂單管理", "Index", "Order")</li>
                     <li>@Html.ActionLink("商品訂單管理", "Index", "Invoice")</li>
                     <li>@Html.ActionLink("最新消息管理", "Index", "News")</li>
-
-                    <li>@Html.ActionLink("註冊", "Registration", "Manager")</li>
+                    @if (!string.IsNullOrEmpty(Session["managerid"].ToString()))
+                    {
+                        <li>@Html.ActionLink("登出", "Logout", "Manager")</li>
+                    }
                 </ul>
             </div>
         </div>
     </div>
-    @*<div class="container body-content">*@
+    <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year -HotelPet 後臺管理系統</p>
         </footer>
-    @*</div>*@
+    </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

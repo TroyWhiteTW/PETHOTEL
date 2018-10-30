@@ -1,31 +1,79 @@
-﻿z
-@if(!string.IsNullOrEmpty(Session["Customer"].ToString()))
+﻿
+
+@if (!string.IsNullOrEmpty(Session["Customer"].ToString()))
 {
-    using (Html.BeginForm("Logout", "Customer", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    <li>
+        <a data-hover="我的訂單" href="/Buy/Myorder"><span>我的訂單</span></a>
+    </li>
+    <li>
+        <a data-hover="即時影像" href="/TEST/testIOT"><span>我的訂單</span></a>
+    </li>
+    using (Html.BeginForm("Logout", "Customer", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))/*, @class = "navbar-right"*/
     {
         //@Html.AntiForgeryToken()
-        
-<ul class="nav navbar-nav navbar-right " style="margin-right:200px">
+        @*<nav class="navbar-right"></nav>*@
+        @*<a data-hover="訂房系統" href="/Booking/Index"><span>訂房系統</span></a>*@
+
+
+
+
+
+
+
     <li>
-        @Html.ActionLink("Hello " + Session["Customer"].ToString() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+
+        @*<a style="vertical-align: middle !important;text-align: center;" class="text-center" class="" data-hover=@Session["Customer"].ToString() href=""><span>@Session["Customer"].ToString()!!</span></a>*@
+        @*@Html.ActionLink("Hello " + Session["Customer"].ToString() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
+
     </li>
-    <li id="Cart">@Html.Partial("_CartPartial")</li>
     <li>
-        @Html.ActionLink("我的訂單", "Myorder", "Buy", routeValues: null, htmlAttributes: new { title = "Order" })
+        <div style="vertical-align: text-top !important;text-align: center; font-size:smaller">
+            歡迎登入 :  @Session["Customer"].ToString()
+            @Html.Partial("_CartPartial")
+        </div> 
     </li>
-    <li>
-        @Html.ActionLink("即時影像", "testIOT", "TEST", routeValues: null, htmlAttributes: new { title = "Order" })
-    </li>
-    <li><a href="javascript:document.getElementById('logoutForm').submit()">登出</a></li>
-</ul>
+
+    @*<li id="Cart">@Html.Partial("_CartPartial")</li>*@
+
+
+    @*<ul class="nav navbar-nav navbar-right " style="margin-right:200px">*@
+    @*<li>
+            @Html.ActionLink("Hello " + Session["Customer"].ToString() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+        </li>*@
+    @*<li id="Cart">@Html.Partial("_CartPartial")</li>*@
+    @*<li>
+            @Html.ActionLink("我的訂單", "Myorder", "Buy", routeValues: null, htmlAttributes: new { title = "Order" })
+        </li>
+        <li>
+            @Html.ActionLink("即時影像", "testIOT", "TEST", routeValues: null, htmlAttributes: new { title = "Order" })
+        </li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">登出</a></li>*@
+    @*</ul>*@
+    }<li>
+    <a data-hover="登出" href="javascript:document.getElementById('logoutForm').submit()"><span>登出</span></a>
+</li>
+
     }
-}
-else
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("註冊", "Create", "Customer", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("登入", "Login", "Customer", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
+    else
+
+    {
+    using (Html.BeginForm("Logout", "Customer", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))/*, @class = "navbar-right"*/
+    {
+
+<li>
+            <a data-hover="註冊" id="registerLink" href="/Customer/Create"><span>註冊</span></a>
+        </li>
+        <li>
+            <a data-hover="登入" id="loginLink" href="/Customer/Login"><span>登入</span></a>
+        </li>
+
+    }
+
+
+    @*<ul class="nav navbar-nav navbar-right">
+            <li>@Html.ActionLink("註冊", "Create", "Customer", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+            <li>@Html.ActionLink("登入", "Login", "Customer", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        </ul>*@
 }
 
 

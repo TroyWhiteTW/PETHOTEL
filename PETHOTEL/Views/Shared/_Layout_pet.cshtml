@@ -45,9 +45,9 @@
     <!---header top---->
     <!--header--->
     <header class="header-container navbar-static-top" style="background-color: white;">
-        <div style="margin-left:500px ">@Html.Partial("_LoginView")</div>
+        @*<div style="margin-left:500px ">@Html.Partial("_LoginView")</div>*@
         <div class="container">
-
+      
             <div class="top-row">
                 <div class="row">
                     <div class="col-md-2 col-sm-6 col-xs-6">
@@ -76,10 +76,10 @@
                                     <li><a data-hover="房型介紹" href="/Room/Index"><span>房型介紹</span></a></li>
                                     <li><a data-hover="寵物商品" href="/Product/Index"><span>寵物商品</span></a></li>
                                     <li><a data-hover="訂房系統" href="/Booking/Index"><span>訂房系統</span></a></li>
+                                    @Html.Partial("_LoginView")
 
 
 
-                                    <li> </li>
                                 </ul>
 
 
@@ -93,7 +93,7 @@
 
                         <ul class="nav navbar-nav ">
                             @*<li>  <button type="button" onclick="location.href='/Customer/Login'" class="book-now-btn">登入</button></li>
-                                <li>  <button type="button" onclick="location.href='/Customer/Create'" class="book-now-btn">註冊</button></li>*@
+                        <li>  <button type="button" onclick="location.href='/Customer/Create'" class="book-now-btn">註冊</button></li>*@
 
                         </ul>
 

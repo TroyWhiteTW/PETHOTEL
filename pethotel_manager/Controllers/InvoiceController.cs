@@ -1,4 +1,6 @@
-﻿using pethotel_manager.Models;
+﻿using pethotel_manager.ActionFilter;
+using pethotel_manager.Entity;
+using pethotel_manager.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +40,23 @@ namespace pethotel_manager.Controllers
             InvoiceViewModel VM = new InvoiceViewModel();
             VM.getone(id);
             return View(VM);
+        }
+
+        //[HttpGet]
+        //[LogActionFilter]
+        public ActionResult Delete(int id)
+        {
+            using (Entities db = new Entities())
+            {
+                var result = (from s in db.Invoice where s.i_id == id select s).FirstOrDefault();
+
+
+                db.Invoice.Remove(result);
+
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
         }
     }
 }

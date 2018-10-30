@@ -76,7 +76,7 @@ namespace PETHOTEL.Controllers
             //return View();
 
         }
-        [HttpPost]
+        [HttpGet]
         public ActionResult Logout()
         {
 

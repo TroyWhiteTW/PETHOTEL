@@ -5,18 +5,18 @@
     //var currentCart = Test1001_shopcar.Models.Cart.Operation.GetCurrentCart();
     var currentCart = PETHOTEL.Models.Cart.Operation.GetCurrentCart();
 }
-<a id="CartDropDown" class="dropdown-toggle" data-toggle="dropdown">
-    @String.Format("共{0}元 ({1})", currentCart.TotalAmount, currentCart.Count)
+<a id="CartDropDown" class="dropdown-toggle" data-toggle="dropdown" style="color: white; font-size:14px;">
+    @String.Format("共{0}元 ({1})", currentCart.TotalAmount.Value.ToString("G29"), currentCart.Count)
     <span class="caret"></span>
 </a>
-<ul class="dropdown-menu Cart" role="menu" aria-labelledby="CartDropDown">
+<ul class="dropdown-menu Cart" role="menu" aria-labelledby="CartDropDown" style="color: black;">
     @if (currentCart.Count > 0)
     {
         foreach (var cartitem in currentCart)
         {
             //依序輸出 : <li><a>可愛橡皮擦 <span>50元 X 2</span></a></li>
             <li class="col-xs-12">
-                <span class="col-xs-9">@cartitem.Name @*@cartitem.Price.ToString("0.0")*@ 元 X @cartitem.Quantity </span>
+                <span class="col-xs-9" style="margin-top: 12px;">@cartitem.Name @*@cartitem.Price.ToString("0.0")*@ 元 X @cartitem.Quantity </span>
                 <span class="btn btn-danger col-xs-2" onclick="RemoveFromCart('@cartitem.Id')">
                     X
                 </span>

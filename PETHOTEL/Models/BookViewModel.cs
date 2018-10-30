@@ -19,15 +19,15 @@ namespace PETHOTEL.Models
         public DateTime o_start_date { get; set; }   //開始日期
         public DateTime o_end_date { get; set; }   //結束日期
         public string o_pet_content { get; set; } //備註
-        //public Customer cus {
-        //    get {
-        //        Entities en = new Entities();
-        //        Customer item = new Customer();
-        //        item = en.Customer.SingleOrDefault(a => a.c_id==c_id);
-        //        return item;
+        public Room roo {
+            get {
+                Entities en = new Entities();
+                Room item = new Room();
+                item = en.Room.SingleOrDefault(a => a.r_id == r_id);
+                return item;
 
-        //    }
-        //}
+            }
+        }
 
 
 

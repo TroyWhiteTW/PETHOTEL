@@ -16,68 +16,200 @@
 </head>
 <body>
 
-    <form method="post">
-        <!--  General -->
-        
-        <div class="form-group" style="margin-top:200px">
-            <h2 class="heading">預訂房間 Booking Room</h2>
-            <div class="controls">
-                <input type="text" id="r_id" class="floatLabel" name="r_id" value="@Model.r_id">
-                <label for="name">房間編號</label>
-            </div>
-            <div class="controls">
-                <input type="text" id="c_id" class="floatLabel" name="c_id" value="@Model.c_id">
-                <label for="name">顧客編號</label>
-            </div>
-            <div class="controls">
-                <input type="text" id="o_pet_name" class="floatLabel" name="o_pet_name">
-                <label for="name">寵物姓名</label>
-            </div>
-            <div class="controls">
-                <input type="text" id="o_pet_type" class="floatLabel" name="o_pet_type">
-                <label for="email">寵物類別</label>
-            </div>
-            <div class="controls">
-                <input type="tel" id="o_pet_sex" class="floatLabel" name="o_pet_sex">
-                <label for="phone">寵物性別</label>
-            </div>
-           
-        </div>
 
-        <!--  Details -->
-        <div class="form-group">
-            <h2 class="heading">Details</h2>
-            <div class="grid">
-                <div class="col-1-4 col-1-4-sm">
-                    <div class="controls">
-                        <input type="date" id="o_start_date" class="floatLabel" name="o_start_date" value="<?php echo date('Y-m-d'); ?>">
-                        <label for="arrive" class="label-date"><i class="fa fa-calendar"></i>&nbsp;&nbsp;入住日期</label>
+
+
+    <section class="contact-block">
+        <div class="container">
+            <div class="form-horizontal">
+                <div class="col-md-4 contact-form">
+                    <h3>房間<span>資訊</span></h3>
+                    <div class="form-group">
+
+                        <img class="img-responsive" src="http://localhost:14520/FileUploads/@Model.roo.r_image" style="height: 200px; width: 200px;">
+                        <div class="col-md-12">
+                            @Html.LabelFor(model => model.r_id, "房間名稱 :", htmlAttributes: new { @class = "control-label" })
+                            @Model.roo.r_name
+                        </div>
                     </div>
-                </div>
+                    <div class="form-group">
 
-                <div class="col-1-4 col-1-4-sm">
-                    <div class="controls">
-                        <input type="date" id="o_end_date" class="floatLabel" name="o_end_date" value="<?php echo date('Y-m-d'); ?>" />
-                        <label for="depart" class="label-date"><i class="fa fa-calendar"></i>&nbsp;&nbsp;退房日期</label>
+                        <div class="col-md-12">
+                            @Html.LabelFor(model => model.r_id, "房間價格 :", htmlAttributes: new { @class = "control-label" })
+                            @Model.roo.r_price
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="col-md-12">
+                            @Html.LabelFor(model => model.r_id, "房間內容 :", htmlAttributes: new { @class = "control-label" })
+                            @Model.roo.r_content
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="grid">
+                <div class="col-md-8 contact-form">
+                    <h3>訂購<span>房間</span></h3>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+
+                            <hr />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.r_id, "房間ID :", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.r_id, new { htmlAttributes = new { @class = "form-control", @placeholder = "房間ID :", @Value = Model.r_id } })
+                                    @Html.ValidationMessageFor(model => model.r_id, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.c_id, "會員ID :", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-sm-10">
+                                    @Html.EditorFor(model => model.c_id, new { htmlAttributes = new { @class = "form-control", @placeholder = "會員ID :", @Value = Model.c_id } })
+                                    @Html.ValidationMessageFor(model => model.c_id, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.o_pet_name, "寵物名稱 :", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.o_pet_name, new { htmlAttributes = new { @class = "form-control", @placeholder = "寵物名稱 :" } })
+                                    @Html.ValidationMessageFor(model => model.o_pet_name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.o_pet_type, "寵物種類 :", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.o_pet_type, new { htmlAttributes = new { @class = "form-control", @placeholder = "寵物種類 :" } })
+                                    @Html.ValidationMessageFor(model => model.o_pet_type, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.o_pet_sex, "寵物性別 :", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.o_pet_sex, new { htmlAttributes = new { @class = "form-control", @placeholder = "寵物性別 :" } })
+                                    @Html.ValidationMessageFor(model => model.o_pet_sex, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
 
 
 
+
+
+                            <div class="form-group">
+
+                                @Html.LabelFor(model => model.o_pet_sex, "入住日期 :", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    <input type="date" id="o_start_date" class="form-control" name="o_start_date" value="<?php echo date('Y-m-d'); ?>">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.o_pet_sex, "退房日期 :", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    <input type="date" id="o_end_date" class="form-control" name="o_end_date" value="<?php echo date('Y-m-d'); ?>" />
+
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Create" class="submit-btn" />
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    
+
+                    @*<form action="#" method="post">
+                    <input type="text" class="form-control" name="Name" placeholder="Name" required="">
+                    <input type="email" class="form-control" name="Email" placeholder="Email" required="">
+                    <textarea class="form-control" name="Message" placeholder="Message Here...." required=""></textarea>
+                    <input type="submit" class="submit-btn" value="Submit">
+                </form>*@
+                </div>
+                <div class="clearfix"></div>
             </div>
-            <div class="grid">
-                <p class="info-text ">特別需求請填寫於備註欄</p>
-                <br>
+</section>
+
+
+
+
+
+    @*<form method="post">
+            <!--  General -->
+
+            <div class="form-group" style="margin-top:200px">
+                <h2 class="heading">預訂房間 Booking Room</h2>
                 <div class="controls">
-                    <textarea name="o_pet_content" class="floatLabel" id="o_pet_content"></textarea>
-                    <label for="comments">備註欄位</label>
+                    <input type="text" id="r_id" class="floatLabel" name="r_id" value="@Model.r_id">
+                    <label for="name">房間編號</label>
                 </div>
-                <button type="submit" value="Submit" class="col-1-4">確定訂房 </button>
+                <div class="controls">
+                    <input type="text" id="c_id" class="floatLabel" name="c_id" value="@Model.c_id">
+                    <label for="name">顧客編號</label>
+                </div>
+                <div class="controls">
+                    <input type="text" id="o_pet_name" class="floatLabel" name="o_pet_name">
+                    <label for="name">寵物姓名</label>
+                </div>
+                <div class="controls">
+                    <input type="text" id="o_pet_type" class="floatLabel" name="o_pet_type">
+                    <label for="email">寵物類別</label>
+                </div>
+                <div class="controls">
+                    <input type="tel" id="o_pet_sex" class="floatLabel" name="o_pet_sex">
+                    <label for="phone">寵物性別</label>
+                </div>
+
             </div>
-        </div> <!-- /.form-group -->
-    </form>
+
+            <!--  Details -->
+            <div class="form-group">
+                <h2 class="heading">Details</h2>
+                <div class="grid">
+                    <div class="col-1-4 col-1-4-sm">
+                        <div class="controls">
+                            <input type="date" id="o_start_date" class="floatLabel" name="o_start_date" value="<?php echo date('Y-m-d'); ?>">
+                            <label for="arrive" class="label-date"><i class="fa fa-calendar"></i>&nbsp;&nbsp;入住日期</label>
+                        </div>
+                    </div>
+
+                    <div class="col-1-4 col-1-4-sm">
+                        <div class="controls">
+                            <input type="date" id="o_end_date" class="floatLabel" name="o_end_date" value="<?php echo date('Y-m-d'); ?>" />
+                            <label for="depart" class="label-date"><i class="fa fa-calendar"></i>&nbsp;&nbsp;退房日期</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid">
+
+
+
+                </div>
+                <div class="grid">
+                    <p class="info-text ">特別需求請填寫於備註欄</p>
+                    <br>
+                    <div class="controls">
+                        <textarea name="o_pet_content" class="floatLabel" id="o_pet_content"></textarea>
+                        <label for="comments">備註欄位</label>
+                    </div>
+                    <button type="submit" value="Submit" class="col-1-4">確定訂房 </button>
+                </div>
+            </div> <!-- /.form-group -->
+        </form>*@
 
 
     <script src="~/js/bookindex.js"></script>

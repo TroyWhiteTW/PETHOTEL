@@ -58,13 +58,14 @@
                     <div class="gallery-image">
                         <img class="img-responsive" src="@room.r_image_href" style="height: 200px; width: 200px;">
                         <div class="overlay">
-                            <p><a href="@Url.Action("Index", "Booking")">我要訂房!<i class="fa fa-shopping-cart" aria-hidden="true"></i></a></p>
+                            <p><a href="@Url.Action("Index", "Booking", new { id = room.r_id})">我要訂房!<i class="fa fa-shopping-cart" aria-hidden="true"></i></a></p>
                         </div>
                     </div>
                     <p>房間編號： @room.r_id</p>
                     <p>房間名稱： @room.r_name</p>
                     <p>售價 : @room.r_price</p>
                     <p>房間資訊：@room.r_content</p>
+
                 </div>
                 }
             </div>

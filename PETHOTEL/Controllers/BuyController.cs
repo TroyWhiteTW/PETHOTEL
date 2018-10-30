@@ -116,11 +116,20 @@ namespace PETHOTEL.Controllers
 
 
         // GET: Invoice
-        public ActionResult Myorder(int id)
+        public ActionResult Myorder()
         {
-            InvoiceViewModel VM = new InvoiceViewModel();
-            VM.getone(id);
-            return View(VM);
+
+            Entities en = new Entities(???);
+            BookViewModel BK = new BookViewModel();
+            string account = Session["Customer"].ToString();
+            Customer customer = en.Customer.FirstOrDefault(x => x.c_account == account);
+            InvoiceViewModel vm = new InvoiceViewModel();
+            vm.c_id = customer.c_id;
+            vm.getone(id);
+            return View(vm);
+            //InvoiceViewModel VM = new InvoiceViewModel();
+            //VM.getone(id);
+            //return View(VM);
         }
 
 

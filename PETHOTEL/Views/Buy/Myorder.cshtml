@@ -29,60 +29,62 @@
             </th>
 
         </tr>
-
-        <tr>
-            <td>
-                @item.i_id
-            </td>
-            <td>
-                @item.cus.c_name
-            </td>
-            <td>
-                @item.cus.c_phone
-            </td>
-            <td>
-                @item.cus.c_address
-            </td>
-
-            <td>
-                @*@Html.ActionLink("Edit", "Edit", new { id = item.i_id }) |//*@
-                @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
-                @*@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
-            </td>
-        </tr>
-
-        <tr class="info">
-            <th>
-
-            </th>
-            <th>
-                商品名稱
-            </th>
-            <th>
-                商品圖片
-            </th>
-            <th>
-                商品價格
-            </th>
-
-        </tr>
-        @foreach (var item2 in item.Invoice_DetailList)
+        @if(item.cus.c_id== ViewBag.u)
         {
             <tr>
+                <td>
+                    @item.i_id
+                </td>
+                <td>
+                    @item.cus.c_name
+                </td>
+                <td>
+                    @item.cus.c_phone
+                </td>
+                <td>
+                    @item.cus.c_address
+                </td>
+
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.i_id }) |//*@
+                    @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                    @*@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                </td>
+            </tr>
+
+            <tr class="info">
                 <th>
 
                 </th>
-                <td>
-                    @item2.porduct.p_name
-                </td>
-                <td>
-                    <img class="img-responsive" src="@item2.porduct.p_image" style="height: 100px; width: 100px;">
-                </td>
-                <td>
-                    @item2.porduct.p_price
-                </td>
+                <th>
+                    商品名稱
+                </th>
+                <th>
+                    商品圖片
+                </th>
+                <th>
+                    商品價格
+                </th>
 
             </tr>
+            foreach (var item2 in item.Invoice_DetailList)
+            {
+                <tr>
+                    <th>
+
+                    </th>
+                    <td>
+                        @item2.porduct.p_name
+                    </td>
+                    <td>
+                        <img class="img-responsive" src="@item2.porduct.p_image" style="height: 100px; width: 100px;">
+                    </td>
+                    <td>
+                        @item2.porduct.p_price
+                    </td>
+
+                </tr>
+            }
         }
     </table>
 }

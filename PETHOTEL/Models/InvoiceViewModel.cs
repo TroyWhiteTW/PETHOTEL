@@ -16,6 +16,23 @@ namespace PETHOTEL.Models
         public int? c_id { get; set; }
         public int? i_status { get; set; }
         public int? i_send { get; set; }
+
+        //新增
+        public string i_status_string {
+            get {
+                if (i_status == 1)
+                {
+                    return "已付款";
+                }
+                else
+                {
+                    return "未付款";
+                }
+            }
+        }
+
+
+
         public Customer cus { get {
                 Entities en = new Entities();
                 Customer item = new Customer();

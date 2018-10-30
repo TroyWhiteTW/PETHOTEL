@@ -116,16 +116,19 @@ namespace PETHOTEL.Controllers
         // GET: Invoice
         public ActionResult Myorder()
         {
-            #region 會員自己的訂單??
+        
             Entities en = new Entities();
-            BookViewModel BK = new BookViewModel();
+            // BookViewModel BK = new BookViewModel();
             string account = Session["Customer"].ToString();
             Customer customer = en.Customer.FirstOrDefault(x => x.c_account == account);
             var userid = customer.c_id;
             InvoiceViewModel vm = new InvoiceViewModel();
-            vm.getone(userid);
-            return View(vm);
-            #endregion
+            ViewBag.u = userid;
+            //vm.getone(userid);
+
+
+            return View(vm.getlist());
+      
         }
         public ActionResult Edit(int id)
         {

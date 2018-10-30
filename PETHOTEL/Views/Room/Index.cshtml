@@ -1,7 +1,9 @@
 ﻿@model List<PETHOTEL.Models.RoomViewModel>
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout_pet.cshtml";
+                /**/
+
+                ViewBag.Title = "Index";
+                Layout = "~/Views/Shared/_Layout_pet.cshtml";
 }
 
 <h2>Index</h2>
@@ -18,19 +20,27 @@
         <div class="item active">
             <img src="~/img/1.jpg" style="width:100%; height: 200px" alt="First slide">
             <div class="carousel-caption">
-                <h1><br>購物車系統~~~~ </h1>
+                <h1>
+                    <br>購物車系統~~~~
+                </h1>
             </div>
         </div>
         <div class="item">
             <img src="~/img/1.jpg" style="width:100%; height: 500px" alt="Second slide">
             <div class="carousel-caption">
-                <h1>vacayhome<br> spa & Resort</h1>
+                <h1>
+                    vacayhome
+                    <br> spa & Resort
+                </h1>
             </div>
         </div>
         <div class="item">
             <img src="~/img/2.jpg" style="width:100%; height: 500px" alt="Third slide">
             <div class="carousel-caption">
-                <h1>vacayhome<br> spa & Resort</h1>
+                <h1>
+                    vacayhome
+                    <br> spa & Resort
+                </h1>
             </div>
         </div>
 
@@ -54,18 +64,20 @@
                 @*<img src="~/img/shopcar.png" />*@
                 @foreach (var room in Model)
                 {
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <div class="gallery-image">
-                        <img class="img-responsive" src="@room.r_image_href" style="height: 200px; width: 200px;">
-                        <div class="overlay">
-                            <p><a href="@Url.Action("Index", "Booking")">我要訂房!<i class="fa fa-shopping-cart" aria-hidden="true"></i></a></p>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="gallery-image">
+                            <img class="img-responsive" src="@room.r_image_href" style="height: 200px; width: 200px;">
+                            <div class="overlay">
+                                <p>
+                                    <a href="@Url.Action("Index", "Booking", new { id = room.r_id})">我要訂房!<i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                                </p>
+                            </div>
                         </div>
+                        <p>房間編號： @room.r_id</p>
+                        <p>房間名稱： @room.r_name</p>
+                        <p>售價 : @room.r_price</p>
+                        <p>房間資訊：@room.r_content</p>
                     </div>
-                    <p>房間編號： @room.r_id</p>
-                    <p>房間名稱： @room.r_name</p>
-                    <p>售價 : @room.r_price</p>
-                    <p>房間資訊：@room.r_content</p>
-                </div>
                 }
             </div>
         </div>

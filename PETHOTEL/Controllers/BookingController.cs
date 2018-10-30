@@ -11,26 +11,29 @@ namespace PETHOTEL.Controllers
     public class BookingController : Controller
     {
         // GET: Booking
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
-            return View();
+            Entities en = new Entities();
+            BookViewModel BK = new BookViewModel();
+            string account = Session["Customer"].ToString();
+            Customer customer = en.Customer.FirstOrDefault(x => x.c_account == account);
+            Order or = new Order();
+
+          
+            BK.c_id = customer.c_id;
+            BK.r_id = id;
+            return View(BK);
         }
 
         [HttpPost]
         public ActionResult Index(BookViewModel bk )
         {
-            Entities en = new Entities();
 
-            
-            string account = Session["Customer"].ToString();
-            Customer customer = en.Customer.FirstOrDefault(x => x.c_account == account);
 
-            Order or = new Order();
-            or.c_id = customer.c_id;
 
-            en.SaveChanges();
             bk.create();
 
+            
 
             return RedirectToAction("Index");
         }

@@ -36,15 +36,17 @@ namespace PETHOTEL.Models
         {
             Entities en = new Entities();
             Order book = new Order();
-            book.o_id = this.o_id;
+         
             book.o_pet_name = this.o_pet_name;
             book.o_pet_sex = this.o_pet_sex;
             book.o_pet_image = this.o_pet_image;
             book.o_start_date = this.o_start_date;
             book.o_end_date = this.o_end_date;
             book.o_pet_content = this.o_pet_content;
-            
-           
+            book.c_id = this.c_id;
+            book.r_id = this.r_id;
+
+
 
 
 

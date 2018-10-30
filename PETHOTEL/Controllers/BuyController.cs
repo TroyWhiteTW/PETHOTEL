@@ -116,12 +116,11 @@ namespace PETHOTEL.Controllers
 
 
         // GET: Invoice
-        public ActionResult Myorder()
+        public ActionResult Myorder(int id)
         {
             InvoiceViewModel VM = new InvoiceViewModel();
-
-
-            return View(VM.getlist());
+            VM.getone(id);
+            return View(VM);
         }
 
 

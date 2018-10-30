@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using pethotel_manager.Entity;
 using System.IO;
+using pethotel_manager.ActionFilter;
 
 namespace pethotel_manager.Controllers
 {
@@ -13,6 +14,8 @@ namespace pethotel_manager.Controllers
     {
         Entities db = new Entities();
         // GET: Product
+
+        [LogActionFilter]
         public ActionResult Index()
         {
             if (Session["managerid"] != null)   //防跨頁 如果session 不等於null 
@@ -30,12 +33,12 @@ namespace pethotel_manager.Controllers
                 return RedirectToAction("Login", "Manager");
             }
         }
-
+        [LogActionFilter]//對嗎
         public ActionResult Create()
         {
             return View();
         }
-
+        [LogActionFilter]
         [HttpPost]
         public ActionResult Create(RoomViewModel RM , HttpPostedFileBase roomImg)
         {
@@ -61,8 +64,8 @@ namespace pethotel_manager.Controllers
 
 
         }
-    
 
+        [LogActionFilter]
         public ActionResult Edit(int id)
         {
             using (Entities db = new Entities())
@@ -73,7 +76,7 @@ namespace pethotel_manager.Controllers
                 return View(result);
             }
         }
-
+        [LogActionFilter]
         [HttpPost]
         public ActionResult Edit(Models.RoomViewModel postback, HttpPostedFileBase roomImg)
         {
@@ -114,7 +117,7 @@ namespace pethotel_manager.Controllers
             return RedirectToAction("Index");
         }
 
-
+        [LogActionFilter]
         public ActionResult Delete(int id)
         {
             using (Entities db = new Entities())

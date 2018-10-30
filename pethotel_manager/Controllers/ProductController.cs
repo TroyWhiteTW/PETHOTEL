@@ -13,7 +13,7 @@ namespace pethotel_manager.Controllers
     public class ProductController : Controller
     {
         [HttpGet]
-        [LogActionFilter]
+        [LogActionFilter] //這個就是，每個action前面加!!!!!!!!!!!!!!yes
         public ActionResult Index()
         {
             Entities db = new Entities();

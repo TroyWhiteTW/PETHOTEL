@@ -108,6 +108,8 @@ namespace PETHOTEL.Controllers
                     //db.SaveChanges();
                     #endregion
                 }
+                var currentCart = Models.Cart.Operation.GetCurrentCart();
+                currentCart.ClearCart();
                 return View("Thank"); 
             }
             return RedirectToAction("Index");

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using pethotel_manager.Models;
 using pethotel_manager.Entity;
+using pethotel_manager.ActionFilter;
 
 namespace pethotel_manager.Controllers
 {
@@ -12,6 +13,7 @@ namespace pethotel_manager.Controllers
     {
         Entities db = new Entities();
         // GET: Order
+        [LogActionFilter]
         public ActionResult Index()
         {
             OrderIndexViewModel vm = new OrderIndexViewModel();
@@ -65,11 +67,13 @@ namespace pethotel_manager.Controllers
                 return RedirectToAction("Login", "Manager");
             }
         }
+        [LogActionFilter]
         public ActionResult Create()
         {
             return View();
         }
         [HttpPost]
+        [LogActionFilter]
         public ActionResult Create(OrderViewModel VM)
         {
 
@@ -94,7 +98,7 @@ namespace pethotel_manager.Controllers
 
 
 
-
+        [LogActionFilter]
         public ActionResult Edit(int id)
         {
             using (Entities db = new Entities())
@@ -107,6 +111,7 @@ namespace pethotel_manager.Controllers
         }
 
         [HttpPost]
+        [LogActionFilter]
         public ActionResult Edit(Models.OrderViewModel postback)
         {
             //Entities db = new Entities();
@@ -133,7 +138,7 @@ namespace pethotel_manager.Controllers
             return RedirectToAction("Index");
         }
 
-
+        [LogActionFilter]
         public ActionResult Delete(int id)
         {
             using (Entities db = new Entities())

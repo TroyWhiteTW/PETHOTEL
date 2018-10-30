@@ -113,39 +113,20 @@ namespace PETHOTEL.Controllers
             return RedirectToAction("Index");
 
         }
-
-
         // GET: Invoice
         public ActionResult Myorder()
         {
-
-            Entities en = new Entities(???);
+            #region 會員自己的訂單??
+            Entities en = new Entities();
             BookViewModel BK = new BookViewModel();
             string account = Session["Customer"].ToString();
             Customer customer = en.Customer.FirstOrDefault(x => x.c_account == account);
+            var userid = customer.c_id;
             InvoiceViewModel vm = new InvoiceViewModel();
-            vm.c_id = customer.c_id;
-            vm.getone(id);
+            vm.getone(userid);
             return View(vm);
-            //InvoiceViewModel VM = new InvoiceViewModel();
-            //VM.getone(id);
-            //return View(VM);
+            #endregion
         }
-
-
-
-        public ActionResult Create()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult Create(InvoiceViewModel VM)
-        {
-
-            VM.create();
-            return View();
-        }
-
         public ActionResult Edit(int id)
         {
 

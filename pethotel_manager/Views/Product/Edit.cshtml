@@ -1,7 +1,6 @@
 ﻿﻿@model pethotel_manager.Entity.Product
+@using System.Configuration;
 @{
-    /**/
-
     ViewBag.Title = "修改商品";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -9,100 +8,64 @@
 <h2>修改商品資訊</h2>
 
 
-
-
-
-<html>
-    <head>
-        <meta charset="utf-8" />
-    </head>
-    <body>
-
-        <div class="container">
-
-            <!-- form區塊 -->
-            <div class="container orderForm">
-                <!-- <div class="image">
-                    <img src="./pic/ticket.png" />
-                </div> -->
-                <form method="post" action="">
-                   
-
-
-
-                    <div class="form-group row">
-                        <label for="colFormLabelLg" class="col-sm-1 col-form-label col-form-label-lg title">商品編號</label>
-                        <div class="col-sm-9">
-                            <input type="text" id="p_id" name="p_id" class="form-control" placeholder="" value="@Model.p_id" />
-                        </div>
-                    </div>
-
-
-
-                    <div class="form-group row">
-                        <label for="colFormLabelLg" class="col-sm-1 col-form-label col-form-label-lg title">商品類別</label>
-                        <div class="col-sm-9">
-                            <input type="text" id="p_type" name="p_type" class="form-control" placeholder="" value="@Model.p_type" />
-                        </div>
-                    </div>
-
-
-
-                    <div class="form-group row">
-                        <label for="colFormLabelLg" class="col-sm-1 col-form-label col-form-label-lg title">商品名稱</label>
-                        <div class="col-sm-9">
-                            <input type="text" id="p_name" name="p_name" class="form-control" placeholder="" value="@Model.p_name" />
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="colFormLabelLg" class="col-sm-1 col-form-label col-form-label-lg title">商品內容</label>
-                        <div class="col-sm-9">
-                            <input type="text" id="p_content" name="p_content" class="form-control" placeholder="" value="@Model.p_content" />
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="colFormLabelLg" class="col-sm-1 col-form-label col-form-label-lg title">商品售價</label>
-                        <div class="col-sm-9">
-                            <input type="text" id="p_price" name="p_price" class="form-control" placeholder="" value="@Model.p_price" />
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="colFormLabelLg" class="col-sm-1 col-form-label col-form-label-lg title">商品數量</label>
-                        <div class="col-sm-9">
-                            <input type="text" id="p_count" name="p_count" class="form-control" placeholder="" value="@Model.p_count" />
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="colFormLabelLg" class="col-sm-1 col-form-label col-form-label-lg title">商品照片</label>
-                        <div class="col-sm-9">
-                            <input type="text" id="p_image" name="p_image" class="form-control" placeholder="" value="@Model.p_image" />
-                        </div>
-                    </div>
-
-
-
-
-                    <!-- modal按鈕 -->
-                    <input type="submit" class="btn" value="確認" />
-
-                </form>
-
-
-
-            </div>
-
-            <!-- form區塊 -->
-
-
-
+<!-- form區塊 -->
+<!-- <div class="image">
+    <img src="./pic/ticket.png" />
+</div> -->
+@using (Html.BeginForm("Edit", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group row">
+        <label for="colFormLabelLg" class="col-sm-1 col-form-label col-form-label-lg title">商品編號</label>
+        <div class="col-sm-9">
+            <input type="text" id="p_id" name="p_id" class="form-control" placeholder="" value="@Model.p_id" />
         </div>
+    </div>
 
+    <div class="form-group row">
+        <label for="colFormLabelLg" class="col-sm-1 col-form-label col-form-label-lg title">商品類別</label>
+        <div class="col-sm-9">
+            <input type="text" id="p_type" name="p_type" class="form-control" placeholder="" value="@Model.p_type" />
+        </div>
+    </div>
 
+    <div class="form-group row">
+        <label for="colFormLabelLg" class="col-sm-1 col-form-label col-form-label-lg title">商品名稱</label>
+        <div class="col-sm-9">
+            <input type="text" id="p_name" name="p_name" class="form-control" placeholder="" value="@Model.p_name" />
+        </div>
+    </div>
 
-    </body>
+    <div class="form-group row">
+        <label for="colFormLabelLg" class="col-sm-1 col-form-label col-form-label-lg title">商品內容</label>
+        <div class="col-sm-9">
+            <input type="text" id="p_content" name="p_content" class="form-control" placeholder="" value="@Model.p_content" />
+        </div>
+    </div>
 
-    </html>
+    <div class="form-group row">
+        <label for="colFormLabelLg" class="col-sm-1 col-form-label col-form-label-lg title">商品售價</label>
+        <div class="col-sm-9">
+            <input type="text" id="p_price" name="p_price" class="form-control" placeholder="" value="@Model.p_price" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="colFormLabelLg" class="col-sm-1 col-form-label col-form-label-lg title">商品數量</label>
+        <div class="col-sm-9">
+            <input type="text" id="p_count" name="p_count" class="form-control" placeholder="" value="@Model.p_count" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="colFormLabelLg" class="col-sm-1 col-form-label col-form-label-lg title">商品照片</label>
+        <div class="col-sm-9">
+            <a href="@Path.Combine(ConfigurationManager.AppSettings["IMG_FOLDER_PATH"].ToString(), Model.p_image)" target="_blank">預覽</a>
+            @*<input type="text" id="p_image" name="p_image" class="form-control" placeholder="" value="@Model.p_image" />*@
+            <input type="file" name="productImg" />
+        </div>
+    </div>
+
+    <!-- modal按鈕 -->
+    <input type="submit" class="btn btn-default" value="確認" />
+}
+

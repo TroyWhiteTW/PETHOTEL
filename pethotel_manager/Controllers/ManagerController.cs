@@ -21,26 +21,20 @@ namespace pethotel_manager.Controllers
         [HttpPost]
         public ActionResult Registration(ManagerViewModel MM)
         {
-
             MM.create();
 
             return RedirectToAction("Login");
-
         }
+
         public ActionResult LP33()
         {
-
-
             return RedirectToAction("Registration");
         }
+
         public ActionResult Login()
         {
             return View(); ;
         }
-
-
-
-
 
         [HttpPost]
         public ActionResult Login(pethotel_manager.Models.ManagerViewModel reg)
@@ -54,21 +48,16 @@ namespace pethotel_manager.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-
             return RedirectToAction("Login");  //登入失敗
-
-
-
 
         }
         public ActionResult Logout()
         {
+            //Session.RemoveAll();
+            Session["managerid"] = "";
 
-            Session.RemoveAll();
-
-            return RedirectToAction("Index", "Product");
+            return RedirectToAction("Index", "Home");
             //return RedirectToAction("Login", "Account");
         }
-
     }
 }

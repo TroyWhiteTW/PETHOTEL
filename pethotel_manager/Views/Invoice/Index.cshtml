@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
@@ -9,14 +10,15 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-        @foreach (var item in Model)
-        {
+
 <table class="table">
     <tr class="success">
         <th>
             訂單編號
         </th>
-
+        <th>
+            商品數量
+        </th>
         <th>
             顧客姓名
         </th>
@@ -30,91 +32,95 @@
             付款狀態
         </th>
         <th>
-            寄送位置
+            操作
         </th>
-
-
-
-        <th></th>
     </tr>
 
-
-    <tr>
-        <td>
-            @item.i_id
-        </td>
-        <td>
-            @item.cus.c_name
-        </td>
-        <td>
-            @item.cus.c_phone
-        </td>
-        <td>
-            @item.cus.c_address
-        </td>
-
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.i_id }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-
-    <tr class="info">
-        <th>
-
-        </th>
-        <th>
-            商品名稱
-        </th>
-        <th>
-            商品圖片
-        </th>
-        <th>
-            商品價格
-        </th>
-        <th>
-            商品類別
-        </th>
-        <th>
-            商品數量
-        </th>
-        <th>
-
-        </th>
-        <th>
-
-        </th>
-        <th>
-
-        </th>
-
-    </tr>
-    @foreach (var item2 in item.Invoice_DetailList)
+    @foreach (var item in Model)
     {
-
-    <tr>
-        <th>
-
-        </th>
-        <td>
-            @item2.porduct.p_name
-        </td>
-        <td>
-            <img class="img-responsive" src="~/FileUploads/@item2.porduct.p_image" style="height: 100px; width: 100px;">
-        </td>
-        <td>
-            @item2.porduct.p_price
-        </td>
-        <td>
-            @item2.porduct.p_type
-        </td>
-        <td>
-            1000元
-        </td>
-    </tr>
+        <tr>
+            <td>
+                @item.i_id
+            </td>
+            <td>
+                @item.Invoice_DetailList.Count
+            </td>
+            <td>
+                @item.cus.c_name
+            </td>
+            <td>
+                @item.cus.c_phone
+            </td>
+            <td>
+                @item.cus.c_address
+            </td>
+            <td>
+                @item.i_status_string
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.i_id }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
     }
-</table>
-        }
 
-    
+    @*文嘉: 糞code拿掉 Invoice_DetailList顯示在Edit頁裡 *@
+    @*<tr class="info">
+            <th>
+
+            </th>
+            <th>
+                商品名稱
+            </th>
+            <th>
+                商品圖片
+            </th>
+            <th>
+                商品價格
+            </th>
+            <th>
+                商品類別
+            </th>
+            <th>
+                商品數量
+            </th>
+            <th>
+
+            </th>
+            <th>
+
+            </th>
+            <th>
+
+            </th>
+
+        </tr>
+
+        @foreach (var item2 in item.Invoice_DetailList)
+        {
+            <tr>
+                <th>
+
+                </th>
+                <td>
+                    @item2.porduct.p_name
+                </td>
+                <td>
+                    <img class="img-responsive" src="~/FileUploads/@item2.porduct.p_image" style="height: 100px; width: 100px;">
+                </td>
+                <td>
+                    @item2.porduct.p_price
+                </td>
+                <td>
+                    @item2.porduct.p_type
+                </td>
+                <td>
+                    1000元
+                </td>
+            </tr>
+        }*@
+</table>
+
+
+

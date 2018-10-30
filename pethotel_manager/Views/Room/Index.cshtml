@@ -1,69 +1,51 @@
 ﻿
 @{
-	ViewBag.Title = "房間資訊列表";
-	Layout = "~/Views/Shared/_Layout1.cshtml";
+    ViewBag.Title = "房間資訊列表";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<html>
-<head>
-	<meta charset="utf-8" />
-	<title>Table Style</title>
+<div class="table-title">
+    <h3>房間列表</h3>
+</div>
 
+<table class="table table-hover" style="margin-top: 2px;">
+    <thead>
+        <tr class="info">
+            <th style="vertical-align: middle !important;text-align: center;" class="text-center">房間編號</th>
+            <th style="vertical-align: middle !important;text-align: center;" class="text-center">房間名稱</th>
+            <th style="vertical-align: middle !important;text-align: center;" class="text-center">房間內容</th>
+            <th style="vertical-align: middle !important;text-align: center;" class="text-center">房間售價</th>
+            <th style="vertical-align: middle !important;text-align: center;" class="text-center">房間狀態</th>
+            <th style="vertical-align: middle !important;text-align: center;" class="text-center">房間照片</th>
+            <th style="vertical-align: middle !important;text-align: center;" class="text-center">管理者操作</th>
+        </tr>
 
-	<meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
-	@*<link rel="stylesheet" href="~/css/樣式.CSS">*@
-</head>
-<body>
+    </thead>
 
+    <tbody class="table-hover">
+        @foreach (var room in ViewBag.r)
+        {
+            <tr>
+                <td style="vertical-align: middle !important;text-align: center;" class="text-center">@room.r_id</td>
+                <td style="vertical-align: middle !important;text-align: center;" class="text-center">@room.r_name</td>
+                <td style="vertical-align: middle !important;text-align: center;" class="text-center">@room.r_content</td>
+                <td style="vertical-align: middle !important;text-align: center;" class="text-center">@room.r_price.ToString("G29")</td>
+                <td style="vertical-align: middle !important;text-align: center;" class="text-center">即將開放!!!</td>
 
-    <div class="container">
-        <div class="table-title">
-            <h3>房間列表</h3>
-        </div>
+                @*<td class="text-left">@room.r_image</td>*@
+                <td align="center">
+                    <img class="img-responsive" src="~/FileUploads/@room.r_image" style="height:100px ; width:100px ;" />
+                </td>
 
-        <table class="table table-hover">
-            <thead>
-                <tr class="info">
-                    <th style="vertical-align: middle !important;text-align: center;"class="text-center">房間編號</th>
-                    <th style="vertical-align: middle !important;text-align: center;"class="text-center">房間名稱</th>
-                    <th style="vertical-align: middle !important;text-align: center;"class="text-center">房間內容</th>
-                    <th style="vertical-align: middle !important;text-align: center;"class="text-center">房間售價</th>
-                    <th style="vertical-align: middle !important;text-align: center;"class="text-center">房間狀態</th>
-           
-                    <th style="vertical-align: middle !important;text-align: center;"class="text-center">房間照片</th>
-                    <th style="vertical-align: middle !important;text-align: center;"class="text-center">管理者操作</th>
-                </tr>
+                <td style="vertical-align: middle !important;text-align: center;">
+                    <a class="btn btn-warning " href="/Room/Edit/@room.r_id">修改</a>
+                    <a class="btn btn-danger " href="/Room/Delete/@room.r_id">刪除</a>
+                </td>
+            </tr>
+        }
 
-            </thead>
-
-            <tbody class="table-hover">
-                @foreach (var room in ViewBag.r)
-                {
-                    <tr>
-                        <td style="vertical-align: middle !important;text-align: center;"class="text-center">@room.r_id</td>
-                        <td style="vertical-align: middle !important;text-align: center;"class="text-center">@room.r_name</td>
-                        <td style="vertical-align: middle !important;text-align: center;"class="text-center">@room.r_content</td>
-                        <td style="vertical-align: middle !important;text-align: center;"class="text-center">@room.r_price</td>
-                        <td style="vertical-align: middle !important;text-align: center;"class="text-center">即將開放!!!!!!</td>
-                       
-                        @*<td class="text-left">@room.r_image</td>*@
-                        <td align="center">
-                            <img class="img-responsive" src="~/FileUploads/@room.r_image" style="height:100px ; width:100px ;" />
-                        </td>
-
-                        <td style="vertical-align: middle !important;text-align: center;">
-                            <a class="btn btn-warning " href="/Room/Edit/@room.r_id">修改</a>
-                            <a class="btn btn-danger " href="/Room/Delete/@room.r_id">刪除</a>
-                        </td>
-                    </tr>
-                }
-
-            </tbody>
-        </table>
-        <a class="btn btn-primary btnCreate" href="/Room/Create">房間上架</a>
-    </div>
-</body>
-
-</html>
+    </tbody>
+</table>
+<a class="btn btn-primary btnCreate" href="/Room/Create">房間上架</a>
 
 

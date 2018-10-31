@@ -21,6 +21,12 @@
     <script src="/QQQQQ/js/custom.js"></script>
 
     <style>
+        .image-head-wrapper {
+            background: rgba(0, 0, 0, 0) url("../images/inner-banner.png") round;
+            height: 450px;
+            position: relative;
+        }
+
         ul.Cart li {
             width: 260px;
         }
@@ -48,7 +54,7 @@
 
     <!---header top---->
     <!--header--->
-    <header class="header-container navbar-static-top" style="background-color: white;">
+    <header class="header-container navbar-fixed-top" style="background-color: white;">
         @*<div style="margin-left:500px ">@Html.Partial("_LoginView")</div>*@
         <div class="container">
 
@@ -116,6 +122,8 @@
 
 
     <div class="container body-content">
+
+        <br /><br /><br /><br /><br />
         @RenderBody()
         <hr />
 

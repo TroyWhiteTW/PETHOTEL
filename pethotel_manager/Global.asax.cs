@@ -21,6 +21,7 @@ namespace pethotel_manager
         protected void Session_Start(Object sender, EventArgs e)
         {
             Session["managerid"] = "";
+            Session["Room"] = "";
         }
     }
 }

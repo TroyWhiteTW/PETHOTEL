@@ -21,6 +21,7 @@ namespace PETHOTEL
         protected void Session_Start(Object sender, EventArgs e)
         {
             Session["Customer"] = "";
+            Session["Room"] = "";
         }
     }
 }

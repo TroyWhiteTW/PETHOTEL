@@ -9,7 +9,13 @@ namespace PETHOTEL.Models
 {
     public class LoginViewModel
     {
+        public int c_id { get; set; }
 
+ 
+        public string c_name { get; set; }
+        public string c_address { get; set; }
+        public string c_phone { get; set; }
+        public string c_gmail { get; set; }
 
 
 
@@ -23,16 +29,15 @@ namespace PETHOTEL.Models
         [DataType(DataType.Password)]
         public string c_password { get; set; }
 
-        //public void Login()
-        //{
-            
-        //    Entities db = new Entities();
-        //    LoginViewModel lv = new LoginViewModel();
-            
-        //    var v = db.Customer.Where(a => a.c_account == lv.c_account).FirstOrDefault();
-                
-                   
-        //}
+        public Customer cus {
+            get {
+                Entities en = new Entities();
+                Customer item = new Customer();
+                item = en.Customer.SingleOrDefault(a => a.c_id == c_id);
+                return item;
+
+            }
+        }
 
 
 

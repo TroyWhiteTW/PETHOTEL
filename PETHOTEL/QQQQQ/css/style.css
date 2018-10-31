@@ -856,7 +856,7 @@ footer a{
 }
 /*single page image*/
 .image-head-wrapper {
-    background: rgba(0, 0, 0, 0) url("../images/inner-banner.png") no-repeat scroll center top;
+    background: rgba(0, 0, 0, 0) url("../images/inner-banner.png") round;
     height: 450px;
     position: relative;
 }

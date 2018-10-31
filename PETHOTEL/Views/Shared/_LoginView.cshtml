@@ -7,19 +7,20 @@
         <a data-hover="我的訂單" href="/Buy/Myorder"><span>我的訂單</span></a>
     </li>
     <li>
-        <a data-hover="即時影像" href="/TEST/testIOT"><span>即時影像</span></a>
+        <a data-hover="即時影像" href='/TEST/testIOT/@Session["Room"].ToString()'><span>即時影像 </span></a>
     </li>
+    
 
     //@Html.AntiForgeryToken()
     @*<nav class="navbar-right"></nav>*@
     @*<a data-hover="訂房系統" href="/Booking/Index"><span>訂房系統</span></a>*@
 
-    <!--<li>-->
+       
 
     @*<a style="vertical-align: middle !important;text-align: center;" class="text-center" class="" data-hover=@Session["Customer"].ToString() href=""><span>@Session["Customer"].ToString()!!</span></a>*@
     @*@Html.ActionLink("Hello " + Session["Customer"].ToString() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
-
-    <!--</li>-->
+    //Session["Room"].ToString()
+  
     @*<li>
         <div class="navbar-right" style="vertical-align: text-top !important;text-align: center; font-size:smaller">*@
     @*<i class="fa fa-user-circle-o" aria-hidden="true"></i> @Session["Customer"].ToString() 您好*@

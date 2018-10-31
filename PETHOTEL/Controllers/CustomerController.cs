@@ -15,6 +15,8 @@ namespace PETHOTEL.Controllers
         // GET: Customer
         public ActionResult Index()
         {
+            
+
             return View();
         }
 
@@ -51,10 +53,20 @@ namespace PETHOTEL.Controllers
 
             Entities en = new Entities();
             Customer ma = new Customer();
+          //  ma  = en.Customer.FirstOrDefault(x => x.c_id == lv.c_id);
             var query = (from o in db.Customer where o.c_account == lv.c_account && o.c_password == lv.c_password select o).Count();
             if (query == 1)
             {
                 Session["customer"] = lv.c_account;
+
+                lv.c_id = db.Customer.FirstOrDefault(x => x.c_account == lv.c_account).c_id;
+
+                //Order r = new Order();
+                //// var Q = (from o in db.Order where o.c_id == ma.c_id)
+                //r = en.Order.FirstOrDefault(x => x.c_id == lv.cus.c_id);
+                Session["Room"] = lv.c_id;
+                
+
                 return RedirectToAction("home", "Home");
             }
 

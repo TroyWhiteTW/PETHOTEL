@@ -114,14 +114,14 @@ namespace pethotel_manager.Controllers
         [LogActionFilter]
         public ActionResult Edit(Models.OrderViewModel postback)
         {
-            //Entities db = new Entities();
+            Entities db = new Entities();
             var query = from o in db.Order
                         where o.o_id == postback.o_id
                         select o;
 
             var ord = query.FirstOrDefault();
             //var item = db.Customer.SingleOrDefault(a => a.c_id == o_c_id);
-            ord.o_id = postback.o_id;
+            //ord.o_id = postback.o_id;
             ord.o_pet_name = postback.o_pet_name;
             ord.o_pet_type = postback.o_pet_type;
             ord.o_pet_sex = postback.o_pet_sex;

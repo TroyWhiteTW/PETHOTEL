@@ -30,6 +30,9 @@ namespace pethotel_manager.Models
                     case 1:
                         s = "小貓";
                         break;
+                    case 2:
+                        s = "小雞雞";
+                        break;
 
                 }
 

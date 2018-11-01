@@ -67,11 +67,11 @@ namespace PETHOTEL.Controllers
 
             //取得顧客最新訂單
             Order or = new Order();
-            or = en.Order.OrderBy(x => x.o_create_datetime).FirstOrDefault(x => x.c_id == customer.c_id);
+            or = en.Order.OrderByDescending(x => x.o_create_datetime).FirstOrDefault(x => x.c_id == id);
         
             //組成ViewModel
             BK.o_id = or.o_id;
-            BK.r_id = id;
+            BK.r_id = or.r_id.Value;
             BK.c_id = customer.c_id;
             BK.o_pet_name = or.o_pet_name;
             BK.o_pet_type = (or.o_pet_type!=null)? or.o_pet_type.Value:0;   //int? 取值需用 xx.Value

@@ -16,22 +16,24 @@
 
     @if (item.cus.c_id == ViewBag.u)
     {
-        <tr class="success">
-            <th>
-                訂單編號
-            </th>
+    <tr class="success">
+        <th>
+            訂單編號
+        </th>
 
-            <th>
-                顧客姓名
-            </th>
-            <th>
-                顧客電話
-            </th>
-            <th>
-                顧客地址
-            </th>
-
-        </tr>
+        <th>
+            顧客姓名
+        </th>
+        <th>
+            顧客電話
+        </th>
+        <th>
+            顧客地址
+        </th>
+        <th>
+           操作
+        </th>
+    </tr>
         <tr>
             <td>
                 @item.i_id
@@ -48,44 +50,56 @@
 
             <td>
                 @*@Html.ActionLink("Edit", "Edit", new { id = item.i_id }) |//*@
-                @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                @Html.ActionLink("Details", "Details", new { id=item.i_id })
                 @*@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
             </td>
         </tr>
 
         <tr class="info">
             <th>
-
+                商品圖片
             </th>
             <th>
                 商品名稱
             </th>
+
             <th>
-                商品圖片
+                數量
             </th>
             <th>
-                商品價格
+                價格
             </th>
 
         </tr>
-        foreach (var item2 in item.Invoice_DetailList)
+        foreach (var item2 in item.InvoiceViewModelOutPutList)
         {
-            <tr>
-                <th>
+        <tr>
+            <td>
+                <img class="img-responsive" src="http://localhost:14520/FileUploads/@item2.img" style="height: 100px; width: 100px;">
+            </td>
+            <td>
+                @item2.name
+            </td>
 
-                </th>
-                <td>
-                    @item2.porduct.p_name
-                </td>
-                <td>
-                    <img class="img-responsive" src="http://localhost:14520/FileUploads/@item2.porduct.p_image" style="height: 100px; width: 100px;">
-                </td>
-                <td>
-                    @item2.porduct.p_price
-                </td>
+            <td>
+                @item2.count
+            </td>
+         
+            <td>
+                @item2.total
+            </td>
 
-            </tr>
+        </tr>
         }
+
+
+        <tr>
+            <td style="text-align:center">總量</td>
+            <td></td>
+            <td>@item.invoice_count</td>
+            <td>@item.invoice_total</td>
+        </tr>
+
     }
 </table>
 }

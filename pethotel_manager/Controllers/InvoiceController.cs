@@ -39,6 +39,7 @@ namespace pethotel_manager.Controllers
 
             InvoiceViewModel VM = new InvoiceViewModel();
             VM.getone(id);
+            
             return View(VM);
         }
 

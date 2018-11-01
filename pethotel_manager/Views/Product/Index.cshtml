@@ -1,6 +1,33 @@
 ﻿@{
     ViewBag.Title = "商品列表";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+    string p_type_string(int x)
+    {
+        string s = "未定義";
+        switch (x)
+        {
+            case 0:
+                s = "零食";
+                break;
+            case 1:
+                s = "罐頭";
+                break;
+            case 2:
+                s = "玩具";
+                break;
+            case 3:
+                s = "清潔用品";
+                break;
+            case 4:
+                s = "貓砂";
+                break;
+
+        }
+        return s;
+    }
+
 }
 
 <style>
@@ -36,7 +63,7 @@
             {
                 <tr>
                     <td class="text-center">@product.p_id</td>
-                    <td class="text-center">@product.p_type</td>
+                    <td class="text-center">@p_type_string(product.p_type)</td>
                     <td class="text-center">@product.p_name</td>
                     <td class="text-center">@product.p_content</td>
                     <td class="text-center">@product.p_price.ToString("G29")</td>

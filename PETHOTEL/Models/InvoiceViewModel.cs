@@ -17,6 +17,33 @@ namespace PETHOTEL.Models
         public int? i_status { get; set; }
         public int? i_send { get; set; }
 
+        public decimal? invoice_total { get 
+                {
+                decimal? tol = 0;
+                foreach (var item in InvoiceViewModelOutPutList) {
+
+                    tol = tol + item.total;
+
+                }
+                return tol;
+
+            } }
+        public decimal? invoice_count {
+            get {
+                decimal? count = 0;
+                foreach (var item in InvoiceViewModelOutPutList)
+                {
+
+                    count = count + item.count;
+
+                }
+                return count;
+
+            }
+        }
+
+
+
         //新增
         public string i_status_string {
             get {
@@ -127,6 +154,80 @@ namespace PETHOTEL.Models
 
 
 
+        public List<InvoiceViewModelOutPut> InvoiceViewModelOutPutList {
+
+            get {
+                List<InvoiceViewModelOutPut> L = new List<InvoiceViewModelOutPut>();
+                foreach (var item in Invoice_DetailList)
+                {
+                    if (L.Where(a => a.p_id == item.porduct.p_id).Count() > 0)
+                    {
+
+                        L.SingleOrDefault(a => a.p_id == item.porduct.p_id).count++;
+
+                    }
+                    else
+                    {
+                        InvoiceViewModelOutPut VMOP = new InvoiceViewModelOutPut();
+                        VMOP.img = item.porduct.p_image;
+                        VMOP.count = 1;
+                        VMOP.name = item.porduct.p_name;
+                        VMOP.p_id = item.porduct.p_id;
+                        VMOP.type = item.porduct.p_type;
+                        VMOP.price = item.porduct.p_price;
+                        L.Add(VMOP);
+                    }
+                }
+                return L;
+            }
+        }
+
+
+        public class InvoiceViewModelOutPut
+        {
+            public int p_id { get; set; }
+            public string img { get; set; }
+            public string name { get; set; }
+            public int count { get; set; }
+            public decimal? price { get; set; }
+            public decimal? total {
+                get {
+
+                    return count * price;
+                }
+            }
+
+
+            public int? type { get; set; }
+            public string type_string {
+                get {
+
+                    string S = "";
+                    switch (type)
+                    {
+
+                        case 0:
+                            S = "零食";
+                            break;
+                        case 1:
+                            S = "罐頭";
+                            break;
+                        case 2:
+                            S = "貓砂";
+                            break;
+                        case 3:
+                            S = "貓砂";
+                            break;
+                        case 4:
+                            S = "貓砂";
+                            break;
+                    }
+
+                    return S;
+                }
+            }
+
+        }
 
 
     }

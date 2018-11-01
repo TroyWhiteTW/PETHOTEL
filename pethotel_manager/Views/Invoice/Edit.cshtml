@@ -5,40 +5,7 @@
 }
 @using (Html.BeginForm())
 {
-    @Html.AntiForgeryToken()
-
     <div class="form-horizontal">
-        <h4>InvoiceViewModel</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-
-            <label class="control-label col-md-2">顧客姓名</label>
-
-
-            <div class="col-md-10">
-
-                <input class="form-control" type="text" value="@Model.cus.c_name" />
-
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2">顧客地址</label>
-            <div class="col-md-10">
-                <input class="form-control" type="text" value="@Model.cus.c_address" />
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2">顧客電話</label>
-            <div class="col-md-10">
-                <input class="form-control" type="text" value="@Model.cus.c_phone" />
-            </div>
-        </div>
-
-
-
     </div>
 
     <table class="table">
@@ -46,21 +13,26 @@
             <tr>
                 <td>商品圖</td>
                 <td>名稱</td>
-                <td>售價</td>
+                <td>類別</td>
+                <td>總數</td>
+                <td>總價</td>
 
             </tr>
         </thead>
         <tbody>
-            @foreach (var pd in Model.Invoice_DetailList) /* 使用foreach將所有商品列出 */
+            @foreach (var pd in Model.InvoiceViewModelOutPutList) /* 使用foreach將所有商品列出 */
             {
-                <tr>
-                    @*<td><img src="@pd.Id" width="50" height="50" /></td>*@
-                    <td><img class="img-responsive" src="~/FileUploads/@pd.porduct.p_image" style="height: 50px; width: 50px;"></td>
+            <tr>
 
-                    <td>@pd.porduct.p_name</td>
-                    <td>@pd.porduct.p_price</td>
+              
+                <td><img class="img-responsive" src="~/FileUploads/@pd.img" style="height: 50px; width: 50px;"></td>
 
-                </tr>
+                <td>@pd.name</td>
+                <td>@pd.type_string</td>
+                <td>@pd.count</td>
+                <td>@pd.total</td>
+
+            </tr>
             }
 
         </tbody>

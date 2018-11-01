@@ -8,11 +8,8 @@
 
     string o_pet_type_string(int x)
     {
-
         string s = "未定義";
-
-        switch (x)
-        {
+        switch (x)        {
             case 0:
                 s = "小狗";
                 break;
@@ -22,19 +19,13 @@
             case 2:
                 s = "小雞雞";
                 break;
-
         }
-
         return s;
-
-
     }
 
     string o_pet_sex_string(int x)
     {
-
         string s = "未定義";
-
         switch (x)
         {
             case 0:
@@ -46,14 +37,26 @@
             case 2:
                 s = "小雞雞";
                 break;
-
         }
-
         return s;
-
-
     }
-
+    string o_status_string(int x)
+    {
+        string s = "未定義";
+        switch (x)
+        {
+            case 0:
+                s = "已完成";
+                break;
+            case 1:
+                s = "未付款";
+                break;
+            case 2:
+                s = "已付款";
+                break;
+        }
+        return s;
+    }
 }
 
 <html>
@@ -77,10 +80,10 @@
                 <tr class="info">
                     
                     <th style="vertical-align: middle !important;text-align: center;" class="text-center">訂單編號</th>
-                    <th style="vertical-align: middle !important;text-align: center;" class="text-center">房間編號</th>
+                    @*<th style="vertical-align: middle !important;text-align: center;" class="text-center">房間編號</th>*@
                     <th style="vertical-align: middle !important;text-align: center;" class="text-center">房間<br>名稱</th>
                     <th style="vertical-align: middle !important;text-align: center;" class="text-center">房間價格</th>
-                    <th style="vertical-align: middle !important;text-align: center;" class="text-center">客戶編號</th>
+                    @*<th style="vertical-align: middle !important;text-align: center;" class="text-center">客戶編號</th>*@
                     <th style="vertical-align: middle !important;text-align: center;" class="text-center">客戶<br>姓名</th>
                     <th style="vertical-align: middle !important;text-align: center;" class="text-center">客戶電話</th>
                     <th style="vertical-align: middle !important;text-align: center;" class="text-center">客戶地址</th>
@@ -108,50 +111,37 @@
                 {
                     <tr>
 
-                        <td style="vertical-align: middle !important;text-align: center;"class="text-center">@ord.o_id</td>
-                        <td style="vertical-align: middle !important;text-align: center;"class="text-center">@ord.r_id</td>
+                        <td  width="50px"style="vertical-align: middle !important;text-align: center;"class="text-center">@ord.o_id</td>
+                        @*<td style="vertical-align: middle !important;text-align: center;"class="text-center">@ord.r_id</td>*@
                         <td style="vertical-align: middle !important;text-align: center;" class="text-center">
                             &nbsp&nbsp&nbsp&nbsp<br>
                             @ord.room.r_name
                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 
-<td style="vertical-align: middle !important;text-align: center;"class="text-center">
-                            @ord.room.r_price
-                  
-                        <td style="vertical-align: middle !important;text-align: center;"class="text-center">@ord.c_id</td>
-                        <td style="vertical-align: middle !important;text-align: center;" class="text-center">
+                        <td style="vertical-align: middle !important;text-align: center;" class="text-center">                            
+                            @Math.Truncate(ord.room.r_price.Value) 元
+                            @*<td style="vertical-align: middle !important;text-align: center;"class="text-center">@ord.c_id</td>*@
+<td style="vertical-align: middle !important;text-align: center;" class="text-center">
                             &nbsp&nbsp&nbsp&nbsp<br>
                             @ord.customer.c_name
                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                         </td>
                         <td style="vertical-align: middle !important;text-align: center;"class="text-center">
                             @ord.customer.c_phone
-                            @*@foreach (var cod in @ViewBag.c)
-                            {
-                                if (@ord.c_id == cod.c_id)
-                                {
-                                    @cod.c_phone
-                                }
-                            }*@
+                        
                         </td>
-                        <td style="vertical-align: middle !important;text-align: center;"class="text-center">
+                        <td  width="100px" style="vertical-align: middle !important;text-align: center;"class="text-center">
                             @ord.customer.c_address
-                            @*@foreach (var cod in @ViewBag.c)
-                            {
-                                if (@ord.c_id == cod.c_id)
-                                {
-                                    @cod.c_address
-                                }
-                            }*@
+                     
                         </td>
                         <td style="vertical-align: middle !important;text-align: center;"class="text-center">@ord.o_pet_name</td>
                         <td style="vertical-align: middle !important;text-align: center;"class="text-center">@o_pet_type_string(ord.o_pet_type)</td>
                         <td style="vertical-align: middle !important;text-align: center;"class="text-center">@o_pet_sex_string(ord.o_pet_sex)</td>
                         <td style="vertical-align: middle !important;text-align: center;"class="text-center">@ord.o_pet_content</td>
-                        <td style="vertical-align: middle !important;text-align: center;"class="text-center">@ord.o_status</td>
+                        <td style="vertical-align: middle !important;text-align: center;"class="text-center">@o_status_string(ord.o_status)</td>
                         @*<td class="text-left">@ord.o_create_datetime</td>*@
-                        <td style="vertical-align: middle !important;text-align: center;"class="text-center">@ord.o_start_date</td>
-                        <td style="vertical-align: middle !important;text-align: center;"class="text-center">@ord.o_end_date</td>
+                        <td  width="100px"style="vertical-align: middle !important;text-align: center;"class="text-center">@ord.o_start_date.ToString("yyyy-MM-dd")</td>
+                        <td  width="100px"style="vertical-align: middle !important;text-align: center;"class="text-center">@ord.o_end_date.ToString("yyyy-MM-dd")</td>
 
 
 
@@ -176,7 +166,7 @@
         </table>
 
         @*</div>*@
-        <a class="btn btn-primary btnCreate" href="/Order/Create">商品上架</a>
+    
     </div>
 </body>
 

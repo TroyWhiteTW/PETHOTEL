@@ -24,7 +24,63 @@
     <div class="form-group row">
         <label for="colFormLabelLg" class="col-sm-1 col-form-label col-form-label-lg title">商品類別</label>
         <div class="col-sm-9">
-            <input type="text" id="p_type" name="p_type" class="form-control" placeholder="" value="@Model.p_type" />
+            @*<input type="text" id="p_type" name="p_type" class="form-control" placeholder="" value="@Model.p_type" />*@
+
+
+            @switch (Model.p_type)
+            {
+                case 0:
+
+                    <select class="form-control" id="selector" name="p_type">
+                        <option selected="selected" value="0">零食</option>
+                        <option value="1">罐頭</option>
+                        <option value="2">玩具</option>
+                        <option value="3">清潔用品</option>
+                        <option value="4">貓砂</option>
+                    </select>
+                    break;
+
+
+                case 1:
+
+                    <select class="form-control" id="selector" name="p_type">
+                        <option value="0">零食</option>
+                        <option selected="selected" value="1">罐頭</option>
+                        <option value="2">玩具</option>
+                        <option value="3">清潔用品</option>
+                        <option value="4">貓砂</option>
+                    </select>
+                    break;
+
+
+                case 2:
+                    <select class="form-control" id="selector" name="p_type">
+                        <option value="0">零食</option>
+                        <option value="1">罐頭</option>
+                        <option selected="selected" value="2">玩具</option>
+                        <option value="3">清潔用品</option>
+                        <option value="4">貓砂</option>
+                    </select>
+                    break;
+                case 3:
+                    <select class="form-control" id="selector" name="p_type">
+                        <option value="0">零食</option>
+                        <option value="1">罐頭</option>
+                        <option value="2">玩具</option>
+                        <option selected="selected" value="3">清潔用品</option>
+                        <option value="4">貓砂</option>
+                    </select>
+                    break;
+                case 4:
+                    <select class="form-control" id="selector" name="p_type">
+                        <option value="0">零食</option>
+                        <option value="1">罐頭</option>
+                        <option value="2">玩具</option>
+                        <option value="3">清潔用品</option>
+                        <option selected="selected" value="4">貓砂</option>
+                    </select>
+                    break;
+            }
         </div>
     </div>
 

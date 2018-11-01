@@ -48,9 +48,9 @@ namespace PETHOTEL.Models
             book.o_pet_type = this.o_pet_type;
             book.o_pet_image = this.o_pet_image;
             book.o_status = this.o_status;
-            book.o_create_datetime = this.o_create_datetime;
-            book.o_start_date = this.o_start_date.Date;
-            book.o_end_date = Convert.ToDateTime(this.o_end_date.Date.ToString("yyyy-MM-dd"));
+            book.o_create_datetime = this.o_start_date;
+            book.o_start_date = this.o_start_date;
+            book.o_end_date = this.o_end_date;
             book.o_pet_content = this.o_pet_content;
             book.c_id = this.c_id;
             book.r_id = this.r_id;

@@ -13,6 +13,39 @@ namespace pethotel_manager.Models
         public int? c_id { get; set; }
         public int? i_status { get; set; }
 
+
+
+
+        public decimal? invoice_total {
+            get {
+                decimal? tol = 0;
+                foreach (var item in InvoiceViewModelOutPutList)
+                {
+
+                    tol = tol + item.total;
+
+                }
+                return tol;
+
+            }
+        }
+        public decimal? invoice_count {
+            get {
+                decimal? count = 0;
+                foreach (var item in InvoiceViewModelOutPutList)
+                {
+
+                    count = count + item.count;
+
+                }
+                return count;
+
+            }
+        }
+
+
+
+
         public string i_status_string {
             get {
                 if (i_status == 1)

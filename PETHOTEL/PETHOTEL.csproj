@@ -675,6 +675,7 @@
     <Content Include="Views\Buy\Index.cshtml" />
     <Content Include="Views\Buy\Thank.cshtml" />
     <Content Include="Views\Buy\Myorder.cshtml" />
+    <Content Include="Views\Buy\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

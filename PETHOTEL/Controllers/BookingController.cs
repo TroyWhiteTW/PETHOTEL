@@ -19,7 +19,7 @@ namespace PETHOTEL.Controllers
             Customer customer = en.Customer.FirstOrDefault(x => x.c_account == account);
             Order or = new Order();
 
-          
+            
             BK.c_id = customer.c_id;
             BK.r_id = id;
             return View(BK);
@@ -29,7 +29,7 @@ namespace PETHOTEL.Controllers
         public ActionResult Index(BookViewModel bk )
         {
 
-
+            
 
             bk.create();
 

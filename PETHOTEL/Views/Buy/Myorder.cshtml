@@ -12,11 +12,11 @@
 
 @foreach (var item in Model)
 {
-<table class="table">
 
-    @if (item.cus.c_id == ViewBag.u)
+    if (item.cus.c_id == ViewBag.u)
     {
-    <tr class="success">
+        <table class="table">
+        <tr class="success">
         <th>
             訂單編號
         </th>
@@ -31,77 +31,37 @@
             顧客地址
         </th>
         <th>
-           操作
+            商品總價
+        </th>
+        <th>
+            商品細節
         </th>
     </tr>
-        <tr>
-            <td>
-                @item.i_id
-            </td>
-            <td>
-                @item.cus.c_name
-            </td>
-            <td>
-                @item.cus.c_phone
-            </td>
-            <td>
-                @item.cus.c_address
-            </td>
+    <tr>
+        <td>
+            @item.i_id
+        </td>
+        <td>
+            @item.cus.c_name
+        </td>
+        <td>
+            @item.cus.c_phone
+        </td>
+        <td>
+            @item.cus.c_address
+        </td>
+        <td>
+            @item.invoice_total
+        </td>
 
-            <td>
-                @*@Html.ActionLink("Edit", "Edit", new { id = item.i_id }) |//*@
-                @Html.ActionLink("Details", "Details", new { id=item.i_id })
-                @*@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
-            </td>
-        </tr>
-
-        <tr class="info">
-            <th>
-                商品圖片
-            </th>
-            <th>
-                商品名稱
-            </th>
-
-            <th>
-                數量
-            </th>
-            <th>
-                價格
-            </th>
-
-        </tr>
-        foreach (var item2 in item.InvoiceViewModelOutPutList)
-        {
-        <tr>
-            <td>
-                <img class="img-responsive" src="http://localhost:14520/FileUploads/@item2.img" style="height: 100px; width: 100px;">
-            </td>
-            <td>
-                @item2.name
-            </td>
-
-            <td>
-                @item2.count
-            </td>
-         
-            <td>
-                @item2.total
-            </td>
-
-        </tr>
-        }
-
-
-        <tr>
-            <td style="text-align:center">總量</td>
-            <td></td>
-            <td>@item.invoice_count</td>
-            <td>@item.invoice_total</td>
-        </tr>
-
-    }
+        <td>
+            @*<a data-hover="商品細節" href="/Myorder/Edit/@item.i_id" class="active"><span>商品細節</span></a>*@     
+            @Html.ActionLink("商品細節", "Edit", new { id = item.i_id })
+        </td>
+    </tr>
 </table>
+    }
+
 }
 
 

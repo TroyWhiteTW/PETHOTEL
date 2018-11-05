@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using PETHOTEL.entity;
+﻿using PETHOTEL.entity;
 using PETHOTEL.Models;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace PETHOTEL.Controllers
 {
-    
+
     public class CustomerController : Controller
     {
         Entities db = new Entities();
@@ -33,7 +30,7 @@ namespace PETHOTEL.Controllers
             
             VM.create();
 
-            return RedirectToAction("Login", "Customer");
+            return View("ck");
         }
 
 

@@ -16,38 +16,40 @@
 <section class="gallery-block gallery-front">
     <div class="container">
         <div class="blog-list">
-            <h4>上架商品</h4>
+            <h4>房間列表</h4>
 
             <div class="row">
 
                 @*<img src="~/img/shopcar.png" />*@
                 @foreach (var room in Model)
                 {
+                    <div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
 
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                            <div class="product-desc-side">
+                                <div class="thumbnail">
+                                    <div class="gallery-image">
 
-
-                        <div class="product-desc-side">
-                            <div class="gallery-image">
-                                <img class="img-responsive" src="@room.r_image_href" style="height: 150px; width: 250px;">
-                                <div class="overlay">
-                                    <a class="info pop example-image-link img-responsive" href="@room.r_image_href" data-lightbox="example-1"><i class="fa fa-search" aria-hidden="true"></i></a>
-
-
+                                        <img class="img-responsive" src="@room.r_image_href" style="height: 150px; width: 250px;">
+                                        <div class="overlay">
+                                            <a class="info pop example-image-link img-responsive" href="@room.r_image_href" data-lightbox="example-1"><i class="fa fa-search" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                    <h3>
+                                        <a href="#">@room.r_name</a>
+                                    </h3>
+                                    <p>@room.r_content</p>
+                                    <div class="links">
+                                        <label>售價: @Math.Truncate(room.r_price.Value) 元</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                        <a href="@Url.Action("Index", "Booking", new { id = room.r_id})">馬上訂房</a>
+                                    </div>
                                 </div>
                             </div>
-
-                            <h3><a href="single-blog.html">@room.r_name</a></h3>
-                            <p>@room.r_content</p>
-                            <div class="links"><label>售價: @Math.Truncate(room.r_price.Value) 元</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
-                            <a href="@Url.Action("Index", "Booking", new { id = room.r_id})">馬上訂房</a></div>
                         </div>
-                        <br><br><br><br><br>
-
                     </div>
 
                 }
-            </div>
+            </div>  
         </div>
     </div>
 </section>

@@ -48,7 +48,7 @@
                         <td style="vertical-align: middle !important;text-align: center;" class="text-center">@pd.name</td>
                         <td style="vertical-align: middle !important;text-align: center;" class="text-center">@pd.type_string</td>
                         <td style="vertical-align: middle !important;text-align: center;" class="text-center">@pd.count</td>
-                        <td style="vertical-align: middle !important;text-align: center;" class="text-center">@pd.total</td>
+                        <td style="vertical-align: middle !important;text-align: center;" class="text-center">@Math.Truncate(pd.total.Value)元</td>
 
 
                     </tr>
@@ -61,7 +61,7 @@
                     <th style="vertical-align: middle !important;text-align: center;" class="text-center"></th>
                     <th style="vertical-align: middle !important;text-align: center;" class="text-center"></th>
                     <th style="vertical-align: middle !important;text-align: center;" class="text-center">全部商品 總數 : @Model.invoice_count</th>
-                    <th style="vertical-align: middle !important;text-align: center;" class="text-center">全部商品 總價 : @Model.invoice_total</th>
+                    <th style="vertical-align: middle !important;text-align: center;" class="text-center">全部商品 總價 : @Math.Truncate(Model.invoice_total.Value)元</th>
 
 
                 </tr>

@@ -35,7 +35,7 @@ namespace PETHOTEL.Controllers
 
             
 
-            return RedirectToAction("Index");
+            return View("kk");
         }
     }
 }

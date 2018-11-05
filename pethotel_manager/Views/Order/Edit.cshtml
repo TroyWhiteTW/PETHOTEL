@@ -1,133 +1,43 @@
 ﻿@model pethotel_manager.Entity.Order
-
+@using System.Configuration;
 @{
+    /**/
+
+    /**/
+
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
-
-
-@using (Html.BeginForm())
+<h2>修改訂單資訊</h2>
+@using (Html.BeginForm("Edit", "Order", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    <h4>Order</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @*<div class="form-group">
-            @Html.LabelFor(model => model.o_id, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.o_id, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.o_id, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-    
-    <div class="form-group">
-        <lable class = "control-label col-md-2">房間ID</lable>
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.r_id, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.r_id, "", new { @class = "text-danger" })
+
+    <div class="form-group row">
+        <label for="colFormLabelLg" class="col-sm-1 col-form-label col-form-label-lg title">訂單ID</label>
+        <div class="col-sm-9">
+            <input type="text" id="o_id" name="o_id" class="form-control" placeholder="" value="@Model.o_id" />
         </div>
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.c_id, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.c_id, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.c_id, "", new { @class = "text-danger" })
+    <div class="form-group row">
+        <label for="colFormLabelLg" class="col-sm-1 col-form-label col-form-label-lg title">寵物性別</label>
+        <div class="col-sm-9">
+            <input type="text" id="o_pet_sex" name="o_pet_sex" class="form-control" placeholder="" value="@Model.o_pet_sex" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="colFormLabelLg" class="col-sm-1 col-form-label col-form-label-lg title">訂單狀態</label>
+        <div class="col-sm-9">
+            <input type="text" id="o_status" name="o_status" class="form-control" placeholder="" value="@Model.o_status" />
         </div>
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.o_pet_name, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.o_pet_name, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.o_pet_name, "", new { @class = "text-danger" })
-        </div>
-    </div>
+    <input type="submit" class="btn btn-default" value="確認" />
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.o_pet_type, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.o_pet_type, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.o_pet_type, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.o_pet_sex, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.o_pet_sex, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.o_pet_sex, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    @*<div class="form-group">
-            @Html.LabelFor(model => model.o_pet_content, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.o_pet_content, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.o_pet_content, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
-    @*<div class="form-group">
-            @Html.LabelFor(model => model.o_pet_image, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.o_pet_image, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.o_pet_image, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
-    @*<div class="form-group">
-            @Html.LabelFor(model => model.o_pet_price, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.o_pet_price, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.o_pet_price, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.o_status, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.o_status, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.o_status, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.o_create_datetime, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <input class="form-control" type="text" id="@Model.o_create_datetime" value=@Model.o_create_datetime>
-        </div>
-    </div> 
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.o_start_date, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-
-            <input class="form-control" type="text" id="@Model.o_start_date" value=@Model.o_start_date>
-           
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.o_end_date, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <input class="form-control" type="text" id="@Model.o_end_date" value=@Model.o_end_date>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
-        </div>
-    </div>
-</div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("回上頁", "Index")
 </div>
 
 @section Scripts {

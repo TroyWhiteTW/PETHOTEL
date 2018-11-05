@@ -23,21 +23,25 @@
     <tbody>
         @foreach (var pd in cart) /* 使用foreach將所有商品列出 */
         {
+            <tr>
+
+                <td><img class="img-responsive" src="http://localhost:14520/FileUploads/@pd.DefaultImageURL" width="100" height="100" /></td>
+                <td>@pd.Name</td>
+
+                <td>@pd.Price</td>
+                <td>@pd.Quantity</td>
+                <td>@pd.Amount</td>
+            </tr>
+        }
+
         <tr>
             
-            <td><img class="img-responsive" src="http://localhost:14520/FileUploads/@pd.DefaultImageURL" width="100" height="100" /></td>
-            <td>@pd.Name</td>
 
-            <td>@pd.Price</td>
-            <td>@pd.Quantity</td>
-            <td>@pd.Amount</td>
-        </tr>
-        }
-        <tr>
             <td colspan="3"></td>
             <td>總計</td>
             <td>@cart.TotalAmount</td>
         </tr>
+
     </tbody>
 </table>
 
@@ -47,48 +51,25 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        @*<h4>收貨人資訊</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.RecieverName, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.RecieverName, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.RecieverName, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.RecieverPhone, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.RecieverPhone, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.RecieverPhone, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.RecieverAddress, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.RecieverAddress, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.RecieverAddress, "", new { @class = "text-danger" })
-                </div>
-            </div>*@
-
-        @if (((List<Order>)ViewBag.OrderList).Count > 0)
-        {
-            <select name="type">
-                <option value="1">送貨到府</option>
-                <option value="0">送至房間</option>
-            </select>
-        }
+<div class="form-horizontal">
 
 
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="確定購買" class="btn btn-default" />
-            </div>
+    @if (((List<Order>)ViewBag.OrderList).Count == 0)
+    {
+        <select name="type">
+            <option value="1">送貨到府</option>
+            <option value="0">送至房間</option>
+        </select>
+    }
+
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="確定購買" class="btn btn-default" />
         </div>
     </div>
+</div>
 }

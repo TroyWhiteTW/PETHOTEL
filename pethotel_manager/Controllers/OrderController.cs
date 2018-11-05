@@ -112,7 +112,7 @@ namespace pethotel_manager.Controllers
 
         [HttpPost]
         [LogActionFilter]
-        public ActionResult Edit(Models.OrderViewModel postback)
+        public ActionResult Edit(Order postback)
         {
             Entities db = new Entities();
             var query = from o in db.Order
@@ -122,16 +122,16 @@ namespace pethotel_manager.Controllers
             var ord = query.FirstOrDefault();
             //var item = db.Customer.SingleOrDefault(a => a.c_id == o_c_id);
             //ord.o_id = postback.o_id;
-            ord.o_pet_name = postback.o_pet_name;
-            ord.o_pet_type = postback.o_pet_type;
+            //ord.o_pet_name = postback.o_pet_name;
+            //ord.o_pet_type = postback.o_pet_type;
             ord.o_pet_sex = postback.o_pet_sex;
-            ord.o_pet_content = postback.o_pet_content;
-            ord.o_pet_image = postback.o_pet_image;
-            ord.o_pet_price = postback.o_pet_price;
-            ord.o_status = postback.o_status;
-            ord.o_create_datetime = postback.o_create_datetime;
-            ord.o_start_date = postback.o_start_date;
-            ord.o_end_date = postback.o_end_date;
+            //ord.o_pet_content = postback.o_pet_content;
+            //ord.o_pet_image = postback.o_pet_image;
+            //ord.o_pet_price = postback.o_pet_price;
+            //ord.o_status = postback.o_status;
+            //ord.o_create_datetime = postback.o_create_datetime;
+            //ord.o_start_date = postback.o_start_date;
+            //ord.o_end_date = postback.o_end_date;
 
 
             db.SaveChanges();

@@ -67,12 +67,14 @@
 
 
             <div class="col-md-8 col-sm-7 col-xs-12">
-                <h2 class="blog-title-head"> <i class="fas fa-video mr-2"></i> 即時影像</h2>
+                <h2 class="blog-title-head">
+                    <i class="fas fa-video mr-2"></i> 即時影像
+                </h2>
                 <p id="today" class="user-info"></p>
                 <div class="blog-image-single margin-top-small">
-                    <img src="http://192.168.203.231:8081" ; style="width:100%; height:70%; border-radius:4%" />
+                    <img src="http://192.168.1.32:8081" ; style="width:100%; height:70%; border-radius:4%" />
                 </div>
-                <p class="blog-desc"> 測試文字 </p>
+
 
                 <div class="clearfix"></div>
                 <div class="single-bottom comment-form">
@@ -87,26 +89,47 @@
             </div>
             <aside class="col-md-4 col-sm-5 col-xs-12">
                 <div class="blog-list">
-                    <div><br><br /><br><br /></div>
+                    <div>
+                        <br>
+                        <br />
+                        <br>
+                        <br />
+                    </div>
                     <h4>房間資訊</h4>
                     <div class="container">
                         <ul>
-                            <li><a><i class="fa fa-caret-right"> </i>寵物姓名 : @Model.o_pet_name</a></li>
-                            <li><a><i class="fa fa-caret-right"> </i>寵物類別 : @o_pet_type_string(Model.o_pet_type)</a></li>
-                            <li><a><i class="fa fa-caret-right"> </i>寵物姓別 : @o_pet_sex_string(Model.o_pet_sex)</a></li>
-                            <li><a><i class="fa fa-caret-right"> </i>入住日期 : @Model.o_end_date.ToString("yyyy/MM/dd")</a></li>
-                            <li><a><i class="fa fa-caret-right"> </i>退房日期 : @Model.o_end_date.ToString("yyyy/MM/dd")</a></li>
-                            <li><a><i class="fa fa-caret-right"> </i>顧客姓名 : @Model.cus.c_name</a></li>
-                            <li><a><i class="fa fa-caret-right"> </i>房間名稱 : @Model.roo.r_name</a></li>
                             <li>
-                            <div class="row">
-                                @*<div class="col-md-1 col-sm-6 col-xs-12">*@
-                                <i class="fa fa-thermometer-empty"> </i>房間溫度 :<div id="aaa"></div>
-                                @*</div>*@
-                                @*<div class="col-md-11 col-sm-6 col-xs-12">*@
-                                <i class="fa fa-tint"> </i>房間濕度 :<div id="bbb"></div>
-                                @*</div>*@
-                            </div>
+                                <a><i class="fa fa-caret-right"> </i>寵物姓名 : @Model.o_pet_name</a>
+                            </li>
+                            <li>
+                                <a><i class="fa fa-caret-right"> </i>寵物類別 : @o_pet_type_string(Model.o_pet_type)</a>
+                            </li>
+                            <li>
+                                <a><i class="fa fa-caret-right"> </i>寵物姓別 : @o_pet_sex_string(Model.o_pet_sex)</a>
+                            </li>
+                            <li>
+                                <a><i class="fa fa-caret-right"> </i>入住日期 : @Model.o_start_date.ToString("yyyy/MM/dd")</a>
+                            </li>
+                            <li>
+                                <a><i class="fa fa-caret-right"> </i>退房日期 : @Model.o_end_date.ToString("yyyy/MM/dd")</a>
+                            </li>
+                            <li>
+                                <a><i class="fa fa-caret-right"> </i>顧客姓名 : @Model.cus.c_name</a>
+                            </li>
+                            <li>
+                                <a><i class="fa fa-caret-right"> </i>房間名稱 : @Model.roo.r_name</a>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    @*<div class="col-md-1 col-sm-6 col-xs-12">*@
+                                    <i class="fa fa-thermometer-empty"> </i>房間溫度 :
+                                    <div id="aaa"></div>
+                                    @*</div>*@
+                                    @*<div class="col-md-11 col-sm-6 col-xs-12">*@
+                                    <i class="fa fa-tint"> </i>房間濕度 :
+                                    <div id="bbb"></div>
+                                    @*</div>*@
+                                </div>
                             </li>
 
 
@@ -262,7 +285,7 @@ function ajax(sMethod, sUrl, oParameter, fSuccessCallBack, fFailCallBack) {
 
 
         function a() {
-            ajax('GET', 'http://192.168.203.231/cgi-bin/feel1.cgi', null, (response) => {  //溫度
+            ajax('GET', 'http://192.168.1.32/cgi-bin/feel1.cgi', null, (response) => {  //溫度
 
 
 

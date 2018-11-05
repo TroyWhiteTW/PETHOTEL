@@ -20,7 +20,9 @@
     @*<script src="/QQQQQ/js/instafeed.min.js"></script>*@
     <script src="/QQQQQ/js/custom.js"></script>
 
-    <style>
+    <style>   
+
+
         .image-head-wrapper {
             background: rgba(0, 0, 0, 0) url("../images/inner-banner.png") round;
             height: 450px;
@@ -67,7 +69,9 @@
                         </div>
                     </div>
                     <div class="col-sm-6 visible-sm">
-                        <div class="text-right"><button type="button" class="book-now-btn">線上訂房</button></div>
+                        <div class="text-right">
+                            <button type="button" class="book-now-btn">線上訂房</button>
+                        </div>
                     </div>
                     <div class="col-md-8 col-sm-12 col-xs-12 remove-padd">
                         <nav class="navbar navbar-default">
@@ -81,10 +85,18 @@
                             </div>
                             <div class="collapse navigation navbar-collapse navbar-ex1-collapse remove-space">
                                 <ul class="list-unstyled nav1 cl-effect-10">
-                                    <li><a data-hover="首頁" href="/Home/Home" class="active"><span>首頁</span></a></li>
-                                    <li><a data-hover="關於我們" href="/Home/About"><span>關於我們</span></a></li>
-                                    <li><a data-hover="房型介紹" href="/Room/Index"><span>房型介紹</span></a></li>
-                                    <li><a data-hover="寵物商品" href="/Product/Index"><span>寵物商品</span></a></li>
+                                    <li>
+                                        <a data-hover="首頁" href="/Home/Home" class="active"><span>首頁</span></a>
+                                    </li>
+                                    <li>
+                                        <a data-hover="關於我們" href="/Home/About"><span>關於我們</span></a>
+                                    </li>
+                                    <li>
+                                        <a data-hover="房型介紹" href="/Room/Index"><span>房型介紹</span></a>
+                                    </li>
+                                    <li>
+                                        <a data-hover="寵物商品" href="/Product/Index"><span>寵物商品</span></a>
+                                    </li>
                                     <!--<li><a data-hover="訂房系統" href="/Booking/Index"><span>訂房系統</span></a></li>-->
                                     @Html.Partial("_LoginView")
 
@@ -97,7 +109,9 @@
                         </nav>
                     </div>
                     <div class="col-md-2  col-sm-4 col-xs-12 hidden-sm">
-                        <div class="text-right"><ul id="Cart" class="book-now-btn" style="text-align: center;">@Html.Partial("_CartPartial")</ul></div>
+                        <div class="text-right">
+                            <ul id="Cart" class="book-now-btn" style="text-align: center;">@Html.Partial("_CartPartial")</ul>
+                        </div>
                     </div>
                     @*<button type="button" class="book-now-btn">Book Now</button>*@
                     @*<ul id="Cart" class="col-xs-12">@Html.Partial("_CartPartial")</ul>*@
@@ -121,9 +135,8 @@
     </header>
 
 
-    <div class="container body-content">
-
-        <br /><br /><br /><br /><br /><br /><br /><br />
+    <div class="container body-content" style="margin-top: 140px">
+         
         @RenderBody()
         <hr />
 
@@ -132,70 +145,41 @@
     <!---footer--->
     <footer>
         <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-6 col-xs-12 width-set-50">
-                    <div class="footer-details">
-                        <h4>Get in touch</h4>
-                        <ul class="list-unstyled footer-contact-list">
-                            <li>
-                                <i class="fa fa-map-marker fa-lg"></i>
-                                <p>701 Old York Drive Richmond USA.</p>
-                            </li>
-                            <li>
-                                <i class="fa fa-phone fa-lg"></i>
-                                <p><a href="tel:+1-202-555-0100"> +1-202-555-0100</a></p>
-                            </li>
-                            <li>
-                                <i class="fa fa-envelope-o fa-lg"></i>
-                                <p><a href="mailto:demo@info.com"> demo@info.com</a></p>
-                            </li>
-                        </ul>
-                        <div class="footer-social-icon">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-google-plus"></i></a>
-                            <a href="#"><i class="fa fa-youtube-play"></i></a>
-                        </div>
-                        <div class="input-group" id="subscribe">
-                            <input type="text" class="form-control subscribe-box" value="" name="subscribe" placeholder="EMAIL ID">
-                            <span class="input-group-btn">
-                                <button type="button" class="btn subscribe-button"><i class="fa fa-paper-plane fa-lg"></i></button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-12 width-50 width-set-50">
-                    <div class="footer-details">
-                        <h4>explore</h4>
-                        <ul class="list-unstyled footer-links">
-                            <li class="active"><a>Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="rooms.html">Rooms</a></li>
-                            <li><a href="gallery.html">Gallery</a></li>
-                            <li><a href="#">Dinning</a></li>
-                            <li> <a href="news.html">News</a></li>
-                            <li> <a href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-12 col-xs-12">
-                    <div class="footer-details">
-                        <h4>Now On Instagram</h4>
-                        <div class="row">
-                            <div class="instagram-images">
-                                <div id="instafeed"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-md-2col-sm-2 col-xs-2 ">
+                <h4>聯絡我們</h4>
             </div>
+            <div class="col-md-10col-sm-10 col-xs-10 ">
+                <div class="footer-details">
 
-            <div class="copyright">
-                &copy; 2017 All right reserved. Designed by <a href="http://www.themevault.net/" target="_blank">ThemeVault.</a>
+                    <ul class="list-unstyled footer-contact-list">
+                        <li>
+
+                            <i class="fa fa-map-marker fa-lg"></i>
+                            <p>寵物旅館地址.</p>
+
+                            <i class="fa fa-phone fa-lg"></i>
+                            <p>
+                                <a href="tel:+886-970-385-916"> tel:+886-970-385-916</a>
+                            </p>
+
+                            <i class="fa fa-envelope-o fa-lg"></i>
+                            <p>
+                                <a href="#"> demo@info.com</a>
+                            </p>
+                        </li>
+                    </ul>
+
+
+                </div>
             </div>
 
         </div>
+
+        <div class="copyright">
+            &copy; 2018 HotelPet 前台頁面
+            <a href="#" target="_blank">首頁</a>
+        </div>
+
     </footer>
     <!--back to top--->
     <a style="display: none;" href="javascript:void(0);" class="scrollTop back-to-top" id="back-to-top">

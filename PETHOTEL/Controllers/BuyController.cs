@@ -23,9 +23,8 @@ namespace PETHOTEL.Controllers
                 List<Order> orderList = db.Order.Where(
                     x =>
                     x.c_id == customer.c_id &&          //顧客
-                    x.o_status == 1 &&                  //結完帳
-                    x.o_start_date < DateTime.Now &&
-                    x.o_end_date > DateTime.Now         //符合現在時間
+                    x.o_status == 1                   //結完帳
+                            //符合現在時間
                     ).ToList();
 
                 ViewBag.OrderList = orderList;
